@@ -1,0 +1,106 @@
+Start testing: Sep 14 16:11 CST
+----------------------------------------------------------
+1/4 Testing: CellData Initialization
+1/4 Test: CellData Initialization
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "CellData Initialization"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"CellData Initialization" start time: Sep 14 16:11 CST
+Output:
+----------------------------------------------------------
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Filters: "CellData Initialization"
+Randomness seeded to: 195184930
+===============================================================================
+All tests passed (26 assertions in 1 test case)
+
+<end of output>
+Test time =   0.64 sec
+----------------------------------------------------------
+Test Passed.
+"CellData Initialization" end time: Sep 14 16:11 CST
+"CellData Initialization" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: MeshManager Initialization and Properties
+2/4 Test: MeshManager Initialization and Properties
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "MeshManager Initialization and Properties"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"MeshManager Initialization and Properties" start time: Sep 14 16:11 CST
+Output:
+----------------------------------------------------------
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Filters: "MeshManager Initialization and Properties"
+Randomness seeded to: 926129338
+my rank is 0 local cell num is 6000
+global cell num is 6000
+===============================================================================
+All tests passed (17 assertions in 1 test case)
+
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"MeshManager Initialization and Properties" end time: Sep 14 16:11 CST
+"MeshManager Initialization and Properties" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: add species type
+3/4 Test: add species type
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "add species type"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"add species type" start time: Sep 14 16:11 CST
+Output:
+----------------------------------------------------------
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Filters: "add species type"
+Randomness seeded to: 2065492503
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.66 sec
+----------------------------------------------------------
+Test Passed.
+"add species type" end time: Sep 14 16:11 CST
+"add species type" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: FieldInitializer Test
+4/4 Test: FieldInitializer Test
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "FieldInitializer Test"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"FieldInitializer Test" start time: Sep 14 16:11 CST
+Output:
+----------------------------------------------------------
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Filters: "FieldInitializer Test"
+Randomness seeded to: 3617129865
+num particles in cell (2,2,2): 0
+===============================================================================
+All tests passed (8 assertions in 1 test case)
+
+<end of output>
+Test time =   0.61 sec
+----------------------------------------------------------
+Test Passed.
+"FieldInitializer Test" end time: Sep 14 16:11 CST
+"FieldInitializer Test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 14 16:11 CST

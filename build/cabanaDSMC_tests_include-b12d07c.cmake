@@ -1,0 +1,5 @@
+if(EXISTS "/home/xinxiangsama/dsmc/CabanaDSMC/build/cabanaDSMC_tests_tests-b12d07c.cmake")
+  include("/home/xinxiangsama/dsmc/CabanaDSMC/build/cabanaDSMC_tests_tests-b12d07c.cmake")
+else()
+  add_test(cabanaDSMC_tests_NOT_BUILT-b12d07c cabanaDSMC_tests_NOT_BUILT-b12d07c)
+endif()
