@@ -10,14 +10,16 @@ struct FieldInitData{
     Scalar velocity [dim];
     Scalar temperature;
     Scalar density;
-    u_int32_t Fn; // one simulation particle represents Fn real particles
+    Scalar time_step;
+    u_int64_t Fn; // one simulation particle represents Fn real particles
     Scalar max_collision_rate;
 };
 
 
 template <class ExecutionSpace, class InitFunctor, class ParticleListType, class LocalGridType,
           class CellDataType>
-requires Cabana::is_particle_list<ParticleListType>::value
+requires (Cabana::is_particle_list<ParticleListType>::value ||
+            Cabana::Grid::is_particle_list<ParticleListType>::value)
 int createParticles(
     Cabana::InitRandom, const ExecutionSpace& exec_space,
     const InitFunctor& create_functor, ParticleListType& particle_list,
@@ -42,21 +44,22 @@ int createParticles(
     // Create a random number generator.
     const auto local_seed =
         global_grid.blockId() + ( seed % ( global_grid.blockId() + 1 ) );
-    Kokkos::Random_XorShift64_Pool<ExecutionSpace> pool;
-    pool.init( local_seed, owned_cells.size() );
+
+    Kokkos::Random_XorShift64_Pool<ExecutionSpace> pool( local_seed, owned_cells.size() );
 
     // Allocate enough space for the case the particles consume the entire
     // sum local grid total particle num
-    size_t total_paritcle_num = 0;
+    size_t total_paritcle_num {};
     auto num_particles = cell_data->Num_particles->view();
     Kokkos::parallel_reduce("sum local grid total particle num",
         Cabana::Grid::createExecutionPolicy(owned_cells, exec_space),
-        KOKKOS_LAMBDA(const int i, const int j, const int k, size_t& update){
+        KOKKOS_LAMBDA(const int i, const int j, const int k, uint64_t& update){
             update += num_particles(i,j,k,0);
         }, 
         total_paritcle_num
     );
-
+    Kokkos::fence("Particle Sum Reduced");
+    std::cout << "Total particles to create on this rank: " << total_paritcle_num << std::endl;
     auto& aosoa = particle_list.aosoa();
     aosoa.resize( previous_num_particles + total_paritcle_num );
 
@@ -73,6 +76,7 @@ int createParticles(
             int i_own = i - owned_cells.min( Cabana::Grid::Dim::I );
             int j_own = j - owned_cells.min( Cabana::Grid::Dim::J );
             int k_own = k - owned_cells.min( Cabana::Grid::Dim::K );
+            int ijk [3] = {i_own, j_own, k_own};
             int cell_id =
                 i_own + owned_cells.extent( Cabana::Grid::Dim::I ) *
                             ( j_own + k_own * owned_cells.extent( Cabana::Grid::Dim::J ) );
@@ -107,7 +111,7 @@ int createParticles(
             double position[3] {};
             double velocity[3] {};
             double e_rot {}, e_vib {};
-            for ( int p = 0; p < particles_per_cell; ++p )
+            for ( uint64_t p {}; p < particles_per_cell; ++p )
             {
                 // Local particle id.
                 int pid =
@@ -137,7 +141,7 @@ int createParticles(
                     pid, 
                     position, velocity, 
                     e_rot, e_vib, 
-                    cell_id, 
+                    ijk, 
                     particle 
                 );
 
@@ -145,7 +149,7 @@ int createParticles(
                 if ( created )
                 {
                     auto c = Kokkos::atomic_fetch_add( &count( 0 ), 1 );
-                    particle_list.setParticle( particle, c );
+                    particle_list.setParticle( particle, c);
                 }
             }
         }
@@ -168,6 +172,7 @@ void initializeField(
     auto num_particles = cell_data->Num_particles->view();
     auto fn = cell_data->Fn->view();
     auto max_collision_rate = cell_data->Max_collision_rate->view();
+    auto dt = cell_data->Dt->view();
 
     // create local mesh
     auto local_mesh = Cabana::Grid::createLocalMesh<typename CellDataType::memory_space>( *local_grid );
@@ -185,7 +190,6 @@ void initializeField(
             // Get the coordinates of the low cell node.
             int low_node[3] = { i, j, k };
             volume(i,j,k,0) = local_mesh.measure(Cabana::Grid::Cell(), low_node );
-            // volume(i,j,k,0) = 0.01;
         }
     );
 
@@ -201,6 +205,7 @@ void initializeField(
             max_collision_rate(i,j,k,0) = field_data.max_collision_rate;
             density(i,j,k,0) = field_data.density;
             fn(i,j,k,0) = field_data.Fn;
+            dt(i,j,k,0) = field_data.time_step;
         }
     );
 
@@ -216,10 +221,10 @@ void initializeField(
             double volume_cell = volume(i,j,k,0);
             double n = density(i,j,k,0) / species.mass; // number density
             double num_real_particles = n * volume_cell;
-            num_particles(i,j,k,0) = static_cast<u_int32_t>(num_real_particles / fn(i,j,k,0));
+            num_particles(i,j,k,0) = static_cast<u_int64_t>(num_real_particles / fn(i,j,k,0));
         }
     );
-
+    Kokkos::fence("Fields Initialized"); 
 
 }
 
@@ -227,12 +232,13 @@ void initializeField(
 // template
 template <class ParticleType>
 struct ParticleFactory
-{
-    void operator() (
+{   
+    KOKKOS_INLINE_FUNCTION
+    bool operator() (
         const int pid, 
         const double position[3], const double velocity[3], 
         const double e_rot, const double e_vib, 
-        const int cell_id,
+        const int cell_id [3],
         ParticleType& particle
     ) const
     {
@@ -244,16 +250,20 @@ struct ParticleFactory
         Cabana::get(particle, Particle::Field::Velocity(), 1) = velocity[1];
         Cabana::get(particle, Particle::Field::Velocity(), 2) = velocity[2];
 
-        Cabana::get(particle, Particle::Field::RotEnergy(), 0) = e_rot;
+        Cabana::get(particle, Particle::Field::RotEnergy()) = e_rot;
 
-        Cabana::get(particle, Particle::Field::VibEnergy(), 0) = e_vib;
+        Cabana::get(particle, Particle::Field::VibEnergy()) = e_vib;
 
-        Cabana::get(particle, Particle::Field::SpeciesID(), 0) = 0; //assume only one species for now
+        Cabana::get(particle, Particle::Field::SpeciesID()) = 0; //assume only one species for now
 
-        Cabana::get(particle, Particle::Field::CellID(), 0) = cell_id;
+        Cabana::get(particle, Particle::Field::CellID(), 0) = cell_id[0];
+        Cabana::get(particle, Particle::Field::CellID(), 1) = cell_id[1];
+        Cabana::get(particle, Particle::Field::CellID(), 2) = cell_id[2];
 
-        Cabana::get(particle, Particle::Field::GlobalID(), 0) = pid;
-        Cabana::get(particle, Particle::Field::IsActive(), 0) = true;
+        Cabana::get(particle, Particle::Field::GlobalID()) = pid;
+        Cabana::get(particle, Particle::Field::IsActive()) = true;
+
+        return true;
     }
 };
 

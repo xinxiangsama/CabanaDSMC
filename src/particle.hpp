@@ -17,7 +17,7 @@ namespace Field{
 
     struct GlobalID : Cabana::Field::Scalar<std::size_t> {static std::string label() { return "global id"; }};
 
-    struct CellID : Cabana::Field::Vector<unsigned int, 3> {static std::string label() { return "cell id"; }};
+    struct CellID : Cabana::Field::Vector<u_int32_t, 3> {static std::string label() { return "cell id"; }};
 
     struct IsActive : Cabana::Field::Scalar<bool> {static std::string label() { return "if valid"; }};
 }

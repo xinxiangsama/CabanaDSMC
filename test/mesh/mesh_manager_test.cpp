@@ -13,9 +13,9 @@ TEST_CASE("MeshManager Initialization and Properties", "[mesh_manager]")
     // --- 1. 准备测试参数 ---
     std::array<double, 3> low_corner = {0.0, 0.0, 0.0};
     std::array<double, 3> high_corner = {1.0, 2.0, 3.0}; // 使用不对称的尺寸
-    std::array<int, 3> num_cells = {10, 20, 30};
+    std::array<int, 3> num_cells = {4, 4, 4};
     std::array<bool, 3> periodic = {false, true, false};
-    unsigned int halo_width = 2;
+    unsigned int halo_width = 0;
     
     // 获取MPI信息
     int comm_rank, comm_size;
@@ -93,5 +93,32 @@ TEST_CASE("MeshManager Initialization and Properties", "[mesh_manager]")
         if(comm_rank == 0){
             std::cout <<"global cell num is "<< expected_global_count << std::endl;
         }
+    }
+
+    SECTION("LocalGrid properties are correct")
+    {
+        auto local_grid = mesh_manager->getLocalGrid();
+        REQUIRE(local_grid != nullptr);
+
+        // auto own_local_cell_space = local_grid->indexSpace(
+        // Cabana::Grid::Own(), Cabana::Grid::Cell(), Cabana::Grid::Local() );
+        // std::cout << "Index space (Own, Cell, Local):\nMin: ";
+        // for ( int d = 0; d < 3; ++d )
+        //     std::cout << own_local_cell_space.min( d ) << " ";
+        // std::cout << "\nMax: ";
+        // for ( int d = 0; d < 3; ++d )
+        //     std::cout << own_local_cell_space.max( d ) << " ";
+        // std::cout << "\nSize: ";
+        // std::cout << own_local_cell_space.size() << " ";
+        // std::cout << "\n" << std::endl;
+
+        // Kokkos::parallel_for("Print owned local cell indices", 
+        //     Cabana::Grid::createExecutionPolicy(own_local_cell_space, Kokkos::DefaultHostExecutionSpace {}),
+        //     KOKKOS_LAMBDA(const int i, const int j, const int k){
+        //         // 这里可以打印或检查每个单元的索引
+        //         // 注意：在实际的单元测试中，避免在并行区域内打印大量信息
+        //         Kokkos::printf("owned cell index: (%d, %d, %d)\n", i, j, k );   
+        //         }
+        // );
     }
 }

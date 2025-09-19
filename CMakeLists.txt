@@ -148,7 +148,7 @@ target_link_libraries(cabanaDSMC_tests
                       Catch2::Catch2)
 
 # 6. 统一编译选项
-target_compile_options(cabanaDSMC_tests PRIVATE ${OpenMP_CXX_FLAGS})
+target_compile_options(cabanaDSMC_tests PRIVATE ${OpenMP_CXX_FLAGS} --expt-relaxed-constexpr)
 target_link_options(cabanaDSMC_tests PRIVATE ${OpenMP_CXX_FLAGS} -no-pie)
 
 # 7. 自动发现 Catch2 测试并注册到 CTest

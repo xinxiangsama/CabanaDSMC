@@ -553,6 +553,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+test/boundary/create_boundary_test.o: test/boundary/create_boundary_test.cpp.o
+.PHONY : test/boundary/create_boundary_test.o
+
+# target to build an object file
+test/boundary/create_boundary_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/boundary/create_boundary_test.cpp.o
+.PHONY : test/boundary/create_boundary_test.cpp.o
+
+test/boundary/create_boundary_test.i: test/boundary/create_boundary_test.cpp.i
+.PHONY : test/boundary/create_boundary_test.i
+
+# target to preprocess a source file
+test/boundary/create_boundary_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/boundary/create_boundary_test.cpp.i
+.PHONY : test/boundary/create_boundary_test.cpp.i
+
+test/boundary/create_boundary_test.s: test/boundary/create_boundary_test.cpp.s
+.PHONY : test/boundary/create_boundary_test.s
+
+# target to generate assembly for a file
+test/boundary/create_boundary_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/boundary/create_boundary_test.cpp.s
+.PHONY : test/boundary/create_boundary_test.cpp.s
+
 test/cell/cell_test.o: test/cell/cell_test.cpp.o
 .PHONY : test/cell/cell_test.o
 
@@ -624,6 +648,30 @@ test/mesh/mesh_manager_test.s: test/mesh/mesh_manager_test.cpp.s
 test/mesh/mesh_manager_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.s
 .PHONY : test/mesh/mesh_manager_test.cpp.s
+
+test/move_test.o: test/move_test.cpp.o
+.PHONY : test/move_test.o
+
+# target to build an object file
+test/move_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o
+.PHONY : test/move_test.cpp.o
+
+test/move_test.i: test/move_test.cpp.i
+.PHONY : test/move_test.i
+
+# target to preprocess a source file
+test/move_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.i
+.PHONY : test/move_test.cpp.i
+
+test/move_test.s: test/move_test.cpp.s
+.PHONY : test/move_test.s
+
+# target to generate assembly for a file
+test/move_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.s
+.PHONY : test/move_test.cpp.s
 
 test/particle/particle_test.o: test/particle/particle_test.cpp.o
 .PHONY : test/particle/particle_test.o
@@ -716,6 +764,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... test/boundary/create_boundary_test.o"
+	@echo "... test/boundary/create_boundary_test.i"
+	@echo "... test/boundary/create_boundary_test.s"
 	@echo "... test/cell/cell_test.o"
 	@echo "... test/cell/cell_test.i"
 	@echo "... test/cell/cell_test.s"
@@ -725,6 +776,9 @@ help:
 	@echo "... test/mesh/mesh_manager_test.o"
 	@echo "... test/mesh/mesh_manager_test.i"
 	@echo "... test/mesh/mesh_manager_test.s"
+	@echo "... test/move_test.o"
+	@echo "... test/move_test.i"
+	@echo "... test/move_test.s"
 	@echo "... test/particle/particle_test.o"
 	@echo "... test/particle/particle_test.i"
 	@echo "... test/particle/particle_test.s"

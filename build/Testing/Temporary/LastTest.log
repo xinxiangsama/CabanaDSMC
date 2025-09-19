@@ -1,106 +1,734 @@
-Start testing: Sep 14 16:11 CST
+Start testing: Sep 19 10:22 CST
 ----------------------------------------------------------
-1/4 Testing: CellData Initialization
-1/4 Test: CellData Initialization
+1/6 Testing: create Boundary Test
+1/6 Test: create Boundary Test
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "create Boundary Test"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"create Boundary Test" start time: Sep 19 10:22 CST
+Output:
+----------------------------------------------------------
+Filters: "create Boundary Test"
+Randomness seeded to: 2462362712
+===============================================================================
+All tests passed (5 assertions in 1 test case)
+
+<end of output>
+Test time =   0.68 sec
+----------------------------------------------------------
+Test Passed.
+"create Boundary Test" end time: Sep 19 10:22 CST
+"create Boundary Test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: CellData Initialization
+2/6 Test: CellData Initialization
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "CellData Initialization"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"CellData Initialization" start time: Sep 14 16:11 CST
+"CellData Initialization" start time: Sep 19 10:22 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "CellData Initialization"
-Randomness seeded to: 195184930
+Randomness seeded to: 708484008
 ===============================================================================
 All tests passed (26 assertions in 1 test case)
-
-<end of output>
-Test time =   0.64 sec
-----------------------------------------------------------
-Test Passed.
-"CellData Initialization" end time: Sep 14 16:11 CST
-"CellData Initialization" time elapsed: 00:00:00
-----------------------------------------------------------
-
-2/4 Testing: MeshManager Initialization and Properties
-2/4 Test: MeshManager Initialization and Properties
-Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "MeshManager Initialization and Properties"
-Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"MeshManager Initialization and Properties" start time: Sep 14 16:11 CST
-Output:
-----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
-Filters: "MeshManager Initialization and Properties"
-Randomness seeded to: 926129338
-my rank is 0 local cell num is 6000
-global cell num is 6000
-===============================================================================
-All tests passed (17 assertions in 1 test case)
-
-<end of output>
-Test time =   0.58 sec
-----------------------------------------------------------
-Test Passed.
-"MeshManager Initialization and Properties" end time: Sep 14 16:11 CST
-"MeshManager Initialization and Properties" time elapsed: 00:00:00
-----------------------------------------------------------
-
-3/4 Testing: add species type
-3/4 Test: add species type
-Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "add species type"
-Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"add species type" start time: Sep 14 16:11 CST
-Output:
-----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
-Filters: "add species type"
-Randomness seeded to: 2065492503
-===============================================================================
-All tests passed (1 assertion in 1 test case)
-
-<end of output>
-Test time =   0.66 sec
-----------------------------------------------------------
-Test Passed.
-"add species type" end time: Sep 14 16:11 CST
-"add species type" time elapsed: 00:00:00
-----------------------------------------------------------
-
-4/4 Testing: FieldInitializer Test
-4/4 Test: FieldInitializer Test
-Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "FieldInitializer Test"
-Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"FieldInitializer Test" start time: Sep 14 16:11 CST
-Output:
-----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
-Filters: "FieldInitializer Test"
-Randomness seeded to: 3617129865
-num particles in cell (2,2,2): 0
-===============================================================================
-All tests passed (8 assertions in 1 test case)
 
 <end of output>
 Test time =   0.61 sec
 ----------------------------------------------------------
 Test Passed.
-"FieldInitializer Test" end time: Sep 14 16:11 CST
+"CellData Initialization" end time: Sep 19 10:22 CST
+"CellData Initialization" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: MeshManager Initialization and Properties
+3/6 Test: MeshManager Initialization and Properties
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "MeshManager Initialization and Properties"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"MeshManager Initialization and Properties" start time: Sep 19 10:22 CST
+Output:
+----------------------------------------------------------
+Filters: "MeshManager Initialization and Properties"
+Randomness seeded to: 2146556065
+my rank is 0 local cell num is 64
+global cell num is 64
+===============================================================================
+All tests passed (18 assertions in 1 test case)
+
+<end of output>
+Test time =   0.65 sec
+----------------------------------------------------------
+Test Passed.
+"MeshManager Initialization and Properties" end time: Sep 19 10:22 CST
+"MeshManager Initialization and Properties" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: Particle move Test
+4/6 Test: Particle move Test
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "Particle move Test"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"Particle move Test" start time: Sep 19 10:22 CST
+Output:
+----------------------------------------------------------
+Filters: "Particle move Test"
+Randomness seeded to: 3074360278
+Total particles to create on this rank: 18472
+Before move, first 5 particle positions and velocites:
+Particle 0: (0.182357, 0.247989, 0.304737) with velocity (-57.4005, 139.293, 119.977)
+Particle 1: (0.0177097, 0.389325, 0.259702) with velocity (-145.63, -212.957, -431.618)
+Particle 2: (0.226068, 0.433075, 0.099095) with velocity (-11.5401, 281.512, -193.258)
+Particle 3: (0.454479, 0.208126, 0.0188731) with velocity (-29.5622, -76.8244, -514.044)
+Particle 4: (0.409513, 0.214037, 0.0132149) with velocity (134.954, 72.9842, 28.4421)
+After move, first 5 particle positions:
+Particle 0: (0.176617, 0.261918, 0.316735)
+Particle 1: (0.0031467, 0.36803, 0.21654)
+Particle 2: (0.224914, 0.461226, 0.0797692)
+Particle 3: (0.451523, 0.200444, -0.0325313)
+Particle 4: (0.423008, 0.221335, 0.0160591)
+After move, first 5 particle positions:
+Particle 0: (0.170877, 0.275847, 0.328733)
+Particle 1: (-0.0114163, 0.346734, 0.173378)
+Particle 2: (0.22376, 0.489377, 0.0604433)
+Particle 3: (0.448566, 0.192762, -0.0839358)
+Particle 4: (0.436503, 0.228634, 0.0189033)
+After move, first 5 particle positions:
+Particle 0: (0.165137, 0.289777, 0.34073)
+Particle 1: (-0.0259794, 0.325438, 0.130216)
+Particle 2: (0.222606, 0.517529, 0.0411175)
+Particle 3: (0.44561, 0.185079, -0.13534)
+Particle 4: (0.449999, 0.235932, 0.0217475)
+After move, first 5 particle positions:
+Particle 0: (0.159397, 0.303706, 0.352728)
+Particle 1: (-0.0405424, 0.304143, 0.0870543)
+Particle 2: (0.221452, 0.54568, 0.0217917)
+Particle 3: (0.442654, 0.177397, -0.186745)
+Particle 4: (0.463494, 0.243231, 0.0245917)
+After move, first 5 particle positions:
+Particle 0: (0.153657, 0.317635, 0.364726)
+Particle 1: (-0.0551055, 0.282847, 0.0438924)
+Particle 2: (0.220298, 0.573831, 0.00246588)
+Particle 3: (0.439698, 0.169714, -0.238149)
+Particle 4: (0.47699, 0.250529, 0.0274359)
+After move, first 5 particle positions:
+Particle 0: (0.147917, 0.331564, 0.376723)
+Particle 1: (-0.0696685, 0.261551, 0.000730632)
+Particle 2: (0.219144, 0.601982, -0.0168599)
+Particle 3: (0.436742, 0.162032, -0.289553)
+Particle 4: (0.490485, 0.257828, 0.0302801)
+After move, first 5 particle positions:
+Particle 0: (0.142177, 0.345494, 0.388721)
+Particle 1: (-0.0842315, 0.240256, -0.0424312)
+Particle 2: (0.21799, 0.630134, -0.0361858)
+Particle 3: (0.433785, 0.154349, -0.340958)
+Particle 4: (0.50398, 0.265126, 0.0331243)
+After move, first 5 particle positions:
+Particle 0: (0.136437, 0.359423, 0.400719)
+Particle 1: (-0.0987946, 0.21896, -0.085593)
+Particle 2: (0.216836, 0.658285, -0.0555116)
+Particle 3: (0.430829, 0.146667, -0.392362)
+Particle 4: (0.517476, 0.272424, 0.0359685)
+After move, first 5 particle positions:
+Particle 0: (0.130697, 0.373352, 0.412716)
+Particle 1: (-0.113358, 0.197664, -0.128755)
+Particle 2: (0.215682, 0.686436, -0.0748374)
+Particle 3: (0.427873, 0.138985, -0.443767)
+Particle 4: (0.530971, 0.279723, 0.0388127)
+After move, first 5 particle positions:
+Particle 0: (0.124957, 0.387281, 0.424714)
+Particle 1: (-0.127921, 0.176368, -0.171917)
+Particle 2: (0.214528, 0.714587, -0.0941632)
+Particle 3: (0.424917, 0.131302, -0.495171)
+Particle 4: (0.544467, 0.287021, 0.0416569)
+After move, first 5 particle positions:
+Particle 0: (0.119217, 0.401211, 0.436712)
+Particle 1: (-0.142484, 0.155073, -0.215078)
+Particle 2: (0.213374, 0.742739, -0.113489)
+Particle 3: (0.42196, 0.12362, -0.546576)
+Particle 4: (0.557962, 0.29432, 0.0445011)
+After move, first 5 particle positions:
+Particle 0: (0.113476, 0.41514, 0.448709)
+Particle 1: (-0.157047, 0.133777, -0.25824)
+Particle 2: (0.21222, 0.77089, -0.132815)
+Particle 3: (0.419004, 0.115937, -0.59798)
+Particle 4: (0.571457, 0.301618, 0.0473453)
+After move, first 5 particle positions:
+Particle 0: (0.107736, 0.429069, 0.460707)
+Particle 1: (-0.17161, 0.112481, -0.301402)
+Particle 2: (0.211066, 0.799041, -0.152141)
+Particle 3: (0.416048, 0.108255, -0.649384)
+Particle 4: (0.584953, 0.308916, 0.0501895)
+After move, first 5 particle positions:
+Particle 0: (0.101996, 0.442998, 0.472705)
+Particle 1: (-0.186173, 0.0911857, -0.344564)
+Particle 2: (0.209912, 0.827192, -0.171466)
+Particle 3: (0.413092, 0.100572, -0.700789)
+Particle 4: (0.598448, 0.316215, 0.0530337)
+After move, first 5 particle positions:
+Particle 0: (0.0962563, 0.456928, 0.484702)
+Particle 1: (-0.200736, 0.06989, -0.387726)
+Particle 2: (0.208758, 0.855344, -0.190792)
+Particle 3: (0.410135, 0.0928899, -0.752193)
+Particle 4: (0.611944, 0.323513, 0.0558779)
+After move, first 5 particle positions:
+Particle 0: (0.0905163, 0.470857, 0.4967)
+Particle 1: (-0.215299, 0.0485943, -0.430888)
+Particle 2: (0.207604, 0.883495, -0.210118)
+Particle 3: (0.407179, 0.0852074, -0.803598)
+Particle 4: (0.625439, 0.330812, 0.0587221)
+After move, first 5 particle positions:
+Particle 0: (0.0847762, 0.484786, 0.508698)
+Particle 1: (-0.229862, 0.0272986, -0.474049)
+Particle 2: (0.20645, 0.911646, -0.229444)
+Particle 3: (0.404223, 0.077525, -0.855002)
+Particle 4: (0.638934, 0.33811, 0.0615664)
+After move, first 5 particle positions:
+Particle 0: (0.0790362, 0.498716, 0.520695)
+Particle 1: (-0.244425, 0.00600291, -0.517211)
+Particle 2: (0.205296, 0.939797, -0.24877)
+Particle 3: (0.401267, 0.0698425, -0.906407)
+Particle 4: (0.65243, 0.345409, 0.0644106)
+After move, first 5 particle positions:
+Particle 0: (0.0732962, 0.512645, 0.532693)
+Particle 1: (-0.258988, -0.0152928, -0.560373)
+Particle 2: (0.204142, 0.967949, -0.268096)
+Particle 3: (0.398311, 0.0621601, -0.957811)
+Particle 4: (0.665925, 0.352707, 0.0672548)
+After move, first 5 particle positions:
+Particle 0: (0.0675561, 0.526574, 0.544691)
+Particle 1: (-0.273551, -0.0365885, -0.603535)
+Particle 2: (0.202988, 0.9961, -0.287421)
+Particle 3: (0.395354, 0.0544777, -1.00922)
+Particle 4: (0.679421, 0.360005, 0.070099)
+After move, first 5 particle positions:
+Particle 0: (0.0618161, 0.540503, 0.556689)
+Particle 1: (-0.288114, -0.0578842, -0.646697)
+Particle 2: (0.201834, 1.02425, -0.306747)
+Particle 3: (0.392398, 0.0467952, -1.06062)
+Particle 4: (0.692916, 0.367304, 0.0729432)
+After move, first 5 particle positions:
+Particle 0: (0.056076, 0.554433, 0.568686)
+Particle 1: (-0.302677, -0.0791799, -0.689858)
+Particle 2: (0.20068, 1.0524, -0.326073)
+Particle 3: (0.389442, 0.0391128, -1.11202)
+Particle 4: (0.706411, 0.374602, 0.0757874)
+After move, first 5 particle positions:
+Particle 0: (0.050336, 0.568362, 0.580684)
+Particle 1: (-0.31724, -0.100476, -0.73302)
+Particle 2: (0.199526, 1.08055, -0.345399)
+Particle 3: (0.386486, 0.0314303, -1.16343)
+Particle 4: (0.719907, 0.381901, 0.0786316)
+After move, first 5 particle positions:
+Particle 0: (0.0445959, 0.582291, 0.592682)
+Particle 1: (-0.331803, -0.121771, -0.776182)
+Particle 2: (0.198372, 1.1087, -0.364725)
+Particle 3: (0.383529, 0.0237479, -1.21483)
+Particle 4: (0.733402, 0.389199, 0.0814758)
+After move, first 5 particle positions:
+Particle 0: (0.0388559, 0.59622, 0.604679)
+Particle 1: (-0.346366, -0.143067, -0.819344)
+Particle 2: (0.197218, 1.13686, -0.38405)
+Particle 3: (0.380573, 0.0160655, -1.26624)
+Particle 4: (0.746898, 0.396497, 0.08432)
+After move, first 5 particle positions:
+Particle 0: (0.0331158, 0.61015, 0.616677)
+Particle 1: (-0.360929, -0.164363, -0.862506)
+Particle 2: (0.196064, 1.16501, -0.403376)
+Particle 3: (0.377617, 0.00838302, -1.31764)
+Particle 4: (0.760393, 0.403796, 0.0871642)
+After move, first 5 particle positions:
+Particle 0: (0.0273758, 0.624079, 0.628675)
+Particle 1: (-0.375492, -0.185658, -0.905667)
+Particle 2: (0.19491, 1.19316, -0.422702)
+Particle 3: (0.374661, 0.000700577, -1.36905)
+Particle 4: (0.773888, 0.411094, 0.0900084)
+After move, first 5 particle positions:
+Particle 0: (0.0216357, 0.638008, 0.640672)
+Particle 1: (-0.390055, -0.206954, -0.948829)
+Particle 2: (0.193756, 1.22131, -0.442028)
+Particle 3: (0.371705, -0.00698186, -1.42045)
+Particle 4: (0.787384, 0.418393, 0.0928526)
+After move, first 5 particle positions:
+Particle 0: (0.0158957, 0.651937, 0.65267)
+Particle 1: (-0.404618, -0.22825, -0.991991)
+Particle 2: (0.192602, 1.24946, -0.461354)
+Particle 3: (0.368748, -0.0146643, -1.47186)
+Particle 4: (0.800879, 0.425691, 0.0956968)
+After move, first 5 particle positions:
+Particle 0: (0.0101556, 0.665867, 0.664668)
+Particle 1: (-0.419181, -0.249545, -1.03515)
+Particle 2: (0.191448, 1.27761, -0.48068)
+Particle 3: (0.365792, -0.0223467, -1.52326)
+Particle 4: (0.814375, 0.43299, 0.098541)
+After move, first 5 particle positions:
+Particle 0: (0.0044156, 0.679796, 0.676665)
+Particle 1: (-0.433744, -0.270841, -1.07831)
+Particle 2: (0.190294, 1.30576, -0.500005)
+Particle 3: (0.362836, -0.0300292, -1.57466)
+Particle 4: (0.82787, 0.440288, 0.101385)
+After move, first 5 particle positions:
+Particle 0: (-0.00132444, 0.693725, 0.688663)
+Particle 1: (-0.448308, -0.292137, -1.12148)
+Particle 2: (0.18914, 1.33391, -0.519331)
+Particle 3: (0.35988, -0.0377116, -1.62607)
+Particle 4: (0.841365, 0.447586, 0.104229)
+After move, first 5 particle positions:
+Particle 0: (-0.00706449, 0.707655, 0.700661)
+Particle 1: (-0.462871, -0.313433, -1.16464)
+Particle 2: (0.187986, 1.36207, -0.538657)
+Particle 3: (0.356923, -0.0453941, -1.67747)
+Particle 4: (0.854861, 0.454885, 0.107074)
+After move, first 5 particle positions:
+Particle 0: (-0.0128045, 0.721584, 0.712658)
+Particle 1: (-0.477434, -0.334728, -1.2078)
+Particle 2: (0.186832, 1.39022, -0.557983)
+Particle 3: (0.353967, -0.0530765, -1.72888)
+Particle 4: (0.868356, 0.462183, 0.109918)
+After move, first 5 particle positions:
+Particle 0: (-0.0185446, 0.735513, 0.724656)
+Particle 1: (-0.491997, -0.356024, -1.25096)
+Particle 2: (0.185678, 1.41837, -0.577309)
+Particle 3: (0.351011, -0.0607589, -1.78028)
+Particle 4: (0.881852, 0.469482, 0.112762)
+After move, first 5 particle positions:
+Particle 0: (-0.0242846, 0.749442, 0.736654)
+Particle 1: (-0.50656, -0.37732, -1.29412)
+Particle 2: (0.184524, 1.44652, -0.596635)
+Particle 3: (0.348055, -0.0684414, -1.83169)
+Particle 4: (0.895347, 0.47678, 0.115606)
+After move, first 5 particle positions:
+Particle 0: (-0.0300247, 0.763372, 0.748651)
+Particle 1: (-0.521123, -0.398615, -1.33729)
+Particle 2: (0.18337, 1.47467, -0.61596)
+Particle 3: (0.345099, -0.0761238, -1.88309)
+Particle 4: (0.908842, 0.484078, 0.11845)
+After move, first 5 particle positions:
+Particle 0: (-0.0357647, 0.777301, 0.760649)
+Particle 1: (-0.535686, -0.419911, -1.38045)
+Particle 2: (0.182216, 1.50282, -0.635286)
+Particle 3: (0.342142, -0.0838063, -1.9345)
+Particle 4: (0.922338, 0.491377, 0.121295)
+After move, first 5 particle positions:
+Particle 0: (-0.0415048, 0.79123, 0.772647)
+Particle 1: (-0.550249, -0.441207, -1.42361)
+Particle 2: (0.181062, 1.53097, -0.654612)
+Particle 3: (0.339186, -0.0914887, -1.9859)
+Particle 4: (0.935833, 0.498675, 0.124139)
+After move, first 5 particle positions:
+Particle 0: (-0.0472448, 0.805159, 0.784644)
+Particle 1: (-0.564812, -0.462502, -1.46677)
+Particle 2: (0.179907, 1.55912, -0.673938)
+Particle 3: (0.33623, -0.0991712, -2.0373)
+Particle 4: (0.949329, 0.505974, 0.126983)
+After move, first 5 particle positions:
+Particle 0: (-0.0529849, 0.819089, 0.796642)
+Particle 1: (-0.579375, -0.483798, -1.50993)
+Particle 2: (0.178753, 1.58728, -0.693264)
+Particle 3: (0.333274, -0.106854, -2.08871)
+Particle 4: (0.962824, 0.513272, 0.129827)
+After move, first 5 particle positions:
+Particle 0: (-0.0587249, 0.833018, 0.80864)
+Particle 1: (-0.593938, -0.505094, -1.55309)
+Particle 2: (0.177599, 1.61543, -0.712589)
+Particle 3: (0.330317, -0.114536, -2.14011)
+Particle 4: (0.976319, 0.520571, 0.132671)
+After move, first 5 particle positions:
+Particle 0: (-0.064465, 0.846947, 0.820637)
+Particle 1: (-0.608501, -0.526389, -1.59626)
+Particle 2: (0.176445, 1.64358, -0.731915)
+Particle 3: (0.327361, -0.122218, -2.19152)
+Particle 4: (0.989815, 0.527869, 0.135516)
+After move, first 5 particle positions:
+Particle 0: (-0.070205, 0.860877, 0.832635)
+Particle 1: (-0.623064, -0.547685, -1.63942)
+Particle 2: (0.175291, 1.67173, -0.751241)
+Particle 3: (0.324405, -0.129901, -2.24292)
+Particle 4: (1.00331, 0.535167, 0.13836)
+After move, first 5 particle positions:
+Particle 0: (-0.075945, 0.874806, 0.844633)
+Particle 1: (-0.637627, -0.568981, -1.68258)
+Particle 2: (0.174137, 1.69988, -0.770567)
+Particle 3: (0.321449, -0.137583, -2.29433)
+Particle 4: (1.01681, 0.542466, 0.141204)
+After move, first 5 particle positions:
+Particle 0: (-0.0816851, 0.888735, 0.85663)
+Particle 1: (-0.65219, -0.590277, -1.72574)
+Particle 2: (0.172983, 1.72803, -0.789893)
+Particle 3: (0.318493, -0.145266, -2.34573)
+Particle 4: (1.0303, 0.549764, 0.144048)
+After move, first 5 particle positions:
+Particle 0: (-0.0874251, 0.902664, 0.868628)
+Particle 1: (-0.666753, -0.611572, -1.7689)
+Particle 2: (0.171829, 1.75618, -0.809219)
+Particle 3: (0.315536, -0.152948, -2.39713)
+Particle 4: (1.0438, 0.557063, 0.146893)
+After move, first 5 particle positions:
+Particle 0: (-0.0931652, 0.916594, 0.880626)
+Particle 1: (-0.681316, -0.632868, -1.81207)
+Particle 2: (0.170675, 1.78433, -0.828544)
+Particle 3: (0.31258, -0.160631, -2.44854)
+Particle 4: (1.05729, 0.564361, 0.149737)
+After move, first 5 particle positions:
+Particle 0: (-0.0989052, 0.930523, 0.892623)
+Particle 1: (-0.695879, -0.654164, -1.85523)
+Particle 2: (0.169521, 1.81249, -0.84787)
+Particle 3: (0.309624, -0.168313, -2.49994)
+Particle 4: (1.07079, 0.571659, 0.152581)
+After move, first 5 particle positions:
+Particle 0: (-0.104645, 0.944452, 0.904621)
+Particle 1: (-0.710442, -0.675459, -1.89839)
+Particle 2: (0.168367, 1.84064, -0.867196)
+Particle 3: (0.306668, -0.175996, -2.55135)
+Particle 4: (1.08428, 0.578958, 0.155425)
+After move, first 5 particle positions:
+Particle 0: (-0.110385, 0.958381, 0.916619)
+Particle 1: (-0.725005, -0.696755, -1.94155)
+Particle 2: (0.167213, 1.86879, -0.886522)
+Particle 3: (0.303711, -0.183678, -2.60275)
+Particle 4: (1.09778, 0.586256, 0.158269)
+After move, first 5 particle positions:
+Particle 0: (-0.116125, 0.972311, 0.928617)
+Particle 1: (-0.739568, -0.718051, -1.98471)
+Particle 2: (0.166059, 1.89694, -0.905848)
+Particle 3: (0.300755, -0.19136, -2.65416)
+Particle 4: (1.11127, 0.593555, 0.161114)
+After move, first 5 particle positions:
+Particle 0: (-0.121865, 0.98624, 0.940614)
+Particle 1: (-0.754131, -0.739346, -2.02787)
+Particle 2: (0.164905, 1.92509, -0.925173)
+Particle 3: (0.297799, -0.199043, -2.70556)
+Particle 4: (1.12477, 0.600853, 0.163958)
+After move, first 5 particle positions:
+Particle 0: (-0.127605, 1.00017, 0.952612)
+Particle 1: (-0.768694, -0.760642, -2.07104)
+Particle 2: (0.163751, 1.95324, -0.944499)
+Particle 3: (0.294843, -0.206725, -2.75697)
+Particle 4: (1.13826, 0.608152, 0.166802)
+After move, first 5 particle positions:
+Particle 0: (-0.133346, 1.0141, 0.96461)
+Particle 1: (-0.783257, -0.781938, -2.1142)
+Particle 2: (0.162597, 1.98139, -0.963825)
+Particle 3: (0.291887, -0.214408, -2.80837)
+Particle 4: (1.15176, 0.61545, 0.169646)
+After move, first 5 particle positions:
+Particle 0: (-0.139086, 1.02803, 0.976607)
+Particle 1: (-0.79782, -0.803234, -2.15736)
+Particle 2: (0.161443, 2.00954, -0.983151)
+Particle 3: (0.28893, -0.22209, -2.85977)
+Particle 4: (1.16526, 0.622748, 0.17249)
+After move, first 5 particle positions:
+Particle 0: (-0.144826, 1.04196, 0.988605)
+Particle 1: (-0.812383, -0.824529, -2.20052)
+Particle 2: (0.160289, 2.0377, -1.00248)
+Particle 3: (0.285974, -0.229773, -2.91118)
+Particle 4: (1.17875, 0.630047, 0.175335)
+After move, first 5 particle positions:
+Particle 0: (-0.150566, 1.05589, 1.0006)
+Particle 1: (-0.826947, -0.845825, -2.24368)
+Particle 2: (0.159135, 2.06585, -1.0218)
+Particle 3: (0.283018, -0.237455, -2.96258)
+Particle 4: (1.19225, 0.637345, 0.178179)
+After move, first 5 particle positions:
+Particle 0: (-0.156306, 1.06982, 1.0126)
+Particle 1: (-0.84151, -0.867121, -2.28685)
+Particle 2: (0.157981, 2.094, -1.04113)
+Particle 3: (0.280062, -0.245138, -3.01399)
+Particle 4: (1.20574, 0.644644, 0.181023)
+After move, first 5 particle positions:
+Particle 0: (-0.162046, 1.08374, 1.0246)
+Particle 1: (-0.856073, -0.888416, -2.33001)
+Particle 2: (0.156827, 2.12215, -1.06045)
+Particle 3: (0.277105, -0.25282, -3.06539)
+Particle 4: (1.21924, 0.651942, 0.183867)
+After move, first 5 particle positions:
+Particle 0: (-0.167786, 1.09767, 1.0366)
+Particle 1: (-0.870636, -0.909712, -2.37317)
+Particle 2: (0.155673, 2.1503, -1.07978)
+Particle 3: (0.274149, -0.260502, -3.1168)
+Particle 4: (1.23273, 0.65924, 0.186711)
+After move, first 5 particle positions:
+Particle 0: (-0.173526, 1.1116, 1.04859)
+Particle 1: (-0.885199, -0.931008, -2.41633)
+Particle 2: (0.154519, 2.17845, -1.09911)
+Particle 3: (0.271193, -0.268185, -3.1682)
+Particle 4: (1.24623, 0.666539, 0.189556)
+After move, first 5 particle positions:
+Particle 0: (-0.179266, 1.12553, 1.06059)
+Particle 1: (-0.899762, -0.952303, -2.45949)
+Particle 2: (0.153365, 2.2066, -1.11843)
+Particle 3: (0.268237, -0.275867, -3.21961)
+Particle 4: (1.25972, 0.673837, 0.1924)
+After move, first 5 particle positions:
+Particle 0: (-0.185006, 1.13946, 1.07259)
+Particle 1: (-0.914325, -0.973599, -2.50265)
+Particle 2: (0.152211, 2.23475, -1.13776)
+Particle 3: (0.265281, -0.28355, -3.27101)
+Particle 4: (1.27322, 0.681136, 0.195244)
+After move, first 5 particle positions:
+Particle 0: (-0.190746, 1.15339, 1.08459)
+Particle 1: (-0.928888, -0.994895, -2.54582)
+Particle 2: (0.151057, 2.26291, -1.15708)
+Particle 3: (0.262324, -0.291232, -3.32241)
+Particle 4: (1.28671, 0.688434, 0.198088)
+After move, first 5 particle positions:
+Particle 0: (-0.196486, 1.16732, 1.09658)
+Particle 1: (-0.943451, -1.01619, -2.58898)
+Particle 2: (0.149903, 2.29106, -1.17641)
+Particle 3: (0.259368, -0.298915, -3.37382)
+Particle 4: (1.30021, 0.695733, 0.200932)
+After move, first 5 particle positions:
+Particle 0: (-0.202226, 1.18125, 1.10858)
+Particle 1: (-0.958014, -1.03749, -2.63214)
+Particle 2: (0.148749, 2.31921, -1.19573)
+Particle 3: (0.256412, -0.306597, -3.42522)
+Particle 4: (1.3137, 0.703031, 0.203777)
+After move, first 5 particle positions:
+Particle 0: (-0.207966, 1.19518, 1.12058)
+Particle 1: (-0.972577, -1.05878, -2.6753)
+Particle 2: (0.147595, 2.34736, -1.21506)
+Particle 3: (0.253456, -0.314279, -3.47663)
+Particle 4: (1.3272, 0.710329, 0.206621)
+After move, first 5 particle positions:
+Particle 0: (-0.213706, 1.20911, 1.13258)
+Particle 1: (-0.98714, -1.08008, -2.71846)
+Particle 2: (0.146441, 2.37551, -1.23439)
+Particle 3: (0.250499, -0.321962, -3.52803)
+Particle 4: (1.3407, 0.717628, 0.209465)
+After move, first 5 particle positions:
+Particle 0: (-0.219446, 1.22304, 1.14457)
+Particle 1: (-1.0017, -1.10137, -2.76163)
+Particle 2: (0.145287, 2.40366, -1.25371)
+Particle 3: (0.247543, -0.329644, -3.57944)
+Particle 4: (1.35419, 0.724926, 0.212309)
+After move, first 5 particle positions:
+Particle 0: (-0.225186, 1.23697, 1.15657)
+Particle 1: (-1.01627, -1.12267, -2.80479)
+Particle 2: (0.144133, 2.43181, -1.27304)
+Particle 3: (0.244587, -0.337327, -3.63084)
+Particle 4: (1.36769, 0.732225, 0.215153)
+After move, first 5 particle positions:
+Particle 0: (-0.230926, 1.2509, 1.16857)
+Particle 1: (-1.03083, -1.14396, -2.84795)
+Particle 2: (0.142979, 2.45996, -1.29236)
+Particle 3: (0.241631, -0.345009, -3.68225)
+Particle 4: (1.38118, 0.739523, 0.217998)
+After move, first 5 particle positions:
+Particle 0: (-0.236666, 1.26483, 1.18057)
+Particle 1: (-1.04539, -1.16526, -2.89111)
+Particle 2: (0.141825, 2.48812, -1.31169)
+Particle 3: (0.238674, -0.352692, -3.73365)
+Particle 4: (1.39468, 0.746821, 0.220842)
+After move, first 5 particle positions:
+Particle 0: (-0.242406, 1.27875, 1.19257)
+Particle 1: (-1.05996, -1.18656, -2.93427)
+Particle 2: (0.140671, 2.51627, -1.33102)
+Particle 3: (0.235718, -0.360374, -3.78505)
+Particle 4: (1.40817, 0.75412, 0.223686)
+After move, first 5 particle positions:
+Particle 0: (-0.248146, 1.29268, 1.20456)
+Particle 1: (-1.07452, -1.20785, -2.97743)
+Particle 2: (0.139517, 2.54442, -1.35034)
+Particle 3: (0.232762, -0.368057, -3.83646)
+Particle 4: (1.42167, 0.761418, 0.22653)
+After move, first 5 particle positions:
+Particle 0: (-0.253886, 1.30661, 1.21656)
+Particle 1: (-1.08908, -1.22915, -3.0206)
+Particle 2: (0.138363, 2.57257, -1.36967)
+Particle 3: (0.229806, -0.375739, -3.88786)
+Particle 4: (1.43516, 0.768717, 0.229374)
+After move, first 5 particle positions:
+Particle 0: (-0.259627, 1.32054, 1.22856)
+Particle 1: (-1.10364, -1.25044, -3.06376)
+Particle 2: (0.137209, 2.60072, -1.38899)
+Particle 3: (0.22685, -0.383421, -3.93927)
+Particle 4: (1.44866, 0.776015, 0.232219)
+After move, first 5 particle positions:
+Particle 0: (-0.265367, 1.33447, 1.24056)
+Particle 1: (-1.11821, -1.27174, -3.10692)
+Particle 2: (0.136055, 2.62887, -1.40832)
+Particle 3: (0.223893, -0.391104, -3.99067)
+Particle 4: (1.46215, 0.783314, 0.235063)
+After move, first 5 particle positions:
+Particle 0: (-0.271107, 1.3484, 1.25255)
+Particle 1: (-1.13277, -1.29303, -3.15008)
+Particle 2: (0.134901, 2.65702, -1.42764)
+Particle 3: (0.220937, -0.398786, -4.04208)
+Particle 4: (1.47565, 0.790612, 0.237907)
+After move, first 5 particle positions:
+Particle 0: (-0.276847, 1.36233, 1.26455)
+Particle 1: (-1.14733, -1.31433, -3.19324)
+Particle 2: (0.133747, 2.68517, -1.44697)
+Particle 3: (0.217981, -0.406469, -4.09348)
+Particle 4: (1.48914, 0.79791, 0.240751)
+After move, first 5 particle positions:
+Particle 0: (-0.282587, 1.37626, 1.27655)
+Particle 1: (-1.1619, -1.33563, -3.23641)
+Particle 2: (0.132593, 2.71333, -1.4663)
+Particle 3: (0.215025, -0.414151, -4.14489)
+Particle 4: (1.50264, 0.805209, 0.243595)
+After move, first 5 particle positions:
+Particle 0: (-0.288327, 1.39019, 1.28855)
+Particle 1: (-1.17646, -1.35692, -3.27957)
+Particle 2: (0.131439, 2.74148, -1.48562)
+Particle 3: (0.212068, -0.421834, -4.19629)
+Particle 4: (1.51614, 0.812507, 0.24644)
+After move, first 5 particle positions:
+Particle 0: (-0.294067, 1.40412, 1.30054)
+Particle 1: (-1.19102, -1.37822, -3.32273)
+Particle 2: (0.130285, 2.76963, -1.50495)
+Particle 3: (0.209112, -0.429516, -4.24769)
+Particle 4: (1.52963, 0.819806, 0.249284)
+After move, first 5 particle positions:
+Particle 0: (-0.299807, 1.41805, 1.31254)
+Particle 1: (-1.20559, -1.39951, -3.36589)
+Particle 2: (0.129131, 2.79778, -1.52427)
+Particle 3: (0.206156, -0.437199, -4.2991)
+Particle 4: (1.54313, 0.827104, 0.252128)
+After move, first 5 particle positions:
+Particle 0: (-0.305547, 1.43198, 1.32454)
+Particle 1: (-1.22015, -1.42081, -3.40905)
+Particle 2: (0.127977, 2.82593, -1.5436)
+Particle 3: (0.2032, -0.444881, -4.3505)
+Particle 4: (1.55662, 0.834402, 0.254972)
+After move, first 5 particle positions:
+Particle 0: (-0.311287, 1.44591, 1.33654)
+Particle 1: (-1.23471, -1.4421, -3.45221)
+Particle 2: (0.126823, 2.85408, -1.56293)
+Particle 3: (0.200244, -0.452563, -4.40191)
+Particle 4: (1.57012, 0.841701, 0.257817)
+After move, first 5 particle positions:
+Particle 0: (-0.317027, 1.45984, 1.34854)
+Particle 1: (-1.24927, -1.4634, -3.49538)
+Particle 2: (0.125669, 2.88223, -1.58225)
+Particle 3: (0.197287, -0.460246, -4.45331)
+Particle 4: (1.58361, 0.848999, 0.260661)
+After move, first 5 particle positions:
+Particle 0: (-0.322767, 1.47376, 1.36053)
+Particle 1: (-1.26384, -1.4847, -3.53854)
+Particle 2: (0.124515, 2.91038, -1.60158)
+Particle 3: (0.194331, -0.467928, -4.50472)
+Particle 4: (1.59711, 0.856298, 0.263505)
+After move, first 5 particle positions:
+Particle 0: (-0.328507, 1.48769, 1.37253)
+Particle 1: (-1.2784, -1.50599, -3.5817)
+Particle 2: (0.123361, 2.93854, -1.6209)
+Particle 3: (0.191375, -0.475611, -4.55612)
+Particle 4: (1.6106, 0.863596, 0.266349)
+After move, first 5 particle positions:
+Particle 0: (-0.334247, 1.50162, 1.38453)
+Particle 1: (-1.29296, -1.52729, -3.62486)
+Particle 2: (0.122207, 2.96669, -1.64023)
+Particle 3: (0.188419, -0.483293, -4.60753)
+Particle 4: (1.6241, 0.870895, 0.269193)
+After move, first 5 particle positions:
+Particle 0: (-0.339987, 1.51555, 1.39653)
+Particle 1: (-1.30753, -1.54858, -3.66802)
+Particle 2: (0.121053, 2.99484, -1.65955)
+Particle 3: (0.185462, -0.490976, -4.65893)
+Particle 4: (1.63759, 0.878193, 0.272038)
+After move, first 5 particle positions:
+Particle 0: (-0.345727, 1.52948, 1.40852)
+Particle 1: (-1.32209, -1.56988, -3.71119)
+Particle 2: (0.119899, 3.02299, -1.67888)
+Particle 3: (0.182506, -0.498658, -4.71033)
+Particle 4: (1.65109, 0.885491, 0.274882)
+After move, first 5 particle positions:
+Particle 0: (-0.351467, 1.54341, 1.42052)
+Particle 1: (-1.33665, -1.59117, -3.75435)
+Particle 2: (0.118745, 3.05114, -1.69821)
+Particle 3: (0.17955, -0.506341, -4.76174)
+Particle 4: (1.66458, 0.89279, 0.277726)
+After move, first 5 particle positions:
+Particle 0: (-0.357207, 1.55734, 1.43252)
+Particle 1: (-1.35122, -1.61247, -3.79751)
+Particle 2: (0.117591, 3.07929, -1.71753)
+Particle 3: (0.176594, -0.514023, -4.81314)
+Particle 4: (1.67808, 0.900088, 0.28057)
+After move, first 5 particle positions:
+Particle 0: (-0.362947, 1.57127, 1.44452)
+Particle 1: (-1.36578, -1.63377, -3.84067)
+Particle 2: (0.116437, 3.10744, -1.73686)
+Particle 3: (0.173638, -0.521705, -4.86455)
+Particle 4: (1.69158, 0.907387, 0.283414)
+After move, first 5 particle positions:
+Particle 0: (-0.368687, 1.5852, 1.45651)
+Particle 1: (-1.38034, -1.65506, -3.88383)
+Particle 2: (0.115283, 3.13559, -1.75618)
+Particle 3: (0.170681, -0.529388, -4.91595)
+Particle 4: (1.70507, 0.914685, 0.286259)
+After move, first 5 particle positions:
+Particle 0: (-0.374427, 1.59913, 1.46851)
+Particle 1: (-1.39491, -1.67636, -3.92699)
+Particle 2: (0.114129, 3.16375, -1.77551)
+Particle 3: (0.167725, -0.53707, -4.96736)
+Particle 4: (1.71857, 0.921983, 0.289103)
+After move, first 5 particle positions:
+Particle 0: (-0.380167, 1.61306, 1.48051)
+Particle 1: (-1.40947, -1.69765, -3.97016)
+Particle 2: (0.112975, 3.1919, -1.79484)
+Particle 3: (0.164769, -0.544753, -5.01876)
+Particle 4: (1.73206, 0.929282, 0.291947)
+After move, first 5 particle positions:
+Particle 0: (-0.385908, 1.62699, 1.49251)
+Particle 1: (-1.42403, -1.71895, -4.01332)
+Particle 2: (0.111821, 3.22005, -1.81416)
+Particle 3: (0.161813, -0.552435, -5.07016)
+Particle 4: (1.74556, 0.93658, 0.294791)
+After move, first 5 particle positions:
+Particle 0: (-0.391648, 1.64092, 1.50451)
+Particle 1: (-1.43859, -1.74024, -4.05648)
+Particle 2: (0.110667, 3.2482, -1.83349)
+Particle 3: (0.158856, -0.560118, -5.12157)
+Particle 4: (1.75905, 0.943879, 0.297635)
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.81 sec
+----------------------------------------------------------
+Test Passed.
+"Particle move Test" end time: Sep 19 10:22 CST
+"Particle move Test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: add species type
+5/6 Test: add species type
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "add species type"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"add species type" start time: Sep 19 10:22 CST
+Output:
+----------------------------------------------------------
+Filters: "add species type"
+Randomness seeded to: 2405506293
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.82 sec
+----------------------------------------------------------
+Test Passed.
+"add species type" end time: Sep 19 10:22 CST
+"add species type" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: FieldInitializer Test
+6/6 Test: FieldInitializer Test
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "FieldInitializer Test"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"FieldInitializer Test" start time: Sep 19 10:22 CST
+Output:
+----------------------------------------------------------
+Filters: "FieldInitializer Test"
+Randomness seeded to: 3583701617
+Total particles to create on this rank: 18472
+Number of particles created: 18472
+===============================================================================
+All tests passed (58 assertions in 1 test case)
+
+<end of output>
+Test time =   0.61 sec
+----------------------------------------------------------
+Test Passed.
+"FieldInitializer Test" end time: Sep 19 10:22 CST
 "FieldInitializer Test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 14 16:11 CST
+End testing: Sep 19 10:22 CST

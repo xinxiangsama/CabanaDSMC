@@ -40,7 +40,7 @@ public:
     using local_grid_type = Cabana::Grid::LocalGrid<MeshType>;
     using array_layout = Cabana::Grid::ArrayLayout<Cabana::Grid::Cell, MeshType>;
     using array_type = Cabana::Grid::Array<Scalar, Cabana::Grid::Cell, MeshType, MemorySpace>;
-    using uint_array_type = Cabana::Grid::Array<uint32_t, Cabana::Grid::Cell, MeshType, MemorySpace>;
+    using uint_array_type = Cabana::Grid::Array<uint64_t, Cabana::Grid::Cell, MeshType, MemorySpace>;
     using array_factory = ArrayFactory<array_type>;
     using uint_factory= ArrayFactory<uint_array_type>;
 
@@ -54,6 +54,8 @@ public:
         Volume = array_factory::create("volume", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Num_particles = uint_factory::create("num particles", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Fn = uint_factory::create("Fn", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
+        Dt = array_factory::create("local time step", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
+        Cut_cell_faces = uint_factory::create("cut cell faces id", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
 
     }
 
@@ -71,14 +73,18 @@ public:
     }
 
 // protected:
+    // macroscopic field data
     std::shared_ptr<array_type> Velocity;
     std::shared_ptr<array_type> Temperature;
     std::shared_ptr<array_type> Pressure;
     std::shared_ptr<array_type> Density;
+    // simulation related field data
     std::shared_ptr<array_type> Max_collision_rate;
     std::shared_ptr<array_type> Volume;
     std::shared_ptr<uint_array_type> Num_particles;
     std::shared_ptr<uint_array_type> Fn; // one simulation particle represents Fn real particles
+    std::shared_ptr<array_type> Dt; // local time step for each cell
+    std::shared_ptr<uint_array_type> Cut_cell_faces; // bit mask for cut cell faces
 private:
     std::shared_ptr<local_grid_type> _local_grid;
 };
