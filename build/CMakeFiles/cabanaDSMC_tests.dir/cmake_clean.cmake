@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests"
   "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests.pdb"
-  "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/create_boundary_test.cpp.o"
-  "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/create_boundary_test.cpp.o.d"
+  "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o"
+  "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o"
   "CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o"

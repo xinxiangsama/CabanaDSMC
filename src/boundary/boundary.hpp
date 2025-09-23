@@ -24,6 +24,7 @@ using mesh_type = MeshType;
 
 // combination of some typical boundary conditions
 template<class ... BoundaryTypes>
+requires (is_boundary<BoundaryTypes>::value && ...)
 struct ComplexBoundary
 {
     static constexpr uint16_t num_boundary = sizeof...(BoundaryTypes);
@@ -39,17 +40,10 @@ struct ComplexBoundary
     {
         // applyImpl(particle, std::make_index_sequence<num_boundary>{});
         std::apply([&](const auto&... boundary) {
-            // 对解包出来的每一个 boundary 对象调用 .apply()
             (boundary.apply(particle, 0.0), ...);
         }, _boundaries);
     }
 
-    // template <class ParticleType, std::size_t... Is>
-    // KOKKOS_INLINE_FUNCTION
-    // void applyImpl(ParticleType& particle, std::index_sequence<Is...>) const
-    // {
-    //     ( std::get<Is>(_boundaries).apply(particle, 0.0), ... );
-    // }
 
     tuple_type _boundaries;
 };

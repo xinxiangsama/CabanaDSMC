@@ -21,7 +21,7 @@ public:
         _domain_extent[2] = domain_extent[2];
     }
 
-    // no extention in subclass so don't need virtual destructor
+    //don't need virtual destructor
 
     KOKKOS_INLINE_FUNCTION
     void apply(particle_type& particle, const scalar_type time_step) const
@@ -48,7 +48,7 @@ public:
     using base_type = BoudnaryBase<PeriodicBoundary<Scalar, ParticleType>, Scalar, ParticleType>;
     using scalar_type = Scalar;
     using particle_type = ParticleType;
-    PeriodicBoundary(const scalar_type& position, const scalar_type normal[3], const scalar_type domain_extent[3], const scalar_type& start = -std::numeric_limits<scalar_type>::infinity(), const scalar_type& end = std::numeric_limits<scalar_type>::infinity())
+    PeriodicBoundary(const scalar_type& position, const scalar_type normal[3], const scalar_type domain_extent[3], const scalar_type& start, const scalar_type& end)
         : base_type(position, normal, domain_extent, start, end)
     {}
 
@@ -75,6 +75,7 @@ public:
         }
     }
 
+    
     KOKKOS_INLINE_FUNCTION
     bool checkIfHitBoundaryImpl(const particle_type& particle) const
     {
@@ -96,6 +97,20 @@ public:
     }
 };
 
+
+template <class Scalar, class ParticleType>
+class WallBoundary : public BoudnaryBase<PeriodicBoundary<Scalar, ParticleType>, Scalar, ParticleType>{
+public:
+    using base_type = BoudnaryBase<PeriodicBoundary<Scalar, ParticleType>, Scalar, ParticleType>;
+    using scalar_type = Scalar;
+    using particle_type = ParticleType;
+    WallBoundary(const scalar_type& position, const scalar_type normal[3], const scalar_type domain_extent[3], const scalar_type& start, const scalar_type& end, const scalar_type& temperature) : base_type(position, normal, domain_extent, start, end), _temperature(temperature)
+    {}
+private:
+    scalar_type _temperature;
+
+};
+
 // other boundary types to be implemented
 
 // sfinae for boundary types
@@ -106,6 +121,11 @@ struct is_boundary : public std::false_type
 
 template <class Scalar, class ParticleType>
 struct is_boundary<PeriodicBoundary<Scalar, ParticleType>> : public std::true_type
+{
+};
+
+template <class Scalar, class ParticleType>
+struct is_boundary<WallBoundary<Scalar, ParticleType>> : public std::true_type
 {
 };
 

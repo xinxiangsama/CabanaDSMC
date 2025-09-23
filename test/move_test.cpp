@@ -91,14 +91,14 @@ TEST_CASE("Particle move Test", "[particle move]")
                 cell_data
             );
 
-            Kokkos::fence("After Move");
-            std::cout << "After move, first 5 particle positions:" << std::endl;
-            for(int i = 0; i < 5 && i < particle_list.size(); ++i){
-                std::cout << "Particle " << i << ": ("
-                        << position(i,0) << ", "
-                        << position(i,1) << ", "
-                        << position(i,2) << ")" << std::endl;
-            }
+            // Kokkos::fence("After Move");
+            // std::cout << "After move, first 5 particle positions:" << std::endl;
+            // for(int i = 0; i < 5 && i < particle_list.size(); ++i){
+            //     std::cout << "Particle " << i << ": ("
+            //             << position(i,0) << ", "
+            //             << position(i,1) << ", "
+            //             << position(i,2) << ")" << std::endl;
+            // }
         }
     }
 }

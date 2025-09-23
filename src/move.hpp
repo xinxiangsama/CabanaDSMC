@@ -14,11 +14,11 @@ void moveParticles(
 {   
     using memory_space = typename ParticleListType::memory_space;
     using boundary_tuple_type = std::tuple<BoundaryTypes...>;
-    boundary_tuple_type boundary_conditions;
-    if constexpr (sizeof...(BoundaryTypes) > 0){
-        boundary_conditions = std::make_tuple(boundaries...);
-    }
-    
+
+    // if constexpr (sizeof...(BoundaryTypes) > 0){
+    //     boundary_conditions = std::make_tuple(boundaries...);
+    // }
+    auto boundary_conditions = std::make_tuple(boundaries...);
     //create local mesh
     auto local_mesh = Cabana::Grid::createLocalMesh<memory_space>( *local_grid );
 
@@ -51,9 +51,11 @@ void moveParticles(
             }
 
             // apply boundary conditions
+            auto particle = particle_list.getParticle(idx);
             std::apply([&](const auto&... boundary){
-                (boundary.apply(particle_list.getParticle(idx)), ...);
+                (boundary.apply(particle), ...);
             }, boundary_conditions);
+            particle_list.setParticle(particle, idx);
         }
     );
 
