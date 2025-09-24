@@ -721,6 +721,30 @@ test/simulation/initial_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.s
 .PHONY : test/simulation/initial_test.cpp.s
 
+test/simulation/sort_test.o: test/simulation/sort_test.cpp.o
+.PHONY : test/simulation/sort_test.o
+
+# target to build an object file
+test/simulation/sort_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o
+.PHONY : test/simulation/sort_test.cpp.o
+
+test/simulation/sort_test.i: test/simulation/sort_test.cpp.i
+.PHONY : test/simulation/sort_test.i
+
+# target to preprocess a source file
+test/simulation/sort_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.i
+.PHONY : test/simulation/sort_test.cpp.i
+
+test/simulation/sort_test.s: test/simulation/sort_test.cpp.s
+.PHONY : test/simulation/sort_test.s
+
+# target to generate assembly for a file
+test/simulation/sort_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.s
+.PHONY : test/simulation/sort_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -785,6 +809,9 @@ help:
 	@echo "... test/simulation/initial_test.o"
 	@echo "... test/simulation/initial_test.i"
 	@echo "... test/simulation/initial_test.s"
+	@echo "... test/simulation/sort_test.o"
+	@echo "... test/simulation/sort_test.i"
+	@echo "... test/simulation/sort_test.s"
 .PHONY : help
 
 

@@ -6,7 +6,7 @@
                 "${workspaceFolder}/**",
                 "~/local/cabana/include",
                 "~/local/kokkos/include",
-                "/usr/local/cuda-13.0/include",
+                "/usr/local/cuda-12.9/include",
                 "~/local/openmpi/include",
                 "/usr/include/"
             ],

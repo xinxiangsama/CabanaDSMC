@@ -1,96 +1,15 @@
-cabanaDSMC_tests_NOT_BUILT-b12d07c 0 0
-create 0 0
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
 Boundary 0 1
 CellData 0 1
 MeshManager 0 0
 Particle 0 0
 add 0 0
 FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 0
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary 0 1
-CellData 0 1
-MeshManager 0 0
-Particle 0 0
-add 0 0
-FieldInitializer 0 1
-Boundary Test 1 0.482021
-CellData Initialization 1 0.408906
-MeshManager Initialization and Properties 1 0.408356
-Particle move Test 1 0.459264
-add species type 1 0.389339
-FieldInitializer Test 1 0.37836
+Sort 0 1
+Boundary Test 1 0.84782
+CellData Initialization 1 0.619662
+MeshManager Initialization and Properties 1 0.651433
+Particle move Test 1 0.705677
+add species type 1 0.773911
+FieldInitializer Test 1 0.708074
+Sort Test 1 0.677989
 ---

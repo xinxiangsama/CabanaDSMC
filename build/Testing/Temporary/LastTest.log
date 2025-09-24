@@ -1,19 +1,14 @@
-Start testing: Sep 23 18:10 CST
+Start testing: Sep 24 10:34 CST
 ----------------------------------------------------------
-1/6 Testing: Boundary Test
-1/6 Test: Boundary Test
+1/7 Testing: Boundary Test
+1/7 Test: Boundary Test
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "Boundary Test"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"Boundary Test" start time: Sep 23 18:10 CST
+"Boundary Test" start time: Sep 24 10:34 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "Boundary Test"
-Randomness seeded to: 2609309722
+Randomness seeded to: 1167117976
 Total particles to create on this rank: 18472
 Total particles to create on this rank: 18472
 Total particles to create on this rank: 18472
@@ -27,79 +22,64 @@ Particle 4: (0.759053, 0.943879, 0.297635) with velocity (134.954, 72.9842, 28.4
 All tests passed (3008 assertions in 1 test case)
 
 <end of output>
-Test time =   0.48 sec
+Test time =   0.85 sec
 ----------------------------------------------------------
 Test Passed.
-"Boundary Test" end time: Sep 23 18:10 CST
+"Boundary Test" end time: Sep 24 10:34 CST
 "Boundary Test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/6 Testing: CellData Initialization
-2/6 Test: CellData Initialization
+2/7 Testing: CellData Initialization
+2/7 Test: CellData Initialization
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "CellData Initialization"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"CellData Initialization" start time: Sep 23 18:10 CST
+"CellData Initialization" start time: Sep 24 10:34 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "CellData Initialization"
-Randomness seeded to: 2644257698
+Randomness seeded to: 2165377177
 ===============================================================================
 All tests passed (26 assertions in 1 test case)
 
 <end of output>
-Test time =   0.41 sec
+Test time =   0.62 sec
 ----------------------------------------------------------
 Test Passed.
-"CellData Initialization" end time: Sep 23 18:10 CST
+"CellData Initialization" end time: Sep 24 10:34 CST
 "CellData Initialization" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/6 Testing: MeshManager Initialization and Properties
-3/6 Test: MeshManager Initialization and Properties
+3/7 Testing: MeshManager Initialization and Properties
+3/7 Test: MeshManager Initialization and Properties
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "MeshManager Initialization and Properties"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"MeshManager Initialization and Properties" start time: Sep 23 18:10 CST
+"MeshManager Initialization and Properties" start time: Sep 24 10:34 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "MeshManager Initialization and Properties"
-Randomness seeded to: 1966521412
+Randomness seeded to: 534781071
 my rank is 0 local cell num is 64
 global cell num is 64
 ===============================================================================
 All tests passed (18 assertions in 1 test case)
 
 <end of output>
-Test time =   0.41 sec
+Test time =   0.65 sec
 ----------------------------------------------------------
 Test Passed.
-"MeshManager Initialization and Properties" end time: Sep 23 18:10 CST
+"MeshManager Initialization and Properties" end time: Sep 24 10:34 CST
 "MeshManager Initialization and Properties" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/6 Testing: Particle move Test
-4/6 Test: Particle move Test
+4/7 Testing: Particle move Test
+4/7 Test: Particle move Test
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "Particle move Test"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"Particle move Test" start time: Sep 23 18:10 CST
+"Particle move Test" start time: Sep 24 10:34 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "Particle move Test"
-Randomness seeded to: 2005065866
+Randomness seeded to: 3053301329
 Total particles to create on this rank: 18472
 Before move, first 5 particle positions and velocites:
 Particle 0: (0.182357, 0.247989, 0.304737) with velocity (-57.4005, 139.293, 119.977)
@@ -111,63 +91,91 @@ Particle 4: (0.409513, 0.214037, 0.0132149) with velocity (134.954, 72.9842, 28.
 All tests passed (1 assertion in 1 test case)
 
 <end of output>
-Test time =   0.46 sec
+Test time =   0.71 sec
 ----------------------------------------------------------
 Test Passed.
-"Particle move Test" end time: Sep 23 18:10 CST
+"Particle move Test" end time: Sep 24 10:34 CST
 "Particle move Test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/6 Testing: add species type
-5/6 Test: add species type
+5/7 Testing: add species type
+5/7 Test: add species type
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "add species type"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"add species type" start time: Sep 23 18:10 CST
+"add species type" start time: Sep 24 10:34 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "add species type"
-Randomness seeded to: 3774087522
+Randomness seeded to: 3781203031
 ===============================================================================
 All tests passed (1 assertion in 1 test case)
 
 <end of output>
-Test time =   0.39 sec
+Test time =   0.77 sec
 ----------------------------------------------------------
 Test Passed.
-"add species type" end time: Sep 23 18:10 CST
+"add species type" end time: Sep 24 10:34 CST
 "add species type" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-6/6 Testing: FieldInitializer Test
-6/6 Test: FieldInitializer Test
+6/7 Testing: FieldInitializer Test
+6/7 Test: FieldInitializer Test
 Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "FieldInitializer Test"
 Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
-"FieldInitializer Test" start time: Sep 23 18:10 CST
+"FieldInitializer Test" start time: Sep 24 10:34 CST
 Output:
 ----------------------------------------------------------
-Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
-  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
-  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
-  For unit testing set OMP_PROC_BIND=false
-
 Filters: "FieldInitializer Test"
-Randomness seeded to: 731046180
+Randomness seeded to: 2911598322
 Total particles to create on this rank: 18472
 Number of particles created: 18472
 ===============================================================================
 All tests passed (58 assertions in 1 test case)
 
 <end of output>
-Test time =   0.38 sec
+Test time =   0.71 sec
 ----------------------------------------------------------
 Test Passed.
-"FieldInitializer Test" end time: Sep 23 18:10 CST
+"FieldInitializer Test" end time: Sep 24 10:34 CST
 "FieldInitializer Test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 23 18:10 CST
+7/7 Testing: Sort Test
+7/7 Test: Sort Test
+Command: "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests" "Sort Test"
+Directory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+"Sort Test" start time: Sep 24 10:34 CST
+Output:
+----------------------------------------------------------
+Filters: "Sort Test"
+Randomness seeded to: 2899401438
+Total particles to create on this rank: 18472
+Cell (0, 0, 0): num particles = 2309
+particle start index = 0
+Cell (0, 0, 1): num particles = 2309
+particle start index = 2309
+Cell (0, 1, 0): num particles = 2309
+particle start index = 4618
+Cell (0, 1, 1): num particles = 2309
+particle start index = 6927
+Cell (1, 0, 0): num particles = 2309
+particle start index = 9236
+Cell (1, 0, 1): num particles = 2309
+particle start index = 11545
+Cell (1, 1, 0): num particles = 2309
+particle start index = 13854
+Cell (1, 1, 1): num particles = 2309
+particle start index = 16163
+===============================================================================
+test cases: 1 | 1 passed
+assertions: - none -
+
+<end of output>
+Test time =   0.68 sec
+----------------------------------------------------------
+Test Passed.
+"Sort Test" end time: Sep 24 10:34 CST
+"Sort Test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 24 10:34 CST

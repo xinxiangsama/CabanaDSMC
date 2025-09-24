@@ -10,4 +10,6 @@ add_test( [==[add species type]==] /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC
 set_tests_properties( [==[add species type]==] PROPERTIES WORKING_DIRECTORY /home/xinxiangsama/dsmc/CabanaDSMC/build)
 add_test( [==[FieldInitializer Test]==] /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests [==[FieldInitializer Test]==]  )
 set_tests_properties( [==[FieldInitializer Test]==] PROPERTIES WORKING_DIRECTORY /home/xinxiangsama/dsmc/CabanaDSMC/build)
-set( cabanaDSMC_tests_TESTS [==[Boundary Test]==] [==[CellData Initialization]==] [==[MeshManager Initialization and Properties]==] [==[Particle move Test]==] [==[add species type]==] [==[FieldInitializer Test]==])
+add_test( [==[Sort Test]==] /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests [==[Sort Test]==]  )
+set_tests_properties( [==[Sort Test]==] PROPERTIES WORKING_DIRECTORY /home/xinxiangsama/dsmc/CabanaDSMC/build)
+set( cabanaDSMC_tests_TESTS [==[Boundary Test]==] [==[CellData Initialization]==] [==[MeshManager Initialization and Properties]==] [==[Particle move Test]==] [==[add species type]==] [==[FieldInitializer Test]==] [==[Sort Test]==])
