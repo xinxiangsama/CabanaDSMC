@@ -601,6 +601,30 @@ test/cell/cell_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.s
 .PHONY : test/cell/cell_test.cpp.s
 
+test/collision/collision_test.o: test/collision/collision_test.cpp.o
+.PHONY : test/collision/collision_test.o
+
+# target to build an object file
+test/collision/collision_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o
+.PHONY : test/collision/collision_test.cpp.o
+
+test/collision/collision_test.i: test/collision/collision_test.cpp.i
+.PHONY : test/collision/collision_test.i
+
+# target to preprocess a source file
+test/collision/collision_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.i
+.PHONY : test/collision/collision_test.cpp.i
+
+test/collision/collision_test.s: test/collision/collision_test.cpp.s
+.PHONY : test/collision/collision_test.s
+
+# target to generate assembly for a file
+test/collision/collision_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.s
+.PHONY : test/collision/collision_test.cpp.s
+
 test/main.o: test/main.cpp.o
 .PHONY : test/main.o
 
@@ -794,6 +818,9 @@ help:
 	@echo "... test/cell/cell_test.o"
 	@echo "... test/cell/cell_test.i"
 	@echo "... test/cell/cell_test.s"
+	@echo "... test/collision/collision_test.o"
+	@echo "... test/collision/collision_test.i"
+	@echo "... test/collision/collision_test.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"

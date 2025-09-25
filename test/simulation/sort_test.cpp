@@ -77,14 +77,14 @@ TEST_CASE("Sort Test", "[sort]")
             position, grid_delta, grid_min, grid_max);
         Cabana::permute(linked_cell_list, particle_list.aosoa());
         Kokkos::fence();
-        for(int i {}; i < local_grid->globalGrid().ownedNumCell(0); ++i)
-            for(int j {}; j < local_grid->globalGrid().ownedNumCell(1); ++j)
-                for(int k {}; k < local_grid->globalGrid().ownedNumCell(2); ++k)
-                {
-                    std::cout << "Cell (" << i << ", " << j << ", " << k << "): ";
-                    std::cout <<"num particles = " << linked_cell_list.binSize(i,j,k) << "\n";
-                    std::cout <<"particle start index = " << linked_cell_list.binOffset(i,j,k) << "\n";
-                }
+        // for(int i {}; i < local_grid->globalGrid().ownedNumCell(0); ++i)
+        //     for(int j {}; j < local_grid->globalGrid().ownedNumCell(1); ++j)
+        //         for(int k {}; k < local_grid->globalGrid().ownedNumCell(2); ++k)
+        //         {
+        //             std::cout << "Cell (" << i << ", " << j << ", " << k << "): ";
+        //             std::cout <<"num particles = " << linked_cell_list.binSize(i,j,k) << "\n";
+        //             std::cout <<"particle start index = " << linked_cell_list.binOffset(i,j,k) << "\n";
+        //         }
         
     }
 }

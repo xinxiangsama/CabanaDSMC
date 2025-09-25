@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o"
   "CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o.d"
+  "CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o"
+  "CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o"
   "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o"

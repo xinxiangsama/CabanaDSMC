@@ -6,9 +6,10 @@
                 "${workspaceFolder}/**",
                 "~/local/cabana/include",
                 "~/local/kokkos/include",
-                "/usr/local/cuda-12.9/include",
+                "/usr/local/cuda-13.0/include",
                 "~/local/openmpi/include",
-                "/usr/include/"
+                "/usr/include/",
+                "/usr/local/cuda-13.0/targets/x86_64-linux/include/cccl"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

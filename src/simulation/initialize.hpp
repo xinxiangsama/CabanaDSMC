@@ -30,7 +30,7 @@ int createParticles(
     const uint64_t seed = 123456
 )
 {   
-    using memory_space = typename ParticleListType::memory_space;
+    using memory_space = typename ExecutionSpace::memory_space;
     
     //create local mesh
     auto local_mesh = Cabana::Grid::createLocalMesh<memory_space>( *local_grid );

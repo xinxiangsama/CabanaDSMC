@@ -97,8 +97,8 @@ cabanaDSMC_EXTERNAL_OBJECTS =
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkosalgorithms.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkossimd.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkoscore.a
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/local/cuda-12.9/targets/x86_64-linux/lib/stubs/libcuda.so
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/local/cuda-12.9/targets/x86_64-linux/lib/libcudart.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/local/cuda-13.0/targets/x86_64-linux/lib/stubs/libcuda.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/local/cuda-13.0/targets/x86_64-linux/lib/libcudart.so
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/lib/x86_64-linux-gnu/libpthread.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/openmpi/lib/libmpi.so

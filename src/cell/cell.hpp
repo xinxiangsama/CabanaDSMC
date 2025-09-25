@@ -53,6 +53,7 @@ public:
         Max_collision_rate = array_factory::create("max collision rate", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Volume = array_factory::create("volume", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Num_particles = uint_factory::create("num particles", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
+        Offset_particle_idx = uint_factory::create("offset particle idx", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Fn = uint_factory::create("Fn", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Dt = array_factory::create("local time step", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Cut_cell_faces = uint_factory::create("cut cell faces id", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
@@ -82,6 +83,7 @@ public:
     std::shared_ptr<array_type> Max_collision_rate;
     std::shared_ptr<array_type> Volume;
     std::shared_ptr<uint_array_type> Num_particles;
+    std::shared_ptr<uint_array_type> Offset_particle_idx; // offset index of particles in each cell
     std::shared_ptr<uint_array_type> Fn; // one simulation particle represents Fn real particles
     std::shared_ptr<array_type> Dt; // local time step for each cell
     std::shared_ptr<uint_array_type> Cut_cell_faces; // bit mask for cut cell faces
