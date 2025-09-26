@@ -46,12 +46,20 @@ Particle 0 0
 add 0 0
 FieldInitializer 0 1
 Sort 0 1
-Boundary Test 1 0.476904
-CellData Initialization 1 0.412846
-Collide Test 1 0.393566
-MeshManager Initialization and Properties 1 0.365847
-Particle move Test 1 0.436729
-add species type 1 0.370935
-FieldInitializer Test 1 0.379073
-Sort Test 1 0.427358
+Boundary 0 1
+CellData 0 1
+Collide 0 1
+MeshManager 0 0
+Particle 0 0
+add 0 0
+FieldInitializer 0 1
+Sort 0 1
+Boundary Test 1 0.547274
+CellData Initialization 1 0.451976
+Collide Test 1 0.427448
+MeshManager Initialization and Properties 1 0.382317
+Particle move Test 1 0.432151
+add species type 1 0.358322
+FieldInitializer Test 1 0.427666
+Sort Test 1 0.421893
 ---

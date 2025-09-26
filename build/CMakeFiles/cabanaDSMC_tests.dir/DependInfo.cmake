@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/boundary/boundary_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o.d"
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/cell/cell_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o.d"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/test/cell/sample_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o.d"
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/collision/collision_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o.d"
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/main.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o.d"
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/mesh/mesh_manager_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o.d"

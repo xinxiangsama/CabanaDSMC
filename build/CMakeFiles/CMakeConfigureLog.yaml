@@ -1221,3 +1221,102 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:24 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-Ll2gmF"
+      binary: "/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-Ll2gmF"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-Ll2gmF'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9806d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9806d.dir/build.make CMakeFiles/cmTC_9806d.dir/build
+        gmake[1]: Entering directory '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-Ll2gmF'
+        Building C object CMakeFiles/cmTC_9806d.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /home/xinxiangsama/local/openmpi/include  -o CMakeFiles/cmTC_9806d.dir/test_mpi.c.o -c /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-Ll2gmF/test_mpi.c
+        Linking C executable cmTC_9806d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9806d.dir/link.txt --verbose=1
+        /usr/bin/cc -Wl,-rpath -Wl,/home/xinxiangsama/local/openmpi/lib -Wl,--enable-new-dtags CMakeFiles/cmTC_9806d.dir/test_mpi.c.o -o cmTC_9806d  -Wl,-rpath,/home/xinxiangsama/local/openmpi/lib /home/xinxiangsama/local/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-Ll2gmF'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "CMakeLists.txt:24 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode normal"
+    directories:
+      source: "/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-ePOAxF"
+      binary: "/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-ePOAxF"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-ePOAxF'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_924af/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_924af.dir/build.make CMakeFiles/cmTC_924af.dir/build
+        gmake[1]: Entering directory '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-ePOAxF'
+        Building CXX object CMakeFiles/cmTC_924af.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /home/xinxiangsama/local/openmpi/include -std=c++20 -o CMakeFiles/cmTC_924af.dir/test_mpi.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-ePOAxF/test_mpi.cpp
+        Linking CXX executable cmTC_924af
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_924af.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/home/xinxiangsama/local/openmpi/lib -Wl,--enable-new-dtags CMakeFiles/cmTC_924af.dir/test_mpi.cpp.o -o cmTC_924af  -Wl,-rpath,/home/xinxiangsama/local/openmpi/lib /home/xinxiangsama/local/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-ePOAxF'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1672 (_MPI_try_staged_settings)"
+      - "CMakeLists.txt:24 (find_package)"
+    description: "The MPI test test_mpi for CXX in mode MPICXX"
+    directories:
+      source: "/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-5oJcWI"
+      binary: "/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-5oJcWI"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "MPI_RESULT_CXX_test_mpi_MPICXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-5oJcWI'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2e739/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2e739.dir/build.make CMakeFiles/cmTC_2e739.dir/build
+        gmake[1]: Entering directory '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-5oJcWI'
+        Building CXX object CMakeFiles/cmTC_2e739.dir/test_mpi.cpp.o
+        /usr/bin/c++  -isystem /home/xinxiangsama/local/openmpi/include -std=c++20 -o CMakeFiles/cmTC_2e739.dir/test_mpi.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-5oJcWI/test_mpi.cpp
+        Linking CXX executable cmTC_2e739
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e739.dir/link.txt --verbose=1
+        /usr/bin/c++ -Wl,-rpath -Wl,/home/xinxiangsama/local/openmpi/lib -Wl,--enable-new-dtags CMakeFiles/cmTC_2e739.dir/test_mpi.cpp.o -o cmTC_2e739  -Wl,-rpath,/home/xinxiangsama/local/openmpi/lib /home/xinxiangsama/local/openmpi/lib/libmpi.so 
+        gmake[1]: Leaving directory '/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/CMakeScratch/TryCompile-5oJcWI'
+        
+      exitCode: 0
+...
