@@ -11,7 +11,7 @@ BuildDirectory: /home/xinxiangsama/dsmc/CabanaDSMC/build
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: xinxiangsama-MS-7D91
+Site: jguang
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -76,7 +76,7 @@ CudaSanitizerCommand:
 CudaSanitizerCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: /usr/local/cuda-13.0/bin/compute-sanitizer
+MemoryCheckCommand: /usr/local/cuda-12.9/bin/compute-sanitizer
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 

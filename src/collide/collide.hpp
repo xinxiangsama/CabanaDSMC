@@ -58,9 +58,9 @@ void collide(
             
             double expected_num_collision = 0.5 * np * np * srcmax * delta_t * cell_fn / cell_volume;
 
-            // log for debug
-            printf("Cell (%d,%d,%d): np=%lu, offset_idx=%lu, dt=%f, srcmax=%f, volume=%f, fn=%lu, expected_collisions=%f\n", 
-                   i, j, k, np, offset_idx, delta_t, srcmax, cell_volume, cell_fn, expected_num_collision);
+            // // log for debug
+            // printf("Cell (%d,%d,%d): np=%lu, offset_idx=%lu, dt=%f, srcmax=%f, volume=%f, fn=%lu, expected_collisions=%f\n", 
+            //        i, j, k, np, offset_idx, delta_t, srcmax, cell_volume, cell_fn, expected_num_collision);
 
             int num_collision = static_cast<int>(expected_num_collision);
             double prob_collision = expected_num_collision - num_collision;

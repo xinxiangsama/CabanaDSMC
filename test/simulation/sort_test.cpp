@@ -2,6 +2,7 @@
 #include "../../src/mesh/mesh.hpp"
 #include "../src/simulation/initialize.hpp"
 #include "../../src/move.hpp"
+#include "../../src/sort/sort.hpp"
 #include <catch2/catch_all.hpp>
 #include <Cabana_Core.hpp>
 
@@ -64,27 +65,34 @@ TEST_CASE("Sort Test", "[sort]")
     );
     SECTION("migration test")
     {   
-        auto position = particle_list.slice(Particle::Field::Position {});
-        auto local_grid = mesh_manager->getLocalGrid();
-        auto local_mesh = mesh_manager->getLocalMesh();
-        double grid_min[3], grid_max[3], grid_delta[3];
-        for (int d = 0; d < 3; ++d) {
-            grid_min[d] = local_mesh->lowCorner(Cabana::Grid::Ghost(), d);
-            grid_max[d] = local_mesh->highCorner(Cabana::Grid::Ghost(), d);
-            grid_delta[d]  = local_grid->globalGrid().globalMesh().cellSize(d);
-        }
-        auto linked_cell_list = Cabana::createLinkedCellList<MemorySpace>(
-            position, grid_delta, grid_min, grid_max);
-        Cabana::permute(linked_cell_list, particle_list.aosoa());
-        Kokkos::fence();
-        // for(int i {}; i < local_grid->globalGrid().ownedNumCell(0); ++i)
-        //     for(int j {}; j < local_grid->globalGrid().ownedNumCell(1); ++j)
-        //         for(int k {}; k < local_grid->globalGrid().ownedNumCell(2); ++k)
-        //         {
-        //             std::cout << "Cell (" << i << ", " << j << ", " << k << "): ";
-        //             std::cout <<"num particles = " << linked_cell_list.binSize(i,j,k) << "\n";
-        //             std::cout <<"particle start index = " << linked_cell_list.binOffset(i,j,k) << "\n";
-        //         }
+        // auto position = particle_list.slice(Particle::Field::Position {});
+        // auto local_grid = mesh_manager->getLocalGrid();
+        // auto local_mesh = mesh_manager->getLocalMesh();
+        // double grid_min[3], grid_max[3], grid_delta[3];
+        // for (int d = 0; d < 3; ++d) {
+        //     grid_min[d] = local_mesh->lowCorner(Cabana::Grid::Ghost(), d);
+        //     grid_max[d] = local_mesh->highCorner(Cabana::Grid::Ghost(), d);
+        //     grid_delta[d]  = local_grid->globalGrid().globalMesh().cellSize(d);
+        // }
+        // auto linked_cell_list = Cabana::createLinkedCellList<MemorySpace>(
+        //     position, grid_delta, grid_min, grid_max);
+        // Cabana::permute(linked_cell_list, particle_list.aosoa());
+        // Kokkos::fence();
+
+        CabanaDSMC::sort(
+            ExecutionSpace {},
+            particle_list,
+            cell_data
+        );
+
+        for(int i {}; i < local_grid->globalGrid().ownedNumCell(0); ++i)
+            for(int j {}; j < local_grid->globalGrid().ownedNumCell(1); ++j)
+                for(int k {}; k < local_grid->globalGrid().ownedNumCell(2); ++k)
+                {
+                    std::cout << "Cell (" << i << ", " << j << ", " << k << "): ";
+                    std::cout <<"num particles = " << cell_data->Num_particles->view()(i, j, k, 0) << "\n";
+                    std::cout <<"particle start index = " << cell_data->Offset_particle_idx->view()(i, j, k, 0) << "\n";
+                }
         
     }
 }

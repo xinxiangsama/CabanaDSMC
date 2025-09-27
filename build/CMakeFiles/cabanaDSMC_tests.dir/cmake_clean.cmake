@@ -15,6 +15,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o"
   "CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o.d"
+  "CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o"
+  "CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o"
   "CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o"

@@ -721,6 +721,30 @@ test/move_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.s
 .PHONY : test/move_test.cpp.s
 
+test/output/output_test.o: test/output/output_test.cpp.o
+.PHONY : test/output/output_test.o
+
+# target to build an object file
+test/output/output_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o
+.PHONY : test/output/output_test.cpp.o
+
+test/output/output_test.i: test/output/output_test.cpp.i
+.PHONY : test/output/output_test.i
+
+# target to preprocess a source file
+test/output/output_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.i
+.PHONY : test/output/output_test.cpp.i
+
+test/output/output_test.s: test/output/output_test.cpp.s
+.PHONY : test/output/output_test.s
+
+# target to generate assembly for a file
+test/output/output_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.s
+.PHONY : test/output/output_test.cpp.s
+
 test/particle/particle_test.o: test/particle/particle_test.cpp.o
 .PHONY : test/particle/particle_test.o
 
@@ -857,6 +881,9 @@ help:
 	@echo "... test/move_test.o"
 	@echo "... test/move_test.i"
 	@echo "... test/move_test.s"
+	@echo "... test/output/output_test.o"
+	@echo "... test/output/output_test.i"
+	@echo "... test/output/output_test.s"
 	@echo "... test/particle/particle_test.o"
 	@echo "... test/particle/particle_test.i"
 	@echo "... test/particle/particle_test.s"

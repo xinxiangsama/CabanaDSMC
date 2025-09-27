@@ -72,7 +72,13 @@ public:
     auto localgrid() {
         return _local_grid;
     }
-
+    void setToZero()
+    {
+        Cabana::Grid::ArrayOp::assign(*Velocity, 0.0, Cabana::Grid::Ghost());
+        Cabana::Grid::ArrayOp::assign(*Temperature, 0.0, Cabana::Grid::Ghost());
+        Cabana::Grid::ArrayOp::assign(*Pressure, 0.0, Cabana::Grid::Ghost());
+        Cabana::Grid::ArrayOp::assign(*Density, 0.0, Cabana::Grid::Ghost());
+    }
 // protected:
     // macroscopic field data
     std::shared_ptr<array_type> Velocity;
