@@ -40,7 +40,7 @@ struct ComplexBoundary
     {
         // applyImpl(particle, std::make_index_sequence<num_boundary>{});
         std::apply([&](const auto&... boundary) {
-            (boundary.apply(particle, 0.0), ...);
+            (boundary.apply(particle), ...);
         }, _boundaries);
     }
 

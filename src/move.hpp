@@ -19,8 +19,6 @@ void moveParticles(
     //     boundary_conditions = std::make_tuple(boundaries...);
     // }
     auto boundary_conditions = std::make_tuple(boundaries...);
-    //create local mesh
-    auto local_mesh = Cabana::Grid::createLocalMesh<memory_space>( *local_grid );
 
     //get global grid
     const auto& global_grid = local_grid->globalGrid();
@@ -45,6 +43,7 @@ void moveParticles(
         Kokkos::RangePolicy<ExecutionSpace>(ExecutionSpace {}, 0, particle_list.size()),
         KOKKOS_LAMBDA(const int idx){
             auto dt = cell_dt(cell_id(idx,0), cell_id(idx,1), cell_id(idx,2), 0);
+            
             // move particle
             for(int d = 0; d < 3; ++d){
                 position(idx, d) += velocity(idx, d) * dt;

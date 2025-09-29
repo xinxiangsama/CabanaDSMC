@@ -15,6 +15,6 @@ void writeFields(
     const std::shared_ptr<ArrayTypes>&... arrays
 )
 {
-    (writer->write(file_directory, time_step, time, *arrays), ...);
+    (writer->write(file_directory, time_step, time, arrays), ...);
 }
 }

@@ -77,8 +77,8 @@ test/fast: test
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -529,6 +529,54 @@ check/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
 .PHONY : check/fast
 
+src/input/input.o: src/input/input.cpp.o
+.PHONY : src/input/input.o
+
+# target to build an object file
+src/input/input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o
+.PHONY : src/input/input.cpp.o
+
+src/input/input.i: src/input/input.cpp.i
+.PHONY : src/input/input.i
+
+# target to preprocess a source file
+src/input/input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.i
+.PHONY : src/input/input.cpp.i
+
+src/input/input.s: src/input/input.cpp.s
+.PHONY : src/input/input.s
+
+# target to generate assembly for a file
+src/input/input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.s
+.PHONY : src/input/input.cpp.s
+
+src/input/yaml/Yaml.o: src/input/yaml/Yaml.cpp.o
+.PHONY : src/input/yaml/Yaml.o
+
+# target to build an object file
+src/input/yaml/Yaml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/input/yaml/Yaml.cpp.o
+.PHONY : src/input/yaml/Yaml.cpp.o
+
+src/input/yaml/Yaml.i: src/input/yaml/Yaml.cpp.i
+.PHONY : src/input/yaml/Yaml.i
+
+# target to preprocess a source file
+src/input/yaml/Yaml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/input/yaml/Yaml.cpp.i
+.PHONY : src/input/yaml/Yaml.cpp.i
+
+src/input/yaml/Yaml.s: src/input/yaml/Yaml.cpp.s
+.PHONY : src/input/yaml/Yaml.s
+
+# target to generate assembly for a file
+src/input/yaml/Yaml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/input/yaml/Yaml.cpp.s
+.PHONY : src/input/yaml/Yaml.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -553,269 +601,29 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-test/boundary/boundary_test.o: test/boundary/boundary_test.cpp.o
-.PHONY : test/boundary/boundary_test.o
+test/test.o: test/test.cpp.o
+.PHONY : test/test.o
 
 # target to build an object file
-test/boundary/boundary_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o
-.PHONY : test/boundary/boundary_test.cpp.o
+test/test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o
+.PHONY : test/test.cpp.o
 
-test/boundary/boundary_test.i: test/boundary/boundary_test.cpp.i
-.PHONY : test/boundary/boundary_test.i
-
-# target to preprocess a source file
-test/boundary/boundary_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.i
-.PHONY : test/boundary/boundary_test.cpp.i
-
-test/boundary/boundary_test.s: test/boundary/boundary_test.cpp.s
-.PHONY : test/boundary/boundary_test.s
-
-# target to generate assembly for a file
-test/boundary/boundary_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.s
-.PHONY : test/boundary/boundary_test.cpp.s
-
-test/cell/cell_test.o: test/cell/cell_test.cpp.o
-.PHONY : test/cell/cell_test.o
-
-# target to build an object file
-test/cell/cell_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o
-.PHONY : test/cell/cell_test.cpp.o
-
-test/cell/cell_test.i: test/cell/cell_test.cpp.i
-.PHONY : test/cell/cell_test.i
+test/test.i: test/test.cpp.i
+.PHONY : test/test.i
 
 # target to preprocess a source file
-test/cell/cell_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.i
-.PHONY : test/cell/cell_test.cpp.i
+test/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.i
+.PHONY : test/test.cpp.i
 
-test/cell/cell_test.s: test/cell/cell_test.cpp.s
-.PHONY : test/cell/cell_test.s
-
-# target to generate assembly for a file
-test/cell/cell_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.s
-.PHONY : test/cell/cell_test.cpp.s
-
-test/cell/sample_test.o: test/cell/sample_test.cpp.o
-.PHONY : test/cell/sample_test.o
-
-# target to build an object file
-test/cell/sample_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o
-.PHONY : test/cell/sample_test.cpp.o
-
-test/cell/sample_test.i: test/cell/sample_test.cpp.i
-.PHONY : test/cell/sample_test.i
-
-# target to preprocess a source file
-test/cell/sample_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.i
-.PHONY : test/cell/sample_test.cpp.i
-
-test/cell/sample_test.s: test/cell/sample_test.cpp.s
-.PHONY : test/cell/sample_test.s
+test/test.s: test/test.cpp.s
+.PHONY : test/test.s
 
 # target to generate assembly for a file
-test/cell/sample_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.s
-.PHONY : test/cell/sample_test.cpp.s
-
-test/collision/collision_test.o: test/collision/collision_test.cpp.o
-.PHONY : test/collision/collision_test.o
-
-# target to build an object file
-test/collision/collision_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o
-.PHONY : test/collision/collision_test.cpp.o
-
-test/collision/collision_test.i: test/collision/collision_test.cpp.i
-.PHONY : test/collision/collision_test.i
-
-# target to preprocess a source file
-test/collision/collision_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.i
-.PHONY : test/collision/collision_test.cpp.i
-
-test/collision/collision_test.s: test/collision/collision_test.cpp.s
-.PHONY : test/collision/collision_test.s
-
-# target to generate assembly for a file
-test/collision/collision_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.s
-.PHONY : test/collision/collision_test.cpp.s
-
-test/main.o: test/main.cpp.o
-.PHONY : test/main.o
-
-# target to build an object file
-test/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o
-.PHONY : test/main.cpp.o
-
-test/main.i: test/main.cpp.i
-.PHONY : test/main.i
-
-# target to preprocess a source file
-test/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.i
-.PHONY : test/main.cpp.i
-
-test/main.s: test/main.cpp.s
-.PHONY : test/main.s
-
-# target to generate assembly for a file
-test/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.s
-.PHONY : test/main.cpp.s
-
-test/mesh/mesh_manager_test.o: test/mesh/mesh_manager_test.cpp.o
-.PHONY : test/mesh/mesh_manager_test.o
-
-# target to build an object file
-test/mesh/mesh_manager_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o
-.PHONY : test/mesh/mesh_manager_test.cpp.o
-
-test/mesh/mesh_manager_test.i: test/mesh/mesh_manager_test.cpp.i
-.PHONY : test/mesh/mesh_manager_test.i
-
-# target to preprocess a source file
-test/mesh/mesh_manager_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.i
-.PHONY : test/mesh/mesh_manager_test.cpp.i
-
-test/mesh/mesh_manager_test.s: test/mesh/mesh_manager_test.cpp.s
-.PHONY : test/mesh/mesh_manager_test.s
-
-# target to generate assembly for a file
-test/mesh/mesh_manager_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.s
-.PHONY : test/mesh/mesh_manager_test.cpp.s
-
-test/move_test.o: test/move_test.cpp.o
-.PHONY : test/move_test.o
-
-# target to build an object file
-test/move_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o
-.PHONY : test/move_test.cpp.o
-
-test/move_test.i: test/move_test.cpp.i
-.PHONY : test/move_test.i
-
-# target to preprocess a source file
-test/move_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.i
-.PHONY : test/move_test.cpp.i
-
-test/move_test.s: test/move_test.cpp.s
-.PHONY : test/move_test.s
-
-# target to generate assembly for a file
-test/move_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.s
-.PHONY : test/move_test.cpp.s
-
-test/output/output_test.o: test/output/output_test.cpp.o
-.PHONY : test/output/output_test.o
-
-# target to build an object file
-test/output/output_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o
-.PHONY : test/output/output_test.cpp.o
-
-test/output/output_test.i: test/output/output_test.cpp.i
-.PHONY : test/output/output_test.i
-
-# target to preprocess a source file
-test/output/output_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.i
-.PHONY : test/output/output_test.cpp.i
-
-test/output/output_test.s: test/output/output_test.cpp.s
-.PHONY : test/output/output_test.s
-
-# target to generate assembly for a file
-test/output/output_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.s
-.PHONY : test/output/output_test.cpp.s
-
-test/particle/particle_test.o: test/particle/particle_test.cpp.o
-.PHONY : test/particle/particle_test.o
-
-# target to build an object file
-test/particle/particle_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o
-.PHONY : test/particle/particle_test.cpp.o
-
-test/particle/particle_test.i: test/particle/particle_test.cpp.i
-.PHONY : test/particle/particle_test.i
-
-# target to preprocess a source file
-test/particle/particle_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.i
-.PHONY : test/particle/particle_test.cpp.i
-
-test/particle/particle_test.s: test/particle/particle_test.cpp.s
-.PHONY : test/particle/particle_test.s
-
-# target to generate assembly for a file
-test/particle/particle_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.s
-.PHONY : test/particle/particle_test.cpp.s
-
-test/simulation/initial_test.o: test/simulation/initial_test.cpp.o
-.PHONY : test/simulation/initial_test.o
-
-# target to build an object file
-test/simulation/initial_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o
-.PHONY : test/simulation/initial_test.cpp.o
-
-test/simulation/initial_test.i: test/simulation/initial_test.cpp.i
-.PHONY : test/simulation/initial_test.i
-
-# target to preprocess a source file
-test/simulation/initial_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.i
-.PHONY : test/simulation/initial_test.cpp.i
-
-test/simulation/initial_test.s: test/simulation/initial_test.cpp.s
-.PHONY : test/simulation/initial_test.s
-
-# target to generate assembly for a file
-test/simulation/initial_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.s
-.PHONY : test/simulation/initial_test.cpp.s
-
-test/simulation/sort_test.o: test/simulation/sort_test.cpp.o
-.PHONY : test/simulation/sort_test.o
-
-# target to build an object file
-test/simulation/sort_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o
-.PHONY : test/simulation/sort_test.cpp.o
-
-test/simulation/sort_test.i: test/simulation/sort_test.cpp.i
-.PHONY : test/simulation/sort_test.i
-
-# target to preprocess a source file
-test/simulation/sort_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.i
-.PHONY : test/simulation/sort_test.cpp.i
-
-test/simulation/sort_test.s: test/simulation/sort_test.cpp.s
-.PHONY : test/simulation/sort_test.s
-
-# target to generate assembly for a file
-test/simulation/sort_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.s
-.PHONY : test/simulation/sort_test.cpp.s
+test/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.s
+.PHONY : test/test.cpp.s
 
 # Help Target
 help:
@@ -857,42 +665,18 @@ help:
 	@echo "... check"
 	@echo "... cabanaDSMC"
 	@echo "... cabanaDSMC_tests"
+	@echo "... src/input/input.o"
+	@echo "... src/input/input.i"
+	@echo "... src/input/input.s"
+	@echo "... src/input/yaml/Yaml.o"
+	@echo "... src/input/yaml/Yaml.i"
+	@echo "... src/input/yaml/Yaml.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... test/boundary/boundary_test.o"
-	@echo "... test/boundary/boundary_test.i"
-	@echo "... test/boundary/boundary_test.s"
-	@echo "... test/cell/cell_test.o"
-	@echo "... test/cell/cell_test.i"
-	@echo "... test/cell/cell_test.s"
-	@echo "... test/cell/sample_test.o"
-	@echo "... test/cell/sample_test.i"
-	@echo "... test/cell/sample_test.s"
-	@echo "... test/collision/collision_test.o"
-	@echo "... test/collision/collision_test.i"
-	@echo "... test/collision/collision_test.s"
-	@echo "... test/main.o"
-	@echo "... test/main.i"
-	@echo "... test/main.s"
-	@echo "... test/mesh/mesh_manager_test.o"
-	@echo "... test/mesh/mesh_manager_test.i"
-	@echo "... test/mesh/mesh_manager_test.s"
-	@echo "... test/move_test.o"
-	@echo "... test/move_test.i"
-	@echo "... test/move_test.s"
-	@echo "... test/output/output_test.o"
-	@echo "... test/output/output_test.i"
-	@echo "... test/output/output_test.s"
-	@echo "... test/particle/particle_test.o"
-	@echo "... test/particle/particle_test.i"
-	@echo "... test/particle/particle_test.s"
-	@echo "... test/simulation/initial_test.o"
-	@echo "... test/simulation/initial_test.i"
-	@echo "... test/simulation/initial_test.s"
-	@echo "... test/simulation/sort_test.o"
-	@echo "... test/simulation/sort_test.i"
-	@echo "... test/simulation/sort_test.s"
+	@echo "... test/test.o"
+	@echo "... test/test.i"
+	@echo "... test/test.s"
 .PHONY : help
 
 

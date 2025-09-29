@@ -16,11 +16,11 @@ void sample(
 {
     auto sample_utility= std::make_tuple(samplings...);
 
-    // std::apply(
-    //     [&](const auto&... sampling){
-    //         (sampling.accumulate(particle_list, cell_data, species_list), ...);
-    //     }, sample_utility);
-    (samplings.accumulate(particle_list, cell_data, species_list), ...);
+    std::apply(
+        [&](const auto&... sampling){
+            (sampling.accumulate(particle_list, cell_data, species_list), ...);
+        }, sample_utility);
+    // (samplings.accumulate(particle_list, cell_data, species_list), ...);
     
     if(current_step % average_steps == 0 && current_step !=0){
         std::apply(

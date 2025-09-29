@@ -20,6 +20,8 @@ namespace Field{
     struct CellID : Cabana::Field::Vector<u_int32_t, 3> {static std::string label() { return "cell id"; }};
 
     struct IsActive : Cabana::Field::Scalar<bool> {static std::string label() { return "if valid"; }};
+
+    struct RemainTime : Cabana::Field::Scalar<double> {static std::string label() {return "particle remain fly time";}};
 }
 
     template<class MemorySpace, uint32_t VectorLength = 16>
@@ -31,7 +33,8 @@ namespace Field{
                                                     Field::SpeciesID,
                                                     Field::GlobalID,
                                                     Field::CellID,
-                                                    Field::IsActive>;
+                                                    Field::IsActive,
+                                                    Field::RemainTime>;
     template<class MemorySpace, uint32_t VectorLength = 16>
     using ParticleList = Cabana::ParticleList<MemorySpace, VectorLength,
                                                     Field::Position,
@@ -41,13 +44,14 @@ namespace Field{
                                                     Field::SpeciesID,
                                                     Field::GlobalID,
                                                     Field::CellID,
-                                                    Field::IsActive>;
+                                                    Field::IsActive,
+                                                    Field::RemainTime>;
     struct Species{
-        double mass;
-        double diameter;
-        double omega;
-        double Tref;
-        uint32_t Zrot;
+        double mass {};
+        double diameter {};
+        double omega {};
+        double Tref {};
+        uint32_t Zrot {};
     };
 
     template<class MemorySpace>

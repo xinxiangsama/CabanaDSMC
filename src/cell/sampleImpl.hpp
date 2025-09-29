@@ -26,18 +26,18 @@ public:
         const particle_list_type& particle_list,
         const std::shared_ptr<cell_data_type>& cell_data,
         const species_list_type& species_list
-    )
+    ) const
     {
-        static_cast<Derived*>(this)->accumulateImpl(particle_list, cell_data, species_list);
+        static_cast<const Derived*>(this)->accumulateImpl(particle_list, cell_data, species_list);
     }
     
  
     void finalize(
         const std::shared_ptr<cell_data_type>& cell_data,
         const uint32_t& average_steps 
-    )
+    ) const
     {
-        static_cast<Derived*>(this)->finalizeImpl(cell_data, average_steps);
+        static_cast<const Derived*>(this)->finalizeImpl(cell_data, average_steps);
     }
     
 protected:
@@ -66,7 +66,7 @@ public:
         const particle_list_type& particle_list,
         const std::shared_ptr<cell_data_type>& cell_data,
         const species_list_type& species_list
-    )
+    ) const
     {
         // Get local grid and arrays
         auto local_grid = cell_data->localgrid();
@@ -95,7 +95,7 @@ public:
                 scalar_type E_sum {}; 
                 scalar_type M_sum {};
 
-                for(int i = 0; i < particle_num; ++i){
+                for(uint64_t i = 0; i < particle_num; ++i){
                     auto particle = particle_list.getParticle(particle_offset_idx + i);
                     scalar_type velocity[3];
                     for(uint16_t d = 0; d < 3; ++d){
@@ -119,9 +119,20 @@ public:
 
                     M_sum += species_list(species_id).mass * fn;
                 }
-
+                scalar_type E_avg = E_sum / particle_num;
                 density_view(i, j, k, 0) += M_sum / volume;
-                velocity_view(i, j, k, 0) += V_sum[0] / particle_num;
+                // velocity_view(i, j, k, 0) += V_sum[0] / particle_num;
+                scalar_type V_avg[3];
+                for(int d = 0 ; d < 3; ++d){
+                    V_avg[d] = V_sum[d] / particle_num;
+                    velocity_view(i, j, k, d) += V_avg[d];
+                }
+                constexpr double kB = 1.380649e-23; // m2 kg s-2 K-1
+                scalar_type V_avg_sq = 0.5 * (V_avg[0] * V_avg[0]
+                                            + V_avg[1] * V_avg[1]
+                                            + V_avg[2] * V_avg[2]);
+                temperature_view(i, j, k, 0) += species_list(0).mass * (2.0/3.0) * (E_avg - V_avg_sq) / kB;
+
             }
         );
     }
@@ -130,7 +141,7 @@ public:
     void finalizeImpl(
         const std::shared_ptr<cell_data_type>& cell_data,
         const uint32_t& average_steps
-    )
+    ) const
     {
         if (average_steps == 0) return;
         

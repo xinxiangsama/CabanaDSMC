@@ -7,12 +7,12 @@ namespace CabanaDSMC{
 
 template<class Scalar, int dim>
 struct FieldInitData{
-    Scalar velocity [dim];
-    Scalar temperature;
-    Scalar density;
-    Scalar time_step;
-    u_int64_t Fn; // one simulation particle represents Fn real particles
-    Scalar max_collision_rate;
+    Scalar velocity [dim] {};
+    Scalar temperature {};
+    Scalar density {};
+    Scalar time_step {};
+    u_int64_t Fn {}; // one simulation particle represents Fn real particles
+    Scalar max_collision_rate {};
 };
 
 
@@ -211,12 +211,12 @@ void initializeField(
 
     // initalize num particles
     // assume only one species for now
-    auto species = species_list(0);
 
     Cabana::Grid::grid_parallel_for("initialize num particles", 
         ExecutionSpace {},
         owned_cells,
         KOKKOS_LAMBDA(const int i, const int j, const int k){
+            auto species = species_list(0);
             // compute num particles in each cell
             double volume_cell = volume(i,j,k,0);
             double n = density(i,j,k,0) / species.mass; // number density
@@ -262,6 +262,8 @@ struct ParticleFactory
 
         Cabana::get(particle, Particle::Field::GlobalID()) = pid;
         Cabana::get(particle, Particle::Field::IsActive()) = true;
+
+        Cabana::get(particle, Particle::Field::RemainTime()) = 0.0;
 
         return true;
     }

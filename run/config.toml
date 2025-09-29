@@ -1,0 +1,59 @@
+[global]
+dt = 1.0e-6
+steps = 10000
+seed = 123456
+
+
+[grid]
+cells = [256, 256, 256]
+low_corner = [0.0, 0.0, 0.0]
+high_corner = [1.0, 1.0, 1.0]
+periodic = [false, false , false]
+halo_cell_width = 2
+
+[initial]
+velocity = [0.0, 0.0, 0.0]
+temperature = 273
+density = 9.282e-6
+Fn = 4e10
+max_collision_rate = 1.0e-20
+
+[[boundary]]
+type = "periodic"
+axis = "x"
+slide = "min"
+
+[[boundary]]
+type = "periodic"
+axis = "x"
+slide = "max"
+
+[[boundary]]
+type = "periodic"
+axis = "y"
+slide = "min"
+
+[[boundary]]
+type = "periodic"
+axis = "y"
+slide = "max"
+
+[[boundary]]
+type = "periodic"
+axis = "z"
+slide = "min"
+
+[[boundary]]
+type = "periodic"
+axis = "z"
+slide = "max"
+
+
+
+[[species]]
+name = "Argon"
+mass = 6.63e-26
+diam = 4.17e-10
+omega = 0.81
+Tref = 273
+Zrot = 0

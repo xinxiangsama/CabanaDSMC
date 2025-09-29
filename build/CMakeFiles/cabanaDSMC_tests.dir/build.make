@@ -69,201 +69,41 @@ include CMakeFiles/cabanaDSMC_tests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cabanaDSMC_tests.dir/flags.make
 
-CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/boundary/boundary_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/boundary/boundary_test.cpp
+CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
+CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/test.cpp
+CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o"
+	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/test.cpp
 
-CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/boundary/boundary_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.i
+CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.i
 
-CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/boundary/boundary_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/cell_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/cell_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/cell_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/cell_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/sample_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/sample_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/sample_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/cell/sample_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/collision/collision_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/collision/collision_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/collision/collision_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/collision/collision_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/main.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/main.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/main.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/main.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/mesh/mesh_manager_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/mesh/mesh_manager_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/mesh/mesh_manager_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/mesh/mesh_manager_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/move_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/move_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/move_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/move_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/output/output_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/output/output_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/output/output_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/output/output_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/particle/particle_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/particle/particle_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/particle/particle_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/particle/particle_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/initial_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/initial_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/initial_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/initial_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.s
-
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/flags.make
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/sort_test.cpp
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o: CMakeFiles/cabanaDSMC_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o"
-	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o -MF CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o.d -o CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/sort_test.cpp
-
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/sort_test.cpp > CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.i
-
-CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/simulation/sort_test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.s
+CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/test/test.cpp -o CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.s
 
 # Object files for target cabanaDSMC_tests
 cabanaDSMC_tests_OBJECTS = \
-"CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o" \
-"CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o"
+"CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o"
 
 # External object files for target cabanaDSMC_tests
 cabanaDSMC_tests_EXTERNAL_OBJECTS =
 
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/boundary/boundary_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/cell/cell_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/cell/sample_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/collision/collision_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/mesh/mesh_manager_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/move_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/output/output_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/particle/particle_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/simulation/initial_test.cpp.o
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/simulation/sort_test.cpp.o
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/test/test.cpp.o
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/build.make
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/lib/libCatch2.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /home/xinxiangsama/local/kokkos/lib/libkokkoscontainers.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /home/xinxiangsama/local/kokkos/lib/libkokkosalgorithms.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /home/xinxiangsama/local/kokkos/lib/libkokkossimd.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /home/xinxiangsama/local/kokkos/lib/libkokkoscore.a
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/local/cuda-12.9/targets/x86_64-linux/lib/stubs/libcuda.so
-/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/local/cuda-12.9/targets/x86_64-linux/lib/libcudart.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/local/cuda-13.0/targets/x86_64-linux/lib/stubs/libcuda.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/local/cuda-13.0/targets/x86_64-linux/lib/libcudart.so
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /usr/lib/x86_64-linux-gnu/libpthread.a
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: /home/xinxiangsama/local/openmpi/lib/libmpi.so
 /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests: CMakeFiles/cabanaDSMC_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cabanaDSMC_tests.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -D TEST_TARGET=cabanaDSMC_tests -D TEST_EXECUTABLE=/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/xinxiangsama/dsmc/CabanaDSMC/build -D TEST_SPEC= -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_LIST=cabanaDSMC_tests_TESTS -D TEST_REPORTER= -D TEST_OUTPUT_DIR= -D TEST_OUTPUT_PREFIX= -D TEST_OUTPUT_SUFFIX= -D TEST_DL_PATHS= -D CTEST_FILE=/home/xinxiangsama/dsmc/CabanaDSMC/build/cabanaDSMC_tests_tests-b12d07c.cmake -P /usr/lib/cmake/Catch2/CatchAddTests.cmake
 
