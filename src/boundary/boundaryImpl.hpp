@@ -4,6 +4,32 @@
 #include "../particle.hpp"
 namespace CabanaDSMC{
 namespace Boundary{
+
+enum class BoundaryType{
+    Inflow,
+    Outflow,
+    Wall,
+    MaxwellWall,
+    Periodic
+};
+
+static const std::unordered_map<std::string, BoundaryType> boundaryTypedict = {
+    {"wall", BoundaryType::Wall},
+    {"periodic", BoundaryType::Periodic},
+    {"maxwellwall", BoundaryType::MaxwellWall}
+};
+
+
+template<class ScalarType>
+struct BoundaryConfig {
+    using scalar_type = ScalarType;
+
+    BoundaryType boundary_type ;
+    scalar_type position;
+    scalar_type normal [3];
+    scalar_type temperature;
+};
+
 template<class Derived, class Scalar, class ParticleType>
 class BoudnaryBase{
 public:
@@ -52,7 +78,7 @@ public:
     PeriodicBoundary(const scalar_type& position, const scalar_type normal[3], const scalar_type domain_extent[3], const scalar_type& start, const scalar_type& end)
         : base_type(position, normal, domain_extent, start, end)
     {}
-
+    PeriodicBoundary() = default;
     KOKKOS_INLINE_FUNCTION
     void applyImpl(particle_type& particle) const
     {   
@@ -97,6 +123,7 @@ public:
     using particle_type = ParticleType;
     WallBoundary(const scalar_type& position, const scalar_type normal[3], const scalar_type domain_extent[3], const scalar_type& start, const scalar_type& end, const scalar_type& temperature) : base_type(position, normal, domain_extent, start, end), _temperature(temperature)
     {}
+    WallBoundary() = default;
     KOKKOS_INLINE_FUNCTION
     bool checkIfHitBoundaryImpl(const particle_type& particle) const
     {
@@ -167,40 +194,74 @@ template <class Scalar, class ParticleType, class MeshType>
 requires is_boundary<PeriodicBoundary<Scalar, ParticleType>>::value
 struct BoundaryFactory<PeriodicBoundary<Scalar, ParticleType>, MeshType>
 {
-    using boundary_type = PeriodicBoundary<Scalar, ParticleType>;
-    using scalar_type = Scalar;
-    using particle_type = ParticleType;
+    using boundary_type   = PeriodicBoundary<Scalar, ParticleType>;
+    using scalar_type     = Scalar;
+    using particle_type   = ParticleType;
     using global_mesh_type = Cabana::Grid::GlobalMesh<MeshType>;
+
     static boundary_type create(
-        const Scalar& position, const Scalar normal[3], const std::shared_ptr<global_mesh_type>& global_mesh, const Scalar& start = -std::numeric_limits<Scalar>::infinity(), const Scalar& end = std::numeric_limits<Scalar>::infinity(), const Scalar& Temperature = 0.0)
-    {   
+        const Scalar& position, const Scalar normal[3],
+        const std::shared_ptr<global_mesh_type>& global_mesh,
+        const Scalar& start = -std::numeric_limits<Scalar>::infinity(),
+        const Scalar& end   =  std::numeric_limits<Scalar>::infinity(),
+        const Scalar& Temperature = 0.0)
+    {
         Scalar domain_extent[3];
         domain_extent[0] = global_mesh->extent(0);
         domain_extent[1] = global_mesh->extent(1);
         domain_extent[2] = global_mesh->extent(2);
         return boundary_type(position, normal, domain_extent, start, end);
     }
-};
 
+    static boundary_type create(
+        const BoundaryConfig<Scalar>& cfg,
+        const std::shared_ptr<global_mesh_type>& global_mesh)
+    {
+        return create(cfg.position, cfg.normal, global_mesh,
+                      -std::numeric_limits<Scalar>::infinity(),
+                       std::numeric_limits<Scalar>::infinity(),
+                       cfg.temperature);
+    }
+};
 
 
 template <class Scalar, class ParticleType, class MeshType>
 requires is_boundary<WallBoundary<Scalar, ParticleType>>::value
 struct BoundaryFactory<WallBoundary<Scalar, ParticleType>, MeshType>
 {
-    using boundary_type = WallBoundary<Scalar, ParticleType>;
-    using scalar_type = Scalar;
-    using particle_type = ParticleType;
+    using boundary_type   = WallBoundary<Scalar, ParticleType>;
+    using scalar_type     = Scalar;
+    using particle_type   = ParticleType;
     using global_mesh_type = Cabana::Grid::GlobalMesh<MeshType>;
+
     static boundary_type create(
-        const Scalar& position, const Scalar normal[3], const std::shared_ptr<global_mesh_type>& global_mesh, const Scalar& start = -std::numeric_limits<Scalar>::infinity(), const Scalar& end = std::numeric_limits<Scalar>::infinity(), const Scalar& Temperature = 0.0)
-    {   
+        const Scalar& position, const Scalar normal[3],
+        const std::shared_ptr<global_mesh_type>& global_mesh,
+        const Scalar& start = -std::numeric_limits<Scalar>::infinity(),
+        const Scalar& end   =  std::numeric_limits<Scalar>::infinity(),
+        const Scalar& Temperature = 0.0)
+    {
         Scalar domain_extent[3];
         domain_extent[0] = global_mesh->extent(0);
         domain_extent[1] = global_mesh->extent(1);
         domain_extent[2] = global_mesh->extent(2);
         return boundary_type(position, normal, domain_extent, start, end, Temperature);
     }
+
+    static boundary_type create(
+        const BoundaryConfig<Scalar>& cfg,
+        const std::shared_ptr<global_mesh_type>& global_mesh)
+    {
+        return create(cfg.position, cfg.normal, global_mesh,
+                      -std::numeric_limits<Scalar>::infinity(),
+                       std::numeric_limits<Scalar>::infinity(),
+                       cfg.temperature);
+    }
 };
+
+
+
+
+
 }
 }

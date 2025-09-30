@@ -1,8 +1,10 @@
 #pragma once
 #include "../simulation/initialize.hpp"
 #include "../particle.hpp"
+#include "../mesh/mesh.hpp"
 #include "../../run/user.hpp"
-#include "yaml/Yaml.hpp"
+#include  "../boundary/boundary.hpp"
+#include <yaml-cpp/yaml.h>
 namespace CabanaDSMC{
 namespace Input{
 
@@ -12,10 +14,18 @@ struct SimulationConfig{
     using scalar_type = UserSpecfic::scalar_type;
     using exec_space = UserSpecfic::exec_space;
     using memory_space = UserSpecfic::memory_space;
-    using h_meory_space = Kokkos::DefaultHostExecutionSpace::memory_space;
+    using h_memory_space = Kokkos::DefaultHostExecutionSpace::memory_space;
+    using h_species_list_type = Particle::SpeciesList<h_memory_space>;
+    using boundary_config_type = Boundary::BoundaryConfig<scalar_type>;
 
     FieldInitData<scalar_type, dim> initial;
-    Particle::SpeciesList<h_meory_space> species_list;
+    Mesh::MeshConfig<scalar_type, dim> mesh_config;
+    std::array<boundary_config_type, dim * 2> boundary_config;
+    h_species_list_type species_list;
+
+    uint8_t seed;
+    size_t steps;
+    scalar_type dt;
 };
 
 class InputReader{

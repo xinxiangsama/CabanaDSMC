@@ -1,6 +1,6 @@
 # 全局模拟参数
 global:
-  dt: 1.0e-6
+  dt: 1.0e-5
   steps: 10000
   seed: 123456
 
@@ -14,31 +14,39 @@ grid:
 
 # 初始条件
 initial:
-  velocity: [0.0, 0.0, 0.0]
+  velocity: [100.0, 0.0, 0.0]
   temperature: 273
   density: 9.282e-6
-  Fn: 4.0e10
+  Fn: 8000000000000
+
   max_collision_rate: 1.0e-20
 
+# even though boundary type is static
 boundary:
   - type: "periodic"
     axis: "x"
     slide: "min"
+    temperature: 273
   - type: "periodic"
     axis: "x"
     slide: "max"
+    temperature: 273
   - type: "periodic"
     axis: "y"
     slide: "min"
+    temperature: 273
   - type: "periodic"
     axis: "y"
     slide: "max"
+    temperature: 273
   - type: "periodic"
     axis: "z"
     slide: "min"
+    temperature: 273
   - type: "periodic"
     axis: "z"
     slide: "max"
+    temperature: 273
 
 species:
   - name: "Argon"
@@ -47,3 +55,10 @@ species:
     omega: 0.81
     Tref: 273
     Zrot: 0
+    
+  - name: "N2"
+    mass: 4.6517e-26      # kg/molecule  (28.0134 g/mol / N_A)
+    diam: 4.17e-10        # 有效碰撞直径，仍可用 4.17 Å（与 Ar 相同量级）
+    omega: 0.74           # 粘度-温度指数（VHS/VSS 模型推荐 0.74）
+    Tref: 273             # K
+    Zrot: 5               # 298 K 附近的旋转松弛碰撞数（文献 4~6，取 5）

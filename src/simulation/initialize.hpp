@@ -159,6 +159,7 @@ int createParticles(
 
 template<class ExecutionSpace, class FieldInitDataType, class CellDataType>
 void initializeField(
+    const ExecutionSpace& ,
     const FieldInitDataType& field_data,
     const std::shared_ptr<CellDataType>& cell_data,
     const Particle::SpeciesList<typename CellDataType::memory_space>& species_list

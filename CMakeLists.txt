@@ -46,6 +46,11 @@ message(STATUS "Found Cabana.")
 # find_package(ArborX REQUIRED)
 # message(STATUS "Found ArborX.")
 
+# yaml cpp依赖
+set(yaml-cpp_ROOT "${LOCAL_LIB_DIR}/yaml_cpp" CACHE PATH "Root directory of yaml cpp installation")
+find_package(yaml-cpp REQUIRED)
+message(STATUS "Found yaml-cpp.")
+
 # ====================================================================
 # 第三方库配置
 # ====================================================================
@@ -96,7 +101,7 @@ target_link_libraries(cabanaDSMC PUBLIC Kokkos::kokkos)
 target_link_libraries(cabanaDSMC PUBLIC Cabana::Grid)
 
 # 链接其他库和MPI
-target_link_libraries(cabanaDSMC PUBLIC ${LINK_LIBS} MPI::MPI_CXX Catch2::Catch2)
+target_link_libraries(cabanaDSMC PUBLIC ${LINK_LIBS} MPI::MPI_CXX Catch2::Catch2 yaml-cpp::yaml-cpp)
 
 # ====================================================================
 # 编译和链接选项

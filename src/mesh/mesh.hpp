@@ -1,6 +1,5 @@
 #pragma once
 #include <Cabana_Grid.hpp>
-
 /*
 mesh is contain geometry infomation,
 grid is contain topological infomation
@@ -10,6 +9,20 @@ grid is contain topological infomation
 namespace CabanaDSMC{
 namespace Mesh{
 using namespace Cabana::Grid;
+
+
+template <class ScalarType, std::size_t Dim>
+struct MeshConfig
+{   
+    using scalar_type = ScalarType;
+    static constexpr size_t dim = Dim;
+
+    std::array<scalar_type, dim> global_low_corner;
+    std::array<scalar_type, dim> global_high_corner;
+    std::array<int, dim> global_num_cell;
+    std::array<bool, dim> periodic;
+    uint8_t halo_cell_width;
+};
 
 template<class MeshType>
 struct GlobalMeshFactory 
@@ -66,6 +79,7 @@ public:
     using global_grid_type = Cabana::Grid::GlobalGrid<MeshType>;
     using local_grid_type = Cabana::Grid::LocalGrid<MeshType>;
     using local_mesh_type = Cabana::Grid::LocalMesh<MemorySpace, MeshType>;
+    using mesh_config_type = MeshConfig<scalar_type, num_space_dim>;
 
     MeshManager(
         const std::array<scalar_type, num_space_dim>& global_low_corner,
@@ -101,6 +115,9 @@ public:
         // create local mesh
         m_local_mesh = std::make_shared<local_mesh_type>(*m_local_grid);
     }
+    MeshManager(const mesh_config_type& config) :
+    MeshManager(config.global_low_corner, config.global_high_corner, config.global_num_cell, MPI_COMM_WORLD, config.periodic,  config.halo_cell_width)
+    {}
     auto getGlobalMesh() const { return m_global_mesh; }
     auto getGlobalGrid() const { return m_global_grid; }
     auto getLocalGrid() const { return m_local_grid; }

@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
             MPI_Comm_rank(MPI_COMM_WORLD, &rank);
             if (rank == 0) {
                 fprintf(stderr, "Error: No input file provided.\n");
-                fprintf(stderr, "Usage: %s <config.toml>\n", argv[0]);
+                fprintf(stderr, "Usage: %s <config.yaml>\n", argv[0]);
             }
             MPI_Finalize();
             return EXIT_FAILURE;
@@ -27,8 +27,8 @@ int main(int argc, char* argv[])
         std::string input_file = argv[1];
         auto config = CabanaDSMC::Input::InputReader::read(input_file);
 
-        CabanaDSMC::Run run{};
-        run.init();
+        CabanaDSMC::Run<CabanaDSMC::UserSpecfic::exec_space> run{};
+        run.init(config);
         run.run();
     }
     MPI_Finalize();

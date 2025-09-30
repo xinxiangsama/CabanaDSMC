@@ -2,16 +2,12 @@
 #include <Cabana_Grid.hpp>
 #include <Kokkos_Core.hpp>
 #include "boundaryImpl.hpp"
+#include "../../run/user.hpp"
+
 namespace CabanaDSMC{
 namespace Boundary{
 
-enum class BoundaryType{
-    Inflow,
-    Outflow,
-    Wall,
-    MaxwellWall,
-    Periodic
-};
+
 
 // fot manager all the boundary(complex) in the simulation field
 template <class MemorySpace, class MeshType = Cabana::Grid::UniformMesh<double, 3>, uint16_t NumBoundary = 6>
@@ -52,6 +48,34 @@ template<class... BoundaryTypes>
 auto makeComplexBoundary(const BoundaryTypes &... boundaries)
 {
     return ComplexBoundary<BoundaryTypes...>(std::make_tuple(boundaries...));
+}
+
+
+template<class Scalar, class ParticleType, class MeshType>
+UserSpecfic::boundaryVariant_t createBoundary(const BoundaryConfig<Scalar>& cfg,
+                    const std::shared_ptr<Cabana::Grid::GlobalMesh<MeshType>>& global_mesh)
+{
+    switch (cfg.boundary_type)
+    {
+        case BoundaryType::Periodic:
+        {
+            return BoundaryFactory<PeriodicBoundary<Scalar, ParticleType>, MeshType>::create(
+                cfg.position, cfg.normal, global_mesh);
+        }
+
+        case BoundaryType::Wall:
+        {
+            return BoundaryFactory<WallBoundary<Scalar, ParticleType>, MeshType>::create(
+                cfg.position, cfg.normal, global_mesh,
+                -std::numeric_limits<Scalar>::infinity(),
+                 std::numeric_limits<Scalar>::infinity(),
+                 cfg.temperature);
+        }
+
+            // TODO: 以后可以加 MaxwellWall, Inflow, Outflow
+        default:
+            throw std::runtime_error("Unsupported boundary type in createBoundary()");
+    }
 }
 }
 

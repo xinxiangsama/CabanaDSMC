@@ -112,12 +112,12 @@ clean: CMakeFiles/check.dir/clean
 CMakeFiles/cabanaDSMC.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC.dir/build.make CMakeFiles/cabanaDSMC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=1,2,3,4 "Built target cabanaDSMC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=1,2,3 "Built target cabanaDSMC"
 .PHONY : CMakeFiles/cabanaDSMC.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cabanaDSMC.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cabanaDSMC.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles 0
 .PHONY : CMakeFiles/cabanaDSMC.dir/rule
@@ -866,7 +866,7 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 CMakeFiles/cabanaDSMC_tests.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=5,6 "Built target cabanaDSMC_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=4,5 "Built target cabanaDSMC_tests"
 .PHONY : CMakeFiles/cabanaDSMC_tests.dir/all
 
 # Build rule for subdir invocation for target.

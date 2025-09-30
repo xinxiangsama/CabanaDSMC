@@ -14,7 +14,6 @@ void moveParticles(
 {   
     using memory_space = typename ParticleListType::memory_space;
     using boundary_tuple_type = std::tuple<BoundaryTypes...>;
-
     // if constexpr (sizeof...(BoundaryTypes) > 0){
     //     boundary_conditions = std::make_tuple(boundaries...);
     // }
@@ -24,7 +23,7 @@ void moveParticles(
     const auto& global_grid = local_grid->globalGrid();
 
     //get local set of owned cell indices
-    auto owned_cells = local_grid->indexSpace( Cabana::Grid::Own(), Cabana::Grid::Cell(), Cabana::Grid::Local() );
+    // auto owned_cells = local_grid->indexSpace( Cabana::Grid::Own(), Cabana::Grid::Cell(), Cabana::Grid::Local() );
 
     // get particle data view
     auto position = particle_list.slice(Particle::Field::Position {});

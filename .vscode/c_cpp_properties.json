@@ -9,7 +9,8 @@
                 "/usr/local/cuda-13.0/include",
                 "~/local/openmpi/include",
                 "/usr/include/",
-                "/usr/local/cuda-13.0/targets/x86_64-linux/include/cccl"
+                "/usr/local/cuda-13.0/targets/x86_64-linux/include/cccl",
+                "~/local/yaml_cpp/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
