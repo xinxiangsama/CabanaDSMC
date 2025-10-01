@@ -108,7 +108,7 @@ target_link_libraries(cabanaDSMC PUBLIC ${LINK_LIBS} MPI::MPI_CXX Catch2::Catch2
 # ====================================================================
 # 通用编译选项
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall --expt-relaxed-constexpr")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall ")
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall")
 endif()

@@ -13,7 +13,7 @@ constexpr size_t dim = 3;
 
 using scalar_type = double;
 
-using exec_space = Kokkos::DefaultExecutionSpace;
+using exec_space = Kokkos::DefaultHostExecutionSpace;
 using memory_space = exec_space::memory_space;
 
 using mesh_type = Cabana::Grid::UniformMesh<scalar_type, dim>;

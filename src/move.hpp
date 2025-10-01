@@ -12,8 +12,8 @@ void moveParticles(
     const BoundaryTypes&... boundaries
 )
 {   
-    using memory_space = typename ParticleListType::memory_space;
-    using boundary_tuple_type = std::tuple<BoundaryTypes...>;
+    // using memory_space = typename ParticleListType::memory_space;
+    // using boundary_tuple_type = std::tuple<BoundaryTypes...>;
     // if constexpr (sizeof...(BoundaryTypes) > 0){
     //     boundary_conditions = std::make_tuple(boundaries...);
     // }

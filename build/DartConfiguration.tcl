@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/xinxiangsama/dsmc/CabanaDSMC
-BuildDirectory: /home/xinxiangsama/dsmc/CabanaDSMC/build
+SourceDirectory: /home/xinxiangsama/CabanaDSMC
+BuildDirectory: /home/xinxiangsama/CabanaDSMC/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: xinxiangsama-MS-7D91
+Site: xinxiangsama-Z97N-WIFI
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/xinxiangsama/dsmc/CabanaDSMC"
-MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/opt/clion/bin/cmake/linux/x64/bin/cmake" "/home/xinxiangsama/CabanaDSMC"
+MakeCommand: /opt/clion/bin/cmake/linux/x64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -76,7 +76,7 @@ CudaSanitizerCommand:
 CudaSanitizerCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: /usr/local/cuda-13.0/bin/compute-sanitizer
+MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 
@@ -94,6 +94,9 @@ TimeOut: 1500
 # During parallel testing CTest will not start a new test if doing
 # so would cause the system load to exceed this value.
 TestLoad: 
+
+TLSVerify: 
+TLSVersion: 
 
 UseLaunchers: 
 CurlOptions: 

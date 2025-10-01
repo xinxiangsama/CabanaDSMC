@@ -45,7 +45,7 @@ void collide(
             int i_own = i - owned_cells.min( Cabana::Grid::Dim::I );
             int j_own = j - owned_cells.min( Cabana::Grid::Dim::J );
             int k_own = k - owned_cells.min( Cabana::Grid::Dim::K );
-            int ijk [3] = {i_own, j_own, k_own};
+            // int ijk [3] = {i_own, j_own, k_own};
             int cell_id =
                 i_own + owned_cells.extent( Cabana::Grid::Dim::I ) *
                             ( j_own + k_own * owned_cells.extent( Cabana::Grid::Dim::J ) );
@@ -74,7 +74,7 @@ void collide(
             //        i, j, k, np, offset_idx, delta_t, srcmax, cell_volume, cell_fn, expected_num_collision);
 
             int num_collision = static_cast<int>(expected_num_collision);
-            double prob_collision = expected_num_collision - num_collision;
+            // double prob_collision = expected_num_collision - num_collision;
             if(num_collision < 0) return; // no particles or no collision
             // Random number generator.
             auto rand = pool.get_state( cell_id );

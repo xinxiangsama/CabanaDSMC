@@ -1,5 +1,6 @@
+#define STLLOADER_IMPLEMENTATION
 #include "input.hpp"
-
+#include "stlloader.h"
 using namespace CabanaDSMC::Input;
 
 SimulationConfig InputReader::read(const std::string &filename)
@@ -136,5 +137,37 @@ SimulationConfig InputReader::read(const std::string &filename)
                     << ")" << std::endl;
         }
     }
+
+    // -------------------------------
+    // stl
+    // -------------------------------
+    auto stl = root["geo"];
+    config.h_stl = readStl(stl["filepath"].as<std::string>());
+
     return config;
+}
+
+InputReader::h_stl_type InputReader::readStl(const std::string& filename)
+{
+    stlloader::Mesh mesh {};
+    stlloader::parse_file(filename.c_str(), mesh);
+
+    auto tri_num = mesh.facets.size();
+
+    h_stl_type stl {"host stl", tri_num};
+
+    size_t i {};
+    for(const auto & facet : mesh.facets) {
+        stl(i).normal[0] = facet.normal.x;
+        stl(i).normal[1] = facet.normal.y;
+        stl(i).normal[2] = facet.normal.z;
+        for(int vi = 0; vi < 3; ++vi) {
+            stl(i).points[vi].x() = facet.vertices[vi].x;
+            stl(i).points[vi].y() = facet.vertices[vi].y;
+            stl(i).points[vi].z() = facet.vertices[vi].z;
+        }
+        i ++;
+    }
+
+    return stl;
 }
