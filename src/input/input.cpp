@@ -158,9 +158,9 @@ InputReader::h_stl_type InputReader::readStl(const std::string& filename)
 
     size_t i {};
     for(const auto & facet : mesh.facets) {
-        stl(i).normal[0] = facet.normal.x;
-        stl(i).normal[1] = facet.normal.y;
-        stl(i).normal[2] = facet.normal.z;
+        stl(i).normal.x() = facet.normal.x;
+        stl(i).normal.y() = facet.normal.y;
+        stl(i).normal.z() = facet.normal.z;
         for(int vi = 0; vi < 3; ++vi) {
             stl(i).points[vi].x() = facet.vertices[vi].x;
             stl(i).points[vi].y() = facet.vertices[vi].y;

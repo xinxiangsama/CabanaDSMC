@@ -8,7 +8,7 @@ import trimesh
 SPHERE_CENTER = [0.5, 0.5, 0.5]
 
 # 2. 设置球体半径
-SPHERE_RADIUS = 0.1
+SPHERE_RADIUS = 0.2
 
 # 3. 设置球体精细度 (细分次数)
 #    0 = 20个面 (二十面体)
@@ -16,7 +16,7 @@ SPHERE_RADIUS = 0.1
 #    2 = 320个面
 #    3 = 1280个面 (默认，效果不错)
 #    4 = 5120个面 (非常平滑)
-SUBDIVISIONS = 3
+SUBDIVISIONS = 2
 
 # 4. 设置输出文件名
 OUTPUT_FILENAME = "../run/sphere.stl"

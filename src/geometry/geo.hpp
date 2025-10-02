@@ -1,8 +1,6 @@
 #pragma once
 #include <Cabana_Core.hpp>
 
-#include "../../run/user.hpp"
-
 namespace CabanaDSMC{
 namespace Geometry {
 
@@ -83,9 +81,13 @@ struct Triangle {
     using scalar_type = Scalar;
     static constexpr size_t dim = Dim;
     using point_type = Point<Scalar, dim>;
+    KOKKOS_INLINE_FUNCTION
+    auto vertices() const {
+        return points;
+    }
 
     std::array<point_type, dim> points;
-    std::array<scalar_type, dim> normal;
+    point_type normal;
 };
 
 //--------------------------
@@ -100,6 +102,110 @@ struct Segment {
 
     std::array<point_type, 2> points;
 
+    KOKKOS_INLINE_FUNCTION
+    auto vertices() const {
+        return points;
+    }
+
+};
+
+//--------------------------
+// Square (as a 2D or 3D Quad)
+//--------------------------
+template<class Scalar, size_t Dim>
+requires (Dim == 2 || Dim == 3)
+struct Square {
+    using scalar_type = Scalar;
+    static constexpr size_t dim = Dim;
+    using point_type = Point<Scalar, Dim>;
+    using segment_type = Segment<Scalar, Dim>;
+
+    std::array<point_type, 4> _vertices;
+
+    KOKKOS_INLINE_FUNCTION
+    auto vertices() const {
+        return _vertices;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    segment_type edge(int idx) const
+    {
+        segment_type s;
+        s.points[0] = _vertices[idx];
+        s.points[1] = _vertices[(idx + 1) % 4];
+        return s;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    point_type center() const
+    {
+        point_type c;
+        for (size_t d = 0; d < dim; ++d)
+        {
+            c.coords[d] = (_vertices[0].coords[d] + _vertices[1].coords[d] +
+                           _vertices[2].coords[d] + _vertices[3].coords[d]) * 0.25;
+        }
+        return c;
+    }
+
+};
+//--------------------------
+// Cube (3D only)
+//--------------------------
+template<class Scalar>
+struct Cube {
+    using scalar_type = Scalar;
+    static constexpr size_t dim = 3;
+    using point_type = Point<Scalar, dim>;
+    using square_type = Square<Scalar, dim>;
+
+
+    std::array<point_type, 8> _vertices;
+    point_type _center;
+
+    KOKKOS_INLINE_FUNCTION
+    Cube(const point_type& center, scalar_type side_length) : _center(center)
+    {
+        const scalar_type half_side = side_length / 2.0;
+        // build order: first bottom then top
+        // Z= -half_side
+        _vertices[0] = {center.x() - half_side, center.y() - half_side, center.z() - half_side};
+        _vertices[1] = {center.x() + half_side, center.y() - half_side, center.z() - half_side};
+        _vertices[2] = {center.x() + half_side, center.y() + half_side, center.z() - half_side};
+        _vertices[3] = {center.x() - half_side, center.y() + half_side, center.z() - half_side};
+        // Z= +half_side
+        _vertices[4] = {center.x() - half_side, center.y() - half_side, center.z() + half_side};
+        _vertices[5] = {center.x() + half_side, center.y() - half_side, center.z() + half_side};
+        _vertices[6] = {center.x() + half_side, center.y() + half_side, center.z() + half_side};
+        _vertices[7] = {center.x() - half_side, center.y() + half_side, center.z() + half_side};
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    auto vertices() const {
+        return _vertices;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    auto center() const {
+        return _center;
+    }
+};
+//--------------------------
+// Bounding Box
+//--------------------------
+template<class Scalar, size_t Dim>
+struct BoundingBox {
+    Point<Scalar, Dim> min_corner;
+    Point<Scalar, Dim> max_corner;
+};
+
+//--------------------------
+// a piece
+//--------------------------
+template<class Scalar>
+struct Interval {
+    Scalar min;
+    Scalar max;
 };
 
 // ------------------------
@@ -113,6 +219,99 @@ using Stl = Kokkos::View<Triangle<Scalar, Dim>*, MemorySpace>;
 // =========================================================
 namespace Utilities {
 
+// -----------------------------------------
+// compute bounding box
+// -------------------------------------------
+template<class Scalar, size_t Dim, class Entitytype>
+KOKKOS_INLINE_FUNCTION
+BoundingBox<Scalar, Dim>
+getBoundingBox(const Entitytype& entity)
+requires requires(const Entitytype& e) {
+e.vertices();
+}
+{
+    BoundingBox<Scalar, Dim> bbox;
+    for (size_t d = 0; d < Dim; ++d) {
+        bbox.min_corner.coords[d] = std::numeric_limits<Scalar>::max();
+        bbox.max_corner.coords[d] = std::numeric_limits<Scalar>::lowest();
+    }
+    const auto& vertices = entity.vertices();
+    for (int i = 0; i < vertices.size(); ++i)
+    {
+        const auto& vertex = vertices[i];
+
+        for (size_t d = 0; d < Dim; ++d)
+        {
+            bbox.min_corner.coords[d] = Kokkos::min(bbox.min_corner.coords[d], vertex.coords[d]);
+            bbox.max_corner.coords[d] = Kokkos::max(bbox.max_corner.coords[d], vertex.coords[d]);
+        }
+    }
+
+    return bbox;
+}
+// -----------------------------------------
+// check bounding box intersection
+// -------------------------------------------
+template<class Scalar, size_t Dim>
+KOKKOS_INLINE_FUNCTION
+bool checkBoundingBoxIntersection(const BoundingBox<Scalar, Dim>& bbox_a,
+                     const BoundingBox<Scalar, Dim>& bbox_b)
+{
+    for (size_t d = 0; d < Dim; ++d)
+    {
+        if (bbox_a.max_corner.coords[d] < bbox_b.min_corner.coords[d] ||
+            bbox_b.max_corner.coords[d] < bbox_a.min_corner.coords[d])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+//----------------------------------------------
+// project one set of point to a axis
+//----------------------------------------------
+template<class Scalar, size_t Dim, size_t N>
+KOKKOS_INLINE_FUNCTION
+Interval<Scalar> getInterval(const std::array<Point<Scalar, Dim>, N>& vertices,
+                           const Point<Scalar, Dim>& axis)
+{
+    Interval<Scalar> interval;
+    interval.min = std::numeric_limits<Scalar>::max();
+    interval.max = std::numeric_limits<Scalar>::lowest();
+
+    for (size_t i = 0; i < N; ++i)
+    {
+        const Scalar proj = dot(vertices[i], axis);
+        interval.min = Kokkos::min(interval.min, proj);
+        interval.max = Kokkos::max(interval.max, proj);
+    }
+    return interval;
+}
+
+//----------------------------------------------
+// project a cube to a axis
+//----------------------------------------------
+template<class Scalar>
+KOKKOS_INLINE_FUNCTION
+Interval<Scalar> getInterval(const Cube<Scalar>& cube,
+                           const Point<Scalar, 3>& axis)
+{
+    const auto center = cube.center();
+    const auto vertices = cube.vertices();
+    const Scalar radius_x = (vertices[1].x() - vertices[0].x()) * 0.5;
+    const Scalar radius_y = (vertices[3].y() - vertices[0].y()) * 0.5;
+    const Scalar radius_z = (vertices[4].z() - vertices[0].z()) * 0.5;
+
+    const Scalar c = dot(center, axis);
+
+    const Scalar r = radius_x * Kokkos::abs(axis.x()) +
+                     radius_y * Kokkos::abs(axis.y()) +
+                     radius_z * Kokkos::abs(axis.z());
+
+    return {c - r, c + r};
+}
 // -----------------------------------------
 // segment intersect with segment
 // -------------------------------------------

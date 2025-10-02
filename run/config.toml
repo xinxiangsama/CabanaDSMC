@@ -5,7 +5,7 @@ seed = 123456
 
 
 [grid]
-cells = [256, 256, 256]
+cells = [40, 40, 256]
 low_corner = [0.0, 0.0, 0.0]
 high_corner = [1.0, 1.0, 1.0]
 periodic = [false, false , false]

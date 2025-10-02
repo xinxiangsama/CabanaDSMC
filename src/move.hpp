@@ -20,7 +20,7 @@ void moveParticles(
     auto boundary_conditions = std::make_tuple(boundaries...);
 
     //get global grid
-    const auto& global_grid = local_grid->globalGrid();
+    // const auto& global_grid = local_grid->globalGrid();
 
     //get local set of owned cell indices
     // auto owned_cells = local_grid->indexSpace( Cabana::Grid::Own(), Cabana::Grid::Cell(), Cabana::Grid::Local() );
@@ -35,7 +35,7 @@ void moveParticles(
     // 1. cell time step (even get from ghost cell)
     // 2. cell cut cell faces
     auto cell_dt = cell_data->Dt->view();
-    auto cut_cell_faces = cell_data->Cut_cell_faces->view();
+    // auto cut_cell_faces = cell_data->Cut_cell_faces->view();
 
     // move particles
     Kokkos::parallel_for("move particles",

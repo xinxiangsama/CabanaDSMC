@@ -6,6 +6,9 @@
 #include "../src/boundary/boundaryImpl.hpp"
 #include "../src/simulation/initialize.hpp"
 #include "../src/collide/collideImpl.hpp"
+#include "../src/cell/node.hpp"
+#include "../src/geometry/geo.hpp"
+
 namespace CabanaDSMC{
 namespace UserSpecfic{
 
@@ -17,6 +20,8 @@ using exec_space = Kokkos::DefaultHostExecutionSpace;
 using memory_space = exec_space::memory_space;
 
 using mesh_type = Cabana::Grid::UniformMesh<scalar_type, dim>;
+using cell_data_type = Cell::CellData<scalar_type, memory_space, mesh_type>;
+using node_data_type = Node::NodeData<scalar_type, memory_space, mesh_type>;
 
 //===============================
 //  decltype
@@ -55,5 +60,10 @@ using zmaxBoundary_t = periodicBoundary_t;
 // collision model
 //----------------------------
 using collisionModel = VHSCollision<exec_space, scalar_type, particle_type>;
+
+//----------------------------
+// geometry
+//----------------------------------
+using stl_type = Geometry::Stl<memory_space, scalar_type, dim>;
 }
 }

@@ -65,6 +65,7 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "expected": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "valarray": "cpp"
     }
 }

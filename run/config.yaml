@@ -17,7 +17,7 @@ initial:
   velocity: [100.0, 0.0, 0.0]
   temperature: 273
   density: 9.282e-6
-  Fn: 80000000000000
+  Fn: 800000000000000
 
   max_collision_rate: 1.0e-20
 
