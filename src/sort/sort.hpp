@@ -57,6 +57,30 @@ void sort(
     // set the particle position as the key to sort
     auto linked_cell_list = Cabana::createLinkedCellList<memory_space>(
         position, grid_delta, grid_min, grid_max);
+
+    // set particle cell id
+    auto cell_id_slice = particle_list.slice(Particle::Field::CellID{});
+    std::size_t num_particles = particle_list.size();
+
+    // Update cell IDs for all particles
+    Kokkos::parallel_for(
+        "update_particle_cell_ids",
+        Kokkos::RangePolicy<ExecutionSpace>(0, particle_list.size()),
+        KOKKOS_LAMBDA(const std::size_t p) {
+            // Get the bin index for this particle n
+            int bin_index = linked_cell_list.getParticleBin(p);
+
+            // Convert the 1D bin index to 3D grid coordinates
+            int i, j, k;
+            linked_cell_list.ijkBinIndex(bin_index, i, j, k);
+
+            // Set the cell ID for this particle
+            cell_id_slice(p, 0) = static_cast<uint32_t>(i);
+            cell_id_slice(p, 1) = static_cast<uint32_t>(j);
+            cell_id_slice(p, 2) = static_cast<uint32_t>(k);
+        });
+    Kokkos::fence();
+
     // based the sort res to permute particle (i don't known whether it is a expensive process---2025 9 27)
     Cabana::permute(linked_cell_list.binningData(), particle_list.aosoa());
     Kokkos::fence();
@@ -84,28 +108,6 @@ void sort(
         KOKKOS_LAMBDA(const int i, const int j, const int k) {
             particle_num_view(i, j, k, 0) = linked_cell_list.binSize(i, j, k);
             offset_index_view(i, j, k, 0) = linked_cell_list.binOffset(i, j, k);
-        });
-    Kokkos::fence();
-    // set particle cell id
-    auto cell_id_slice = particle_list.slice(Particle::Field::CellID{});
-    std::size_t num_particles = particle_list.size();
-    
-    // Update cell IDs for all particles
-    Kokkos::parallel_for(
-        "update_particle_cell_ids",
-        Kokkos::RangePolicy<ExecutionSpace>(0, particle_list.size()),
-        KOKKOS_LAMBDA(const std::size_t p) {
-            // Get the bin index for this particle n
-            int bin_index = linked_cell_list.getParticleBin(p);
-            
-            // Convert the 1D bin index to 3D grid coordinates
-            int i, j, k;
-            linked_cell_list.ijkBinIndex(bin_index, i, j, k);
-            
-            // Set the cell ID for this particle
-            cell_id_slice(p, 0) = static_cast<uint32_t>(i);
-            cell_id_slice(p, 1) = static_cast<uint32_t>(j);
-            cell_id_slice(p, 2) = static_cast<uint32_t>(k);
         });
     Kokkos::fence();
     

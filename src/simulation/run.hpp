@@ -5,7 +5,7 @@
 #include "cell/sample.hpp"
 #include "initialize.hpp"
 #include "boundary/boundary.hpp"
-#include "move.hpp"
+#include "move_old_version.hpp"
 #include "sort/sort.hpp"
 #include "collide/collide.hpp"
 #include "output/output.hpp"
@@ -34,6 +34,9 @@ public:
     using collision_model = UserSpecfic::collisionModel;
     using node_data_type = UserSpecfic::node_data_type;
     using stl_type = UserSpecfic::stl_type;
+    using sampling_t = UserSpecfic::sampling;
+    using write_type = UserSpecfic::write_type;
+    using writer_type = UserSpecfic::writer_type;
 
     static constexpr int dim = UserSpecfic::dim;
 
@@ -59,6 +62,8 @@ protected:
 
     size_t steps;
     uint8_t seed;
+    uint8_t step_average;
+    uint8_t step_write;
 };
 
 
@@ -72,6 +77,8 @@ inline void Run<ExecutionSpace, MemorySpace>::init(const Input::SimulationConfig
     //------------------------------------------
     steps = config.steps;
     seed = config.seed;
+    step_average = config.step_average;
+    step_write = config.step_write;
     //-----------------------------------------
     // mesh
     //------------------------------------------
@@ -105,17 +112,16 @@ inline void Run<ExecutionSpace, MemorySpace>::init(const Input::SimulationConfig
     // node data
     //------------------------------------------
     node_data = std::make_shared<node_data_type>(local_grid);
-    node_data->setAllNodesToOutside();
-    Geometry::distinguish_node(exec_space {}, stl, node_data);
-    Kokkos::fence("");
-    Cabana::Grid::Experimental::BovWriter::writeTimeStep(
-        ExecutionSpace {},
-        "",
-        1,
-        1,
-        *node_data->is_inside);
-
-
+    // node_data->setAllNodesToOutside();
+    // Geometry::distinguish_node(exec_space {}, stl, node_data);
+    // Kokkos::fence("");
+    // Cabana::Grid::Experimental::BovWriter::writeTimeStep(
+    //     ExecutionSpace {},
+    //     "",
+    //     1,
+    //     1,
+    //     *node_data->is_inside);
+    //
     //-----------------------------------------
     // cut cell
     //------------------------------------------
@@ -127,24 +133,24 @@ inline void Run<ExecutionSpace, MemorySpace>::init(const Input::SimulationConfig
     Kokkos::fence("");
     Cabana::Grid::Experimental::BovWriter::writeTimeStep(
         ExecutionSpace {},
-        "",
+        "cut_cell_num",
         1,
         1,
         *cell_data->Num_cut_faces);
     //-----------------------------------------
     // particle list
     //------------------------------------------
-    // createParticles(
-    //     Cabana::InitRandom {},
-    //     exec_space {},
-    //     UserSpecfic::particle_factory_t {},
-    //     particles,
-    //     local_grid,
-    //     cell_data,
-    //     species,
-    //     0,
-    //     456789
-    //     );
+    createParticles(
+        Cabana::InitRandom {},
+        exec_space {},
+        UserSpecfic::particle_factory_t {},
+        particles,
+        local_grid,
+        cell_data,
+        species,
+        0,
+        456789
+        );
     //-----------------------------------------
     // boundary
     //------------------------------------------
@@ -172,12 +178,13 @@ inline void Run<ExecutionSpace, MemorySpace>::run()
     auto owned_cells = local_grid->indexSpace( Cabana::Grid::Own(), Cabana::Grid::Cell(), Cabana::Grid::Local() );
     const auto local_seed = global_grid->blockId() + ( seed % ( global_grid->blockId() + 1 ) );
     Kokkos::Random_XorShift64_Pool<ExecutionSpace> pool( local_seed, owned_cells.size() );
-    while (0) {
+    for (size_t i = 0; i < steps; ++i){
         moveParticles(
             exec_space {},
             particles,
             local_grid,
             cell_data,
+            stl,
             xmin_boundary,
             xmax_boundary,
             ymin_boundary,
@@ -204,6 +211,27 @@ inline void Run<ExecutionSpace, MemorySpace>::run()
             pool
             );
         Kokkos::fence("collide");
+
+        Cell::sample(
+            i,
+            step_average,
+            particles,
+            cell_data,
+            species,
+            sampling_t {}
+            );
+        Kokkos::fence("sample");
+
+        if (i % step_write == 0) {
+            write(
+                write_type {},
+                "",
+                i,
+                i * 1.0e-5,
+                std::make_shared<writer_type>(),
+                cell_data
+                );
+        }
     }
 }
 }

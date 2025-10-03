@@ -8,7 +8,9 @@
 #include "../src/collide/collideImpl.hpp"
 #include "../src/cell/node.hpp"
 #include "../src/geometry/geo.hpp"
-
+#include  "../src/output/output.hpp"
+#include "../src/cell/sampleImpl.hpp"
+#include  "../src/cell/cell.hpp"
 namespace CabanaDSMC{
 namespace UserSpecfic{
 
@@ -61,6 +63,16 @@ using zmaxBoundary_t = periodicBoundary_t;
 //----------------------------
 using collisionModel = VHSCollision<exec_space, scalar_type, particle_type>;
 
+//----------------------------
+// sample type
+//----------------------------
+using sampling = Cell::BasicSampler<exec_space, particle_list_type, cell_data_type>;
+
+//----------------------------
+// write type
+//----------------------------
+using write_type = WriteBasic;
+using writer_type = BovWriter;
 //----------------------------
 // geometry
 //----------------------------------

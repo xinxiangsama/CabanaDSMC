@@ -41,9 +41,13 @@ public:
     using local_grid_type = Cabana::Grid::LocalGrid<MeshType>;
     using array_layout = Cabana::Grid::ArrayLayout<Cabana::Grid::Cell, MeshType>;
     using array_type = Cabana::Grid::Array<Scalar, Cabana::Grid::Cell, MeshType, MemorySpace>;
-    using uint_array_type = Cabana::Grid::Array<int, Cabana::Grid::Cell, MeshType, MemorySpace>;
+    using uint_array_type = Cabana::Grid::Array<uint64_t, Cabana::Grid::Cell, MeshType, MemorySpace>;
+    using int_array_type = Cabana::Grid::Array<int, Cabana::Grid::Cell, MeshType, MemorySpace>;
     using array_factory = ArrayFactory<array_type>;
     using uint_factory= ArrayFactory<uint_array_type>;
+    using int_factory= ArrayFactory<int_array_type>;
+
+    static constexpr size_t MAX_FACES_PER_CELL = 16;
 
     CellData(const std::shared_ptr<local_grid_type>& local_grid) : _local_grid(local_grid)
     {
@@ -57,8 +61,11 @@ public:
         Offset_particle_idx = uint_factory::create("offset particle idx", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Fn = uint_factory::create("Fn", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
         Dt = array_factory::create("local time step", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
-        Num_cut_faces = uint_factory::create("num cut faces", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
-        Offset_cut_faces = uint_factory::create("cut faces offset ids", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
+
+        // ============= cut cell  ================================== //
+        Num_cut_faces = int_factory::create("num cut faces", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
+        Cut_face_ids = uint_factory::create("num cut faces", Cabana::Grid::createArrayLayout(local_grid, MAX_FACES_PER_CELL, Cabana::Grid::Cell()));
+        // Offset_cut_faces = uint_factory::create("cut faces offset ids", Cabana::Grid::createArrayLayout(local_grid, 1, Cabana::Grid::Cell()));
     }
 
     template<class FieldInitDataType>
@@ -72,10 +79,6 @@ public:
 
     auto localgrid() {
         return _local_grid;
-    }
-
-    void initialize_faces_capacity(const size_t& num){
-        cut_face_ids = Kokkos::View<uint64_t*, memory_space>("cut face ids", num);
     }
 
     void setToZero()
@@ -102,9 +105,9 @@ public:
     //----------------------------
     // cut cell 
     //----------------------------
-    Kokkos::View<uint64_t*, memory_space> cut_face_ids;
-    std::shared_ptr<uint_array_type> Num_cut_faces; // bit mask for cut cell faces
-    std::shared_ptr<uint_array_type> Offset_cut_faces; 
+    std::shared_ptr<uint_array_type> Cut_face_ids;
+    std::shared_ptr<int_array_type> Num_cut_faces; // bit mask for cut cell faces
+    // std::shared_ptr<uint_array_type> Offset_cut_faces;
 private:
     std::shared_ptr<local_grid_type> _local_grid;
 };

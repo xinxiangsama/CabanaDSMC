@@ -1,23 +1,25 @@
 # 全局模拟参数
 global:
-  dt: 1.0e-5
+  dt: 1.0e-7
   steps: 10000
   seed: 123456
+  step_average : 20
+  step_write : 100
 
 # 网格配置
 grid:
-  cells: [100, 100, 1]
+  cells: [200, 200, 200]
   low_corner: [0.0, 0.0, 0.0]
-  high_corner: [1.0, 1.0, 1.0]
+  high_corner: [1, 1, 1]
   periodic: [false, false, false]
   halo_cell_width: 0
 
 # 初始条件
 initial:
-  velocity: [100.0, 0.0, 0.0]
+  velocity: [1000.0, 0.0, 0.0]
   temperature: 273
-  density: 9.282e-6
-  Fn: 800000000000000
+  density: 9.282e-4
+  Fn: 600000000000000
 
   max_collision_rate: 1.0e-20
 

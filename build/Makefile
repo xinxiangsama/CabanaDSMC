@@ -601,78 +601,6 @@ test/geometry/intersect_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/intersect_test.cpp.s
 .PHONY : test/geometry/intersect_test.cpp.s
 
-test/geometry/sat_test.o: test/geometry/sat_test.cpp.o
-.PHONY : test/geometry/sat_test.o
-
-# target to build an object file
-test/geometry/sat_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/sat_test.cpp.o
-.PHONY : test/geometry/sat_test.cpp.o
-
-test/geometry/sat_test.i: test/geometry/sat_test.cpp.i
-.PHONY : test/geometry/sat_test.i
-
-# target to preprocess a source file
-test/geometry/sat_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/sat_test.cpp.i
-.PHONY : test/geometry/sat_test.cpp.i
-
-test/geometry/sat_test.s: test/geometry/sat_test.cpp.s
-.PHONY : test/geometry/sat_test.s
-
-# target to generate assembly for a file
-test/geometry/sat_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/sat_test.cpp.s
-.PHONY : test/geometry/sat_test.cpp.s
-
-test/geometry/winding_number/solid_angle_test.o: test/geometry/winding_number/solid_angle_test.cpp.o
-.PHONY : test/geometry/winding_number/solid_angle_test.o
-
-# target to build an object file
-test/geometry/winding_number/solid_angle_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/solid_angle_test.cpp.o
-.PHONY : test/geometry/winding_number/solid_angle_test.cpp.o
-
-test/geometry/winding_number/solid_angle_test.i: test/geometry/winding_number/solid_angle_test.cpp.i
-.PHONY : test/geometry/winding_number/solid_angle_test.i
-
-# target to preprocess a source file
-test/geometry/winding_number/solid_angle_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/solid_angle_test.cpp.i
-.PHONY : test/geometry/winding_number/solid_angle_test.cpp.i
-
-test/geometry/winding_number/solid_angle_test.s: test/geometry/winding_number/solid_angle_test.cpp.s
-.PHONY : test/geometry/winding_number/solid_angle_test.s
-
-# target to generate assembly for a file
-test/geometry/winding_number/solid_angle_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/solid_angle_test.cpp.s
-.PHONY : test/geometry/winding_number/solid_angle_test.cpp.s
-
-test/geometry/winding_number/winding_number_test.o: test/geometry/winding_number/winding_number_test.cpp.o
-.PHONY : test/geometry/winding_number/winding_number_test.o
-
-# target to build an object file
-test/geometry/winding_number/winding_number_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/winding_number_test.cpp.o
-.PHONY : test/geometry/winding_number/winding_number_test.cpp.o
-
-test/geometry/winding_number/winding_number_test.i: test/geometry/winding_number/winding_number_test.cpp.i
-.PHONY : test/geometry/winding_number/winding_number_test.i
-
-# target to preprocess a source file
-test/geometry/winding_number/winding_number_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/winding_number_test.cpp.i
-.PHONY : test/geometry/winding_number/winding_number_test.cpp.i
-
-test/geometry/winding_number/winding_number_test.s: test/geometry/winding_number/winding_number_test.cpp.s
-.PHONY : test/geometry/winding_number/winding_number_test.s
-
-# target to generate assembly for a file
-test/geometry/winding_number/winding_number_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cabanaDSMC_tests.dir/build.make CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/winding_number_test.cpp.s
-.PHONY : test/geometry/winding_number/winding_number_test.cpp.s
-
 test/main.o: test/main.cpp.o
 .PHONY : test/main.o
 
@@ -746,15 +674,6 @@ help:
 	@echo "... test/geometry/intersect_test.o"
 	@echo "... test/geometry/intersect_test.i"
 	@echo "... test/geometry/intersect_test.s"
-	@echo "... test/geometry/sat_test.o"
-	@echo "... test/geometry/sat_test.i"
-	@echo "... test/geometry/sat_test.s"
-	@echo "... test/geometry/winding_number/solid_angle_test.o"
-	@echo "... test/geometry/winding_number/solid_angle_test.i"
-	@echo "... test/geometry/winding_number/solid_angle_test.s"
-	@echo "... test/geometry/winding_number/winding_number_test.o"
-	@echo "... test/geometry/winding_number/winding_number_test.i"
-	@echo "... test/geometry/winding_number/winding_number_test.s"
 	@echo "... test/main.o"
 	@echo "... test/main.i"
 	@echo "... test/main.s"

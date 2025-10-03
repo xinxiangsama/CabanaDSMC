@@ -9,9 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/geometry/intersect_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/intersect_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/intersect_test.cpp.o.d"
-  "/home/xinxiangsama/dsmc/CabanaDSMC/test/geometry/sat_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/sat_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/sat_test.cpp.o.d"
-  "/home/xinxiangsama/dsmc/CabanaDSMC/test/geometry/winding_number/solid_angle_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/solid_angle_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/solid_angle_test.cpp.o.d"
-  "/home/xinxiangsama/dsmc/CabanaDSMC/test/geometry/winding_number/winding_number_test.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/winding_number_test.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/winding_number/winding_number_test.cpp.o.d"
   "/home/xinxiangsama/dsmc/CabanaDSMC/test/main.cpp" "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o" "gcc" "CMakeFiles/cabanaDSMC_tests.dir/test/main.cpp.o.d"
   )
 

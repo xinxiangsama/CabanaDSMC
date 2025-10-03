@@ -98,7 +98,7 @@ void cutcell(
 
 
     auto num_cut_view = cell_data->Num_cut_faces->view();
-    auto offset_cut_view = cell_data->Offset_cut_faces->view();
+    auto face_ids_view = cell_data->Cut_face_ids->view();
 
     auto owned_cells = local_grid->indexSpace(Cabana::Grid::Own(), Cabana::Grid::Cell(), Cabana::Grid::Local());
     auto policy = Cabana::Grid::createExecutionPolicy(owned_cells, exec);
@@ -119,8 +119,8 @@ void cutcell(
         {
             if (Geometry::SAT(stl(t), cell_cube))
             {
+                face_ids_view(i, j, k, local_count) = t;
                 local_count++;
-
             }
         }
 

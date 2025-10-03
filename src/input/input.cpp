@@ -28,6 +28,8 @@ SimulationConfig InputReader::read(const std::string &filename)
     config.dt = global["dt"].as<scalar_type>();
     config.steps = global["steps"].as<size_t>();
     config.seed = global["seed"].as<int>();
+    config.step_average = global["step_average"].as<int>();
+    config.step_write = global["step_write"].as<int>();
 
     // --------------------------------------
     // initial condition

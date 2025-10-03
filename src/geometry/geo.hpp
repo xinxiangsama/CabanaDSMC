@@ -106,8 +106,18 @@ struct Triangle {
         return _vertices;
     }
     KOKKOS_INLINE_FUNCTION
-    auto size() const {
+    static constexpr auto size()  {
         return dim;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    const point_type& normal() const {
+        return _normal;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    point_type& normal() {
+        return _normal;
     }
 
     point_type _vertices [dim];
@@ -124,6 +134,12 @@ struct Segment {
     static constexpr size_t dim = Dim;
     using point_type = Point<Scalar, Dim>;
 
+    KOKKOS_INLINE_FUNCTION
+    Segment() = default;
+
+    KOKKOS_INLINE_FUNCTION
+    Segment(const point_type& p1, const point_type& p2) : _vertices{ p1, p2 } {}
+
     point_type _vertices [2]; 
 
     KOKKOS_INLINE_FUNCTION
@@ -136,8 +152,8 @@ struct Segment {
     }
 
     KOKKOS_INLINE_FUNCTION
-    auto size() const {
-        return 2;
+    static constexpr size_t size() {
+        return 2u;
     }
 };
 
@@ -186,8 +202,8 @@ struct Square {
     }
 
     KOKKOS_INLINE_FUNCTION
-    auto size() const {
-        return 4;
+    static constexpr size_t size() {
+        return 4u;
     }
 
 };
@@ -240,7 +256,7 @@ struct Cube {
 
 
     KOKKOS_INLINE_FUNCTION
-    auto size() const {
+    static constexpr size_t size() {
         return 8;
     }
 
@@ -281,11 +297,11 @@ namespace Utilities {
 // -----------------------------------------
 // compute bounding box
 // -------------------------------------------
-template<class Scalar, size_t Dim, class Entitytype>
+template<class Scalar, size_t Dim, class EntityType>
 KOKKOS_INLINE_FUNCTION
 BoundingBox<Scalar, Dim>
-getBoundingBox(const Entitytype& entity)
-requires requires(const Entitytype& e) {
+getBoundingBox(const EntityType& entity)
+requires requires(const EntityType& e) {
 e.vertices();
 }
 {
@@ -360,13 +376,11 @@ Interval<Scalar> getInterval(const Cube<Scalar>& cube,
                            const Point<Scalar, 3>& axis)
 {
     const auto center = cube.center();
-    // 直接使用存储的边长来计算半边长
+
     const Scalar half_side = cube.sideLength() * 0.5;
-    
-    // 投影中心点
+
     const Scalar c = dot(center, axis);
-    
-    // 投影半径是三个半边长在轴上投影的绝对值之和
+
     const Scalar r = half_side * (Kokkos::abs(axis.x()) +
                                   Kokkos::abs(axis.y()) +
                                   Kokkos::abs(axis.z()));
@@ -484,6 +498,78 @@ std::optional<Point<Scalar, Dim>> segmentIntersectWithTriangle(
         return intersection_point;
     }
 
+    return std::nullopt;
+}
+//----------------------------------------------
+// caculate time to hit triangle
+//----------------------------------------------
+
+template<class Scalar>
+KOKKOS_INLINE_FUNCTION
+std::optional<Scalar> timeToHitTriangle(
+    const Point<Scalar, 3>& origin,
+    const Point<Scalar, 3>& velocity,
+    const Triangle<Scalar, 3>& triangle)
+{
+    using point_type = Point<Scalar, 3>;
+    constexpr auto epsilon = std::numeric_limits<Scalar>::epsilon();
+
+    // Get the triangle's vertices from its internal storage.
+    // Assumes your corrected Triangle struct where vertices() returns a pointer.
+    const point_type& v0 = triangle.vertices()[0];
+    const point_type& v1 = triangle.vertices()[1];
+    const point_type& v2 = triangle.vertices()[2];
+
+    const point_type edge1 = v1 - v0;
+    const point_type edge2 = v2 - v0;
+
+    // Calculate determinant. This is related to the triple product and volume.
+    // We are crossing the velocity vector (our ray direction) with one of the edges.
+    const point_type pvec = cross(velocity, edge2);
+    const Scalar det = dot(edge1, pvec);
+
+    // If the determinant is near zero, the particle's path is parallel to the
+    // triangle's plane. We consider this a miss to avoid division by zero and
+    // tricky edge cases like grazing hits.
+    if (Kokkos::abs(det) < epsilon) {
+        return std::nullopt;
+    }
+
+    const Scalar inv_det = static_cast<Scalar>(1.0) / det;
+
+    // Calculate distance from the triangle's first vertex to the ray's origin.
+    const point_type tvec = origin - v0;
+
+    // Calculate the U barycentric coordinate. If it's not between 0 and 1,
+    // the intersection point is outside the triangle.
+    const Scalar u = dot(tvec, pvec) * inv_det;
+    if (u < 0.0 || u > 1.0) {
+        return std::nullopt;
+    }
+
+    const point_type qvec = cross(tvec, edge1);
+
+    // Calculate the V barycentric coordinate.
+    const Scalar v = dot(velocity, qvec) * inv_det;
+    // The U+V < 1 check ensures the intersection is within the third side of the triangle.
+    if (v < 0.0 || u + v > 1.0) {
+        return std::nullopt;
+    }
+
+    // At this point, we know the particle's path intersects the infinite plane
+    // of the triangle within the triangle's boundaries.
+    // Now, we calculate `t`, which is the time of flight until impact.
+    const Scalar t = dot(edge2, qvec) * inv_det;
+
+    // We only care about intersections that happen in the future (t > 0).
+    // A small epsilon is used to avoid self-intersections if a particle is
+    // already exactly on a surface.
+    if (t > epsilon) {
+        return t;
+    }
+
+    // If t is negative, the intersection happened "behind" the particle,
+    // so it's not a valid hit for this forward time step.
     return std::nullopt;
 }
 }

@@ -1,7 +1,3 @@
-//
-// Created by xinxiangsama on 10/1/25.
-//
-
 #include <catch2/catch_all.hpp>
 #include "../../src/geometry/geo.hpp"
 
@@ -18,6 +14,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
     SECTION("Segment-Triangle Intersection in 2D") {
 
+        // Test: Simple intersection
         SECTION("Simple intersection") {
             Segment2D seg;
             seg.vertices()[0] = {0.0, 0.0};
@@ -34,6 +31,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->y() == Catch::Approx(1.0));
         }
 
+        // Test: Lines intersect but segments do not
         SECTION("Lines intersect but segments do not") {
             Segment2D seg;
             seg.vertices()[0] = {0.0, 0.0};
@@ -48,6 +46,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE_FALSE(result.has_value());
         }
 
+        // Test: Parallel segments
         SECTION("Parallel segments") {
             Segment2D seg;
             seg.vertices()[0] = {0.0, 0.0};
@@ -62,6 +61,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE_FALSE(result.has_value());
         }
 
+        // Test: Collinear segments with no overlap
         SECTION("Collinear segments with no overlap") {
             Segment2D seg;
             seg.vertices()[0] = {0.0, 0.0};
@@ -73,11 +73,11 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
-            // The current implementation returns nullopt for collinear lines, which is correct
-            // as there is no single intersection point.
+            // No intersection as collinear but no overlap
             REQUIRE_FALSE(result.has_value());
         }
 
+        // Test: Intersection at an endpoint
         SECTION("Intersection at an endpoint") {
             Segment2D seg; // A horizontal segment
             seg.vertices()[0] = {0.0, 1.0};
@@ -94,6 +94,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->y() == Catch::Approx(1.0));
         }
 
+        // Test: Perpendicular intersection (T-junction)
         SECTION("Perpendicular intersection (T-junction)") {
             Segment2D seg; // Vertical segment
             seg.vertices()[0] = {1.0, -1.0};
@@ -109,8 +110,23 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->x() == Catch::Approx(1.0));
             REQUIRE(result->y() == Catch::Approx(0.0));
         }
-    }
 
+        // Test: Segment doesn't touch triangle but is collinear in 2D
+        SECTION("Collinear segment doesn't touch triangle") {
+            Segment2D seg;
+            seg.vertices()[0] = {0.0, 0.0};
+            seg.vertices()[1] = {5.0, 0.0}; // A long horizontal segment
+
+            Triangle2D tri_as_seg;
+            tri_as_seg.vertices()[0] = {1.0, 1.0};
+            tri_as_seg.vertices()[1] = {4.0, 1.0}; // A triangle above the line
+
+            auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
+
+            // The segment does not intersect the triangle
+            REQUIRE_FALSE(result.has_value());
+        }
+    }
 
     SECTION("Segment-Triangle Intersection in 3D") {
 
@@ -120,6 +136,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
         triangle.vertices()[1] = {5.0, 0.0, 0.0};
         triangle.vertices()[2] = {0.0, 5.0, 0.0};
 
+        // Test: Simple perpendicular intersection in 3D
         SECTION("Simple perpendicular intersection") {
             Segment3D segment;
             segment.vertices()[0] = {1.0, 1.0, 1.0};
@@ -133,6 +150,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->z() == Catch::Approx(0.0));
         }
 
+        // Test: No intersection, segment parallel to triangle
         SECTION("No intersection, segment parallel to triangle") {
             Segment3D segment;
             segment.vertices()[0] = {1.0, 1.0, 1.0};
@@ -143,6 +161,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE_FALSE(result.has_value());
         }
 
+        // Test: No intersection, segment crosses plane but misses triangle
         SECTION("No intersection, segment crosses plane but misses triangle") {
             Segment3D segment;
             segment.vertices()[0] = {4.0, 4.0, 1.0};
@@ -153,6 +172,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE_FALSE(result.has_value());
         }
 
+        // Test: No intersection, segment is entirely behind the triangle
         SECTION("No intersection, segment is entirely behind the triangle") {
             Segment3D segment;
             segment.vertices()[0] = {1.0, 1.0, -1.0};
@@ -163,6 +183,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE_FALSE(result.has_value());
         }
 
+        // Test: Intersection at a vertex
         SECTION("Intersection at a vertex") {
             Segment3D segment;
             segment.vertices()[0] = {0.0, 0.0, 1.0};
@@ -176,6 +197,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->z() == Catch::Approx(0.0));
         }
 
+        // Test: Intersection on an edge
         SECTION("Intersection on an edge") {
             Segment3D segment;
             segment.vertices()[0] = {2.5, 0.0, 1.0};
@@ -189,6 +211,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->z() == Catch::Approx(0.0));
         }
 
+        // Test: Angled intersection
         SECTION("Angled intersection") {
             Segment3D segment;
             segment.vertices()[0] = {0.0, 0.0, 1.0};
@@ -202,6 +225,7 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
             REQUIRE(result->z() == Catch::Approx(0.0));
         }
 
+        // Test: Coplanar segment, no intersection
         SECTION("Coplanar segment, no intersection") {
             Segment3D segment;
             segment.vertices()[0] = {1.0, 1.0, 0.0};

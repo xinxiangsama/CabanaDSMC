@@ -85,12 +85,13 @@ int createParticles(
             int low_node[3] = { i, j, k };
             double low_coords[3];
             local_mesh.coordinates( Cabana::Grid::Node(), low_node, low_coords );
+            low_coords[0] = 0.0;
 
             // Get the coordinates of the high cell node.
             int high_node[3] = { i + 1, j + 1, k + 1 };
             double high_coords[3];
             local_mesh.coordinates( Cabana::Grid::Node(), high_node, high_coords );
-
+            high_coords[0] = 0.2;
             // Random number generator.
             auto rand = pool.get_state( cell_id );
 

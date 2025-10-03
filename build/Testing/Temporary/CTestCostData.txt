@@ -1,0 +1,7 @@
+Rank 0 0
+2D 0 0
+Rank 0 0
+Rank 0: Running Catch2 test suite... 1 0.381237
+2D Geometry Utilities 1 0.351445
+Rank 0: Test suite finished. 1 0.353622
+---

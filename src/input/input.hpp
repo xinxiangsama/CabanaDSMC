@@ -29,6 +29,8 @@ struct SimulationConfig{
     uint8_t seed;
     size_t steps;
     scalar_type dt;
+    uint8_t step_average;
+    uint8_t step_write;
 };
 
 class InputReader{

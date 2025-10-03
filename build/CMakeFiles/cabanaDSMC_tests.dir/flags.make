@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DKOKKOS_DEPENDENCE
 
-CXX_INCLUDES = -I/home/xinxiangsama/dsmc/CabanaDSMC/src -I/home/xinxiangsama/local/ParMETIS/include -I/home/xinxiangsama/local/METIS/include -isystem /home/xinxiangsama/local/kokkos/include -isystem /usr/local/cuda-12.9/targets/x86_64-linux/include -isystem /home/xinxiangsama/local/cabana/include -isystem /home/xinxiangsama/local/openmpi/include
+CXX_INCLUDES = -I/home/xinxiangsama/dsmc/CabanaDSMC/src -I/home/xinxiangsama/local/ParMETIS/include -I/home/xinxiangsama/local/METIS/include -isystem /home/xinxiangsama/local/kokkos/include -isystem /usr/local/cuda-13.0/targets/x86_64-linux/include -isystem /home/xinxiangsama/local/cabana/include -isystem /home/xinxiangsama/local/openmpi/include
 
-CXX_FLAGS =  -O3 -Wall --expt-relaxed-constexpr -O3 -DNDEBUG -std=c++20 -fopenmp -extended-lambda -Wext-lambda-captures-this -arch=sm_89 -fopenmp
+CXX_FLAGS =  -O3 -Wall --expt-relaxed-constexpr -O3 -DNDEBUG -std=c++20 -fopenmp -extended-lambda -Wext-lambda-captures-this -arch=sm_75 -fopenmp
 
