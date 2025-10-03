@@ -15,9 +15,9 @@ KOKKOS_INLINE_FUNCTION
 Scalar computeSolidAngle(const Point<Scalar, Dim>& point, const Triangle<Scalar, Dim>& triangle)
 requires(Dim == 3)
 {
-    const auto& ver1 = triangle.points[0];
-    const auto& ver2 = triangle.points[1];
-    const auto& ver3 = triangle.points[2];
+    const auto& ver1 = triangle.vertices()[0];
+    const auto& ver2 = triangle.vertices()[1];
+    const auto& ver3 = triangle.vertices()[2];
 
     // compute the vector from point to three vertice
     const auto a = ver1 - point;
@@ -51,8 +51,8 @@ KOKKOS_INLINE_FUNCTION
 Scalar computeSolidAngle(const Point<Scalar, Dim>& point, const Triangle<Scalar, Dim>& triangle)
 requires(Dim == 2)
 {
-    const auto& ver1 = triangle.points[0];
-    const auto& ver2 = triangle.points[1];
+    const auto& ver1 = triangle.vertices()[0];
+    const auto& ver2 = triangle.vertices()[1];
 
     // compute the vector from point to three vertice
     const auto a = ver1 - point;

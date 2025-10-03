@@ -106,14 +106,14 @@ inline void Run<ExecutionSpace, MemorySpace>::init(const Input::SimulationConfig
     //------------------------------------------
     node_data = std::make_shared<node_data_type>(local_grid);
     node_data->setAllNodesToOutside();
-    // Geometry::distinguish_node(exec_space {}, stl, node_data);
-    // Kokkos::fence("");
-    // Cabana::Grid::Experimental::BovWriter::writeTimeStep(
-    //     ExecutionSpace {},
-    //     "",
-    //     1,
-    //     1,
-    //     *node_data->is_inside);
+    Geometry::distinguish_node(exec_space {}, stl, node_data);
+    Kokkos::fence("");
+    Cabana::Grid::Experimental::BovWriter::writeTimeStep(
+        ExecutionSpace {},
+        "",
+        1,
+        1,
+        *node_data->is_inside);
 
 
     //-----------------------------------------

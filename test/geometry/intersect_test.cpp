@@ -20,12 +20,12 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Simple intersection") {
             Segment2D seg;
-            seg.points[0] = {0.0, 0.0};
-            seg.points[1] = {2.0, 2.0};
+            seg.vertices()[0] = {0.0, 0.0};
+            seg.vertices()[1] = {2.0, 2.0};
 
             Triangle2D tri_as_seg;
-            tri_as_seg.points[0] = {0.0, 2.0};
-            tri_as_seg.points[1] = {2.0, 0.0};
+            tri_as_seg.vertices()[0] = {0.0, 2.0};
+            tri_as_seg.vertices()[1] = {2.0, 0.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
@@ -36,12 +36,12 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Lines intersect but segments do not") {
             Segment2D seg;
-            seg.points[0] = {0.0, 0.0};
-            seg.points[1] = {1.0, 1.0};
+            seg.vertices()[0] = {0.0, 0.0};
+            seg.vertices()[1] = {1.0, 1.0};
 
             Triangle2D tri_as_seg;
-            tri_as_seg.points[0] = {0.0, 3.0};
-            tri_as_seg.points[1] = {3.0, 0.0}; // The line intersects at (1.5, 1.5)
+            tri_as_seg.vertices()[0] = {0.0, 3.0};
+            tri_as_seg.vertices()[1] = {3.0, 0.0}; // The line intersects at (1.5, 1.5)
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
@@ -50,12 +50,12 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Parallel segments") {
             Segment2D seg;
-            seg.points[0] = {0.0, 0.0};
-            seg.points[1] = {2.0, 0.0};
+            seg.vertices()[0] = {0.0, 0.0};
+            seg.vertices()[1] = {2.0, 0.0};
 
             Triangle2D tri_as_seg;
-            tri_as_seg.points[0] = {0.0, 1.0};
-            tri_as_seg.points[1] = {2.0, 1.0};
+            tri_as_seg.vertices()[0] = {0.0, 1.0};
+            tri_as_seg.vertices()[1] = {2.0, 1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
@@ -64,12 +64,12 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Collinear segments with no overlap") {
             Segment2D seg;
-            seg.points[0] = {0.0, 0.0};
-            seg.points[1] = {1.0, 0.0};
+            seg.vertices()[0] = {0.0, 0.0};
+            seg.vertices()[1] = {1.0, 0.0};
 
             Triangle2D tri_as_seg;
-            tri_as_seg.points[0] = {2.0, 0.0};
-            tri_as_seg.points[1] = {3.0, 0.0};
+            tri_as_seg.vertices()[0] = {2.0, 0.0};
+            tri_as_seg.vertices()[1] = {3.0, 0.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
@@ -80,12 +80,12 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Intersection at an endpoint") {
             Segment2D seg; // A horizontal segment
-            seg.points[0] = {0.0, 1.0};
-            seg.points[1] = {4.0, 1.0};
+            seg.vertices()[0] = {0.0, 1.0};
+            seg.vertices()[1] = {4.0, 1.0};
 
             Triangle2D tri_as_seg; // A diagonal segment touching the endpoint of the first
-            tri_as_seg.points[0] = {2.0, -1.0};
-            tri_as_seg.points[1] = {4.0, 1.0};
+            tri_as_seg.vertices()[0] = {2.0, -1.0};
+            tri_as_seg.vertices()[1] = {4.0, 1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
@@ -96,12 +96,12 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Perpendicular intersection (T-junction)") {
             Segment2D seg; // Vertical segment
-            seg.points[0] = {1.0, -1.0};
-            seg.points[1] = {1.0, 1.0};
+            seg.vertices()[0] = {1.0, -1.0};
+            seg.vertices()[1] = {1.0, 1.0};
 
             Triangle2D tri_as_seg; // Horizontal segment
-            tri_as_seg.points[0] = {0.0, 0.0};
-            tri_as_seg.points[1] = {2.0, 0.0};
+            tri_as_seg.vertices()[0] = {0.0, 0.0};
+            tri_as_seg.vertices()[1] = {2.0, 0.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(seg, tri_as_seg);
 
@@ -116,14 +116,14 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         // Triangle on the XY plane for most tests
         Triangle3D triangle;
-        triangle.points[0] = {0.0, 0.0, 0.0};
-        triangle.points[1] = {5.0, 0.0, 0.0};
-        triangle.points[2] = {0.0, 5.0, 0.0};
+        triangle.vertices()[0] = {0.0, 0.0, 0.0};
+        triangle.vertices()[1] = {5.0, 0.0, 0.0};
+        triangle.vertices()[2] = {0.0, 5.0, 0.0};
 
         SECTION("Simple perpendicular intersection") {
             Segment3D segment;
-            segment.points[0] = {1.0, 1.0, 1.0};
-            segment.points[1] = {1.0, 1.0, -1.0};
+            segment.vertices()[0] = {1.0, 1.0, 1.0};
+            segment.vertices()[1] = {1.0, 1.0, -1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -135,8 +135,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("No intersection, segment parallel to triangle") {
             Segment3D segment;
-            segment.points[0] = {1.0, 1.0, 1.0};
-            segment.points[1] = {2.0, 1.0, 1.0};
+            segment.vertices()[0] = {1.0, 1.0, 1.0};
+            segment.vertices()[1] = {2.0, 1.0, 1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -145,8 +145,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("No intersection, segment crosses plane but misses triangle") {
             Segment3D segment;
-            segment.points[0] = {4.0, 4.0, 1.0};
-            segment.points[1] = {4.0, 4.0, -1.0};
+            segment.vertices()[0] = {4.0, 4.0, 1.0};
+            segment.vertices()[1] = {4.0, 4.0, -1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -155,8 +155,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("No intersection, segment is entirely behind the triangle") {
             Segment3D segment;
-            segment.points[0] = {1.0, 1.0, -1.0};
-            segment.points[1] = {1.0, 1.0, -2.0};
+            segment.vertices()[0] = {1.0, 1.0, -1.0};
+            segment.vertices()[1] = {1.0, 1.0, -2.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -165,8 +165,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Intersection at a vertex") {
             Segment3D segment;
-            segment.points[0] = {0.0, 0.0, 1.0};
-            segment.points[1] = {0.0, 0.0, -1.0};
+            segment.vertices()[0] = {0.0, 0.0, 1.0};
+            segment.vertices()[1] = {0.0, 0.0, -1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -178,8 +178,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Intersection on an edge") {
             Segment3D segment;
-            segment.points[0] = {2.5, 0.0, 1.0};
-            segment.points[1] = {2.5, 0.0, -1.0};
+            segment.vertices()[0] = {2.5, 0.0, 1.0};
+            segment.vertices()[1] = {2.5, 0.0, -1.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -191,8 +191,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Angled intersection") {
             Segment3D segment;
-            segment.points[0] = {0.0, 0.0, 1.0};
-            segment.points[1] = {2.0, 2.0, -1.0}; // Intersects at (1,1,0)
+            segment.vertices()[0] = {0.0, 0.0, 1.0};
+            segment.vertices()[1] = {2.0, 2.0, -1.0}; // Intersects at (1,1,0)
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 
@@ -204,8 +204,8 @@ TEST_CASE("2D Geometry Utilities", "[geometry]") {
 
         SECTION("Coplanar segment, no intersection") {
             Segment3D segment;
-            segment.points[0] = {1.0, 1.0, 0.0};
-            segment.points[1] = {3.0, 3.0, 0.0};
+            segment.vertices()[0] = {1.0, 1.0, 0.0};
+            segment.vertices()[1] = {3.0, 3.0, 0.0};
 
             auto result = CabanaDSMC::Geometry::Utilities::segmentIntersectWithTriangle(segment, triangle);
 

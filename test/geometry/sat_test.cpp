@@ -12,16 +12,18 @@ using Cube3D = CabanaDSMC::Geometry::Cube<double>;
 Triangle3D createTriangle(const Point3D& v0, const Point3D& v1, const Point3D& v2)
 {
     Triangle3D tri;
-    tri.points = {v0, v1, v2};
+    tri.vertices()[0] = v0;
+    tri.vertices()[1] = v1;
+    tri.vertices()[2] = v2;
     auto edge1 = v1 - v0;
     auto edge2 = v2 - v0;
-    tri.normal = CabanaDSMC::Geometry::cross(edge1, edge2);
+    tri._normal = CabanaDSMC::Geometry::cross(edge1, edge2);
     // 归一化法线 (可选，但推荐)
-    double norm = std::sqrt(CabanaDSMC::Geometry::dot(tri.normal, tri.normal));
+    double norm = std::sqrt(CabanaDSMC::Geometry::dot(tri._normal, tri._normal));
     if (norm > 1e-9) {
-        tri.normal.x() /= norm;
-        tri.normal.y() /= norm;
-        tri.normal.z() /= norm;
+        tri._normal.x() /= norm;
+        tri._normal.y() /= norm;
+        tri._normal.z() /= norm;
     }
     return tri;
 }

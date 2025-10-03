@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/xinxiangsama/CabanaDSMC/cabanaDSMC"
-  "/home/xinxiangsama/CabanaDSMC/cabanaDSMC.pdb"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC.pdb"
   "CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o"
   "CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o.d"
   "CMakeFiles/cabanaDSMC.dir/src/main.cpp.o"

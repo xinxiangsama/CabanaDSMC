@@ -43,7 +43,7 @@ requires(Dim == 3)
     axes[num_axes++] = {0.0, 0.0, 1.0};
 
     // 2. normal of tri
-    axes[num_axes++] = triangle.normal;
+    axes[num_axes++] = triangle._normal;
 
     // 3. nine cross axis (cube edge X tri edge)
     const point_type cube_edges_dirs[3] = {{1,0,0}, {0,1,0}, {0,0,1}};
@@ -64,7 +64,7 @@ requires(Dim == 3)
         if (len_sq < 1e-12) continue;
 
         // projection tri and cube to axis
-        const auto tri_interval = Utilities::getInterval(tri_verts, axis);
+        const auto tri_interval = Utilities::getInterval(triangle, axis);
         const auto cube_interval = Utilities::getInterval(cube, axis);
 
         // check if overlapping

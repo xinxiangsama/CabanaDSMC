@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xinxiangsama/CabanaDSMC
+CMAKE_SOURCE_DIR = /home/xinxiangsama/dsmc/CabanaDSMC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xinxiangsama/CabanaDSMC/build
+CMAKE_BINARY_DIR = /home/xinxiangsama/dsmc/CabanaDSMC/build
 
 # Utility rule file for NightlyStart.
 
@@ -82,6 +82,6 @@ CMakeFiles/NightlyStart.dir/clean:
 .PHONY : CMakeFiles/NightlyStart.dir/clean
 
 CMakeFiles/NightlyStart.dir/depend:
-	cd /home/xinxiangsama/CabanaDSMC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xinxiangsama/CabanaDSMC /home/xinxiangsama/CabanaDSMC /home/xinxiangsama/CabanaDSMC/build /home/xinxiangsama/CabanaDSMC/build /home/xinxiangsama/CabanaDSMC/build/CMakeFiles/NightlyStart.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/xinxiangsama/dsmc/CabanaDSMC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xinxiangsama/dsmc/CabanaDSMC /home/xinxiangsama/dsmc/CabanaDSMC /home/xinxiangsama/dsmc/CabanaDSMC/build /home/xinxiangsama/dsmc/CabanaDSMC/build /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/NightlyStart.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/NightlyStart.dir/depend
 

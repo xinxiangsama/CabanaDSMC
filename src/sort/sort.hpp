@@ -55,7 +55,7 @@ void sort(
         grid_delta[d]  = local_grid->globalGrid().globalMesh().cellSize(d);
     }
     // set the particle position as the key to sort
-    auto linked_cell_list = Cabana::createLinkedCellList(
+    auto linked_cell_list = Cabana::createLinkedCellList<memory_space>(
         position, grid_delta, grid_min, grid_max);
     // based the sort res to permute particle (i don't known whether it is a expensive process---2025 9 27)
     Cabana::permute(linked_cell_list.binningData(), particle_list.aosoa());

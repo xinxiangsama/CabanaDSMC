@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/xinxiangsama/CabanaDSMC/cabanaDSMC_tests"
-  "/home/xinxiangsama/CabanaDSMC/cabanaDSMC_tests.pdb"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests.pdb"
   "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/intersect_test.cpp.o"
   "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/intersect_test.cpp.o.d"
   "CMakeFiles/cabanaDSMC_tests.dir/test/geometry/sat_test.cpp.o"

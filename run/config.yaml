@@ -6,7 +6,7 @@ global:
 
 # 网格配置
 grid:
-  cells: [40, 40, 40]
+  cells: [100, 100, 1]
   low_corner: [0.0, 0.0, 0.0]
   high_corner: [1.0, 1.0, 1.0]
   periodic: [false, false, false]

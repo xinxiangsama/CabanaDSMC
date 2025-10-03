@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xinxiangsama/CabanaDSMC
+CMAKE_SOURCE_DIR = /home/xinxiangsama/dsmc/CabanaDSMC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xinxiangsama/CabanaDSMC/build
+CMAKE_BINARY_DIR = /home/xinxiangsama/dsmc/CabanaDSMC/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cabanaDSMC.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/cabanaDSMC.dir/progress.make
 include CMakeFiles/cabanaDSMC.dir/flags.make
 
 CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o: CMakeFiles/cabanaDSMC.dir/flags.make
-CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o: /home/xinxiangsama/CabanaDSMC/src/input/input.cpp
+CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/src/input/input.cpp
 CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o: CMakeFiles/cabanaDSMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o -MF CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o.d -o CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o -c /home/xinxiangsama/CabanaDSMC/src/input/input.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o"
+	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o -MF CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o.d -o CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/src/input/input.cpp
 
 CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/CabanaDSMC/src/input/input.cpp > CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/src/input/input.cpp > CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.i
 
 CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/CabanaDSMC/src/input/input.cpp -o CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/src/input/input.cpp -o CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.s
 
 CMakeFiles/cabanaDSMC.dir/src/main.cpp.o: CMakeFiles/cabanaDSMC.dir/flags.make
-CMakeFiles/cabanaDSMC.dir/src/main.cpp.o: /home/xinxiangsama/CabanaDSMC/src/main.cpp
+CMakeFiles/cabanaDSMC.dir/src/main.cpp.o: /home/xinxiangsama/dsmc/CabanaDSMC/src/main.cpp
 CMakeFiles/cabanaDSMC.dir/src/main.cpp.o: CMakeFiles/cabanaDSMC.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cabanaDSMC.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC.dir/src/main.cpp.o -MF CMakeFiles/cabanaDSMC.dir/src/main.cpp.o.d -o CMakeFiles/cabanaDSMC.dir/src/main.cpp.o -c /home/xinxiangsama/CabanaDSMC/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cabanaDSMC.dir/src/main.cpp.o"
+	/home/xinxiangsama/local/kokkos/bin/kokkos_launch_compiler /home/xinxiangsama/local/kokkos/bin/nvcc_wrapper /usr/bin/c++ /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cabanaDSMC.dir/src/main.cpp.o -MF CMakeFiles/cabanaDSMC.dir/src/main.cpp.o.d -o CMakeFiles/cabanaDSMC.dir/src/main.cpp.o -c /home/xinxiangsama/dsmc/CabanaDSMC/src/main.cpp
 
 CMakeFiles/cabanaDSMC.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cabanaDSMC.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/CabanaDSMC/src/main.cpp > CMakeFiles/cabanaDSMC.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinxiangsama/dsmc/CabanaDSMC/src/main.cpp > CMakeFiles/cabanaDSMC.dir/src/main.cpp.i
 
 CMakeFiles/cabanaDSMC.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cabanaDSMC.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/CabanaDSMC/src/main.cpp -o CMakeFiles/cabanaDSMC.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinxiangsama/dsmc/CabanaDSMC/src/main.cpp -o CMakeFiles/cabanaDSMC.dir/src/main.cpp.s
 
 # Object files for target cabanaDSMC
 cabanaDSMC_OBJECTS = \
@@ -105,24 +105,26 @@ cabanaDSMC_OBJECTS = \
 # External object files for target cabanaDSMC
 cabanaDSMC_EXTERNAL_OBJECTS =
 
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/src/main.cpp.o
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/build.make
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /usr/lib/libCatch2.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/yaml_cpp/lib/libyaml-cpp.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkoscontainers.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkosalgorithms.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkossimd.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkoscore.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /usr/lib/x86_64-linux-gnu/libpthread.a
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/openmpi/lib/libmpi.so
-/home/xinxiangsama/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xinxiangsama/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/xinxiangsama/CabanaDSMC/cabanaDSMC"
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/src/main.cpp.o
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/build.make
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/lib/libCatch2.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/yaml_cpp/lib/libyaml-cpp.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkoscontainers.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkosalgorithms.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkossimd.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/kokkos/lib/libkokkoscore.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/local/cuda-12.9/targets/x86_64-linux/lib/stubs/libcuda.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/local/cuda-12.9/targets/x86_64-linux/lib/libcudart.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /usr/lib/x86_64-linux-gnu/libpthread.a
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: /home/xinxiangsama/local/openmpi/lib/libmpi.so
+/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC: CMakeFiles/cabanaDSMC.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cabanaDSMC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/cabanaDSMC.dir/build: /home/xinxiangsama/CabanaDSMC/cabanaDSMC
+CMakeFiles/cabanaDSMC.dir/build: /home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC
 .PHONY : CMakeFiles/cabanaDSMC.dir/build
 
 CMakeFiles/cabanaDSMC.dir/clean:
@@ -130,6 +132,6 @@ CMakeFiles/cabanaDSMC.dir/clean:
 .PHONY : CMakeFiles/cabanaDSMC.dir/clean
 
 CMakeFiles/cabanaDSMC.dir/depend:
-	cd /home/xinxiangsama/CabanaDSMC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xinxiangsama/CabanaDSMC /home/xinxiangsama/CabanaDSMC /home/xinxiangsama/CabanaDSMC/build /home/xinxiangsama/CabanaDSMC/build /home/xinxiangsama/CabanaDSMC/build/CMakeFiles/cabanaDSMC.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/xinxiangsama/dsmc/CabanaDSMC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xinxiangsama/dsmc/CabanaDSMC /home/xinxiangsama/dsmc/CabanaDSMC /home/xinxiangsama/dsmc/CabanaDSMC/build /home/xinxiangsama/dsmc/CabanaDSMC/build /home/xinxiangsama/dsmc/CabanaDSMC/build/CMakeFiles/cabanaDSMC.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/cabanaDSMC.dir/depend
 

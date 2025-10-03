@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/xinxiangsama/CabanaDSMC/cabanaDSMC_tests"
+			"path" : "/home/xinxiangsama/dsmc/CabanaDSMC/cabanaDSMC_tests"
 		}
 	],
 	"backtrace" : 1,
@@ -76,7 +76,7 @@
 			{
 				"command" : 5,
 				"file" : 2,
-				"line" : 42,
+				"line" : 43,
 				"parent" : 6
 			},
 			{
@@ -86,36 +86,42 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 97,
+				"line" : 112,
 				"parent" : 8
-			},
-			{
-				"command" : 8,
-				"file" : 2,
-				"line" : 39,
-				"parent" : 6
-			},
-			{
-				"command" : 6,
-				"file" : 4,
-				"line" : 76,
-				"parent" : 10
-			},
-			{
-				"file" : 3,
-				"parent" : 11
-			},
-			{
-				"command" : 7,
-				"file" : 3,
-				"line" : 619,
-				"parent" : 12
 			},
 			{
 				"command" : 4,
 				"file" : 1,
 				"line" : 61,
 				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 68,
+				"parent" : 8
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 40,
+				"parent" : 6
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 76,
+				"parent" : 12
+			},
+			{
+				"file" : 3,
+				"parent" : 13
+			},
+			{
+				"command" : 7,
+				"file" : 3,
+				"line" : 619,
+				"parent" : 14
 			},
 			{
 				"command" : 6,
@@ -125,35 +131,35 @@
 			},
 			{
 				"file" : 6,
-				"parent" : 15
+				"parent" : 16
 			},
 			{
 				"command" : 10,
 				"file" : 6,
 				"line" : 18,
-				"parent" : 16
+				"parent" : 17
 			},
 			{
 				"command" : 6,
 				"file" : 4,
 				"line" : 76,
-				"parent" : 17
+				"parent" : 18
 			},
 			{
 				"file" : 5,
-				"parent" : 18
+				"parent" : 19
 			},
 			{
 				"command" : 9,
 				"file" : 5,
 				"line" : 1642,
-				"parent" : 19
+				"parent" : 20
 			},
 			{
 				"command" : 7,
 				"file" : 5,
 				"line" : 1230,
-				"parent" : 20
+				"parent" : 21
 			},
 			{
 				"command" : 11,
@@ -175,11 +181,23 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -g -Wall -std=c++20"
+					"fragment" : " -O3 -Wall --expt-relaxed-constexpr -O3 -DNDEBUG -std=c++20"
 				},
 				{
-					"backtrace" : 22,
+					"backtrace" : 23,
 					"fragment" : "-fopenmp"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-extended-lambda"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wext-lambda-captures-this"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-arch=sm_89"
 				},
 				{
 					"backtrace" : 3,
@@ -196,21 +214,26 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 23,
-					"path" : "/home/xinxiangsama/CabanaDSMC/src"
+					"backtrace" : 24,
+					"path" : "/home/xinxiangsama/dsmc/CabanaDSMC/src"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 24,
 					"path" : "/home/xinxiangsama/local/ParMETIS/include"
 				},
 				{
-					"backtrace" : 23,
+					"backtrace" : 24,
 					"path" : "/home/xinxiangsama/local/METIS/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
 					"path" : "/home/xinxiangsama/local/kokkos/include"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/local/cuda-12.9/targets/x86_64-linux/include"
 				},
 				{
 					"backtrace" : 3,
@@ -269,7 +292,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g -Wall",
+				"fragment" : "-O3 -Wall --expt-relaxed-constexpr -O3 -DNDEBUG",
 				"role" : "flags"
 			},
 			{
@@ -293,6 +316,11 @@
 			},
 			{
 				"backtrace" : 3,
+				"fragment" : "-arch=sm_89",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
 				"fragment" : "-Wl,-rpath",
 				"role" : "flags"
 			},
@@ -312,7 +340,7 @@
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/xinxiangsama/local/vtk/lib:/home/xinxiangsama/local/openmpi/lib",
+				"fragment" : "-Wl,-rpath,/home/xinxiangsama/local/vtk/lib:/usr/local/cuda-12.9/targets/x86_64-linux/lib:/home/xinxiangsama/local/openmpi/lib",
 				"role" : "libraries"
 			},
 			{
@@ -341,22 +369,32 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 13,
-				"fragment" : "/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so",
+				"backtrace" : 10,
+				"fragment" : "/usr/local/cuda-12.9/targets/x86_64-linux/lib/stubs/libcuda.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 13,
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libpthread.a",
+				"backtrace" : 10,
+				"fragment" : "/usr/local/cuda-12.9/targets/x86_64-linux/lib/libcudart.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 14,
+				"backtrace" : 11,
 				"fragment" : "-ldl",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 21,
+				"backtrace" : 15,
+				"fragment" : "/usr/lib/gcc/x86_64-linux-gnu/13/libgomp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 15,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libpthread.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
 				"fragment" : "/home/xinxiangsama/local/openmpi/lib/libmpi.so",
 				"role" : "libraries"
 			}

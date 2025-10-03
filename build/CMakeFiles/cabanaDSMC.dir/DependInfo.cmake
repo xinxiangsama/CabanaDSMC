@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/xinxiangsama/CabanaDSMC/src/input/input.cpp" "CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o" "gcc" "CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o.d"
-  "/home/xinxiangsama/CabanaDSMC/src/main.cpp" "CMakeFiles/cabanaDSMC.dir/src/main.cpp.o" "gcc" "CMakeFiles/cabanaDSMC.dir/src/main.cpp.o.d"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/src/input/input.cpp" "CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o" "gcc" "CMakeFiles/cabanaDSMC.dir/src/input/input.cpp.o.d"
+  "/home/xinxiangsama/dsmc/CabanaDSMC/src/main.cpp" "CMakeFiles/cabanaDSMC.dir/src/main.cpp.o" "gcc" "CMakeFiles/cabanaDSMC.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

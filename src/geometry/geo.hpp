@@ -1,6 +1,6 @@
 #pragma once
 #include <Cabana_Core.hpp>
-
+#include <Kokkos_Core.hpp>
 namespace CabanaDSMC{
 namespace Geometry {
 
@@ -11,12 +11,28 @@ template<class Scalar, size_t Dim>
 struct Point {
     using scalar_type = Scalar;
     static constexpr size_t dim = Dim;
-    std::array<scalar_type, Dim> coords;
+    scalar_type coords [dim];
+
+    KOKKOS_INLINE_FUNCTION
+    Point()
+    {
+        // Explicitly initialize all coordinates to zero.
+        for (size_t i = 0; i < Dim; ++i) {
+            coords[i] = 0.0;
+        }
+    }
+
+    template<class... Args>
+    KOKKOS_INLINE_FUNCTION
+    Point(Args... args) requires (sizeof...(Args) == Dim)
+        : coords{ static_cast<scalar_type>(args)... } {}
 
     KOKKOS_INLINE_FUNCTION
     scalar_type& x() requires (Dim >= 1) {
         return coords[0];
     }
+
+    KOKKOS_INLINE_FUNCTION
     const scalar_type& x() const requires (Dim >= 1) {
         return coords[0];
     }
@@ -82,12 +98,20 @@ struct Triangle {
     static constexpr size_t dim = Dim;
     using point_type = Point<Scalar, dim>;
     KOKKOS_INLINE_FUNCTION
-    auto vertices() const {
-        return points;
+    const point_type* vertices() const {
+        return _vertices;
+    }
+    KOKKOS_INLINE_FUNCTION
+    point_type* vertices() {
+        return _vertices;
+    }
+    KOKKOS_INLINE_FUNCTION
+    auto size() const {
+        return dim;
     }
 
-    std::array<point_type, dim> points;
-    point_type normal;
+    point_type _vertices [dim];
+    point_type _normal;
 };
 
 //--------------------------
@@ -100,13 +124,21 @@ struct Segment {
     static constexpr size_t dim = Dim;
     using point_type = Point<Scalar, Dim>;
 
-    std::array<point_type, 2> points;
+    point_type _vertices [2]; 
 
     KOKKOS_INLINE_FUNCTION
-    auto vertices() const {
-        return points;
+    const point_type* vertices() const {
+        return _vertices;
+    }
+    KOKKOS_INLINE_FUNCTION
+    point_type* vertices() {
+        return _vertices;
     }
 
+    KOKKOS_INLINE_FUNCTION
+    auto size() const {
+        return 2;
+    }
 };
 
 //--------------------------
@@ -120,10 +152,15 @@ struct Square {
     using point_type = Point<Scalar, Dim>;
     using segment_type = Segment<Scalar, Dim>;
 
-    std::array<point_type, 4> _vertices;
+    point_type _vertices [4];
 
     KOKKOS_INLINE_FUNCTION
-    auto vertices() const {
+    const point_type* vertices() const {
+        return _vertices;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    point_type* vertices() {
         return _vertices;
     }
 
@@ -131,8 +168,8 @@ struct Square {
     segment_type edge(int idx) const
     {
         segment_type s;
-        s.points[0] = _vertices[idx];
-        s.points[1] = _vertices[(idx + 1) % 4];
+        s.vertices[0] = _vertices[idx];
+        s.vertices[1] = _vertices[(idx + 1) % 4];
         return s;
     }
 
@@ -148,6 +185,11 @@ struct Square {
         return c;
     }
 
+    KOKKOS_INLINE_FUNCTION
+    auto size() const {
+        return 4;
+    }
+
 };
 //--------------------------
 // Cube (3D only)
@@ -160,11 +202,12 @@ struct Cube {
     using square_type = Square<Scalar, dim>;
 
 
-    std::array<point_type, 8> _vertices;
+    point_type _vertices [8];
     point_type _center;
+    scalar_type _side_length;
 
     KOKKOS_INLINE_FUNCTION
-    Cube(const point_type& center, scalar_type side_length) : _center(center)
+    Cube(const point_type& center, scalar_type side_length) : _center(center), _side_length(side_length)
     {
         const scalar_type half_side = side_length / 2.0;
         // build order: first bottom then top
@@ -181,13 +224,29 @@ struct Cube {
     }
 
     KOKKOS_INLINE_FUNCTION
-    auto vertices() const {
+    const point_type* vertices() const {
+        return _vertices;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    point_type* vertices() {
         return _vertices;
     }
 
     KOKKOS_INLINE_FUNCTION
     auto center() const {
         return _center;
+    }
+
+
+    KOKKOS_INLINE_FUNCTION
+    auto size() const {
+        return 8;
+    }
+
+    KOKKOS_INLINE_FUNCTION
+    auto sideLength() const {
+        return _side_length;
     }
 };
 //--------------------------
@@ -236,7 +295,8 @@ e.vertices();
         bbox.max_corner.coords[d] = std::numeric_limits<Scalar>::lowest();
     }
     const auto& vertices = entity.vertices();
-    for (int i = 0; i < vertices.size(); ++i)
+    const auto& size = entity.size();
+    for (size_t i = 0; i < size; ++i)
     {
         const auto& vertex = vertices[i];
 
@@ -272,16 +332,17 @@ bool checkBoundingBoxIntersection(const BoundingBox<Scalar, Dim>& bbox_a,
 //----------------------------------------------
 // project one set of point to a axis
 //----------------------------------------------
-template<class Scalar, size_t Dim, size_t N>
+template<class Scalar, size_t Dim, class EntityType>
 KOKKOS_INLINE_FUNCTION
-Interval<Scalar> getInterval(const std::array<Point<Scalar, Dim>, N>& vertices,
+Interval<Scalar> getInterval(const EntityType& entity,
                            const Point<Scalar, Dim>& axis)
 {
     Interval<Scalar> interval;
     interval.min = std::numeric_limits<Scalar>::max();
     interval.max = std::numeric_limits<Scalar>::lowest();
 
-    for (size_t i = 0; i < N; ++i)
+    const auto& vertices = entity.vertices();
+    for (size_t i = 0; i < entity.size(); ++i)
     {
         const Scalar proj = dot(vertices[i], axis);
         interval.min = Kokkos::min(interval.min, proj);
@@ -299,16 +360,16 @@ Interval<Scalar> getInterval(const Cube<Scalar>& cube,
                            const Point<Scalar, 3>& axis)
 {
     const auto center = cube.center();
-    const auto vertices = cube.vertices();
-    const Scalar radius_x = (vertices[1].x() - vertices[0].x()) * 0.5;
-    const Scalar radius_y = (vertices[3].y() - vertices[0].y()) * 0.5;
-    const Scalar radius_z = (vertices[4].z() - vertices[0].z()) * 0.5;
-
+    // 直接使用存储的边长来计算半边长
+    const Scalar half_side = cube.sideLength() * 0.5;
+    
+    // 投影中心点
     const Scalar c = dot(center, axis);
-
-    const Scalar r = radius_x * Kokkos::abs(axis.x()) +
-                     radius_y * Kokkos::abs(axis.y()) +
-                     radius_z * Kokkos::abs(axis.z());
+    
+    // 投影半径是三个半边长在轴上投影的绝对值之和
+    const Scalar r = half_side * (Kokkos::abs(axis.x()) +
+                                  Kokkos::abs(axis.y()) +
+                                  Kokkos::abs(axis.z()));
 
     return {c - r, c + r};
 }
@@ -322,10 +383,10 @@ std::optional<Point<Scalar, Dim>> segmentIntersectWithTriangle(
     const Triangle<Scalar, Dim>& triangle) requires(Dim == 2)
 {
     using scalar_type = Scalar;
-    const auto& p1 = segment.points[0];
-    const auto& p2 = segment.points[1];
-    const auto& p3 = triangle.points[0];
-    const auto& p4 = triangle.points[1];
+    const auto& p1 = segment.vertices()[0];
+    const auto& p2 = segment.vertices()[1];
+    const auto& p3 = triangle.vertices()[0];
+    const auto& p4 = triangle.vertices()[1];
 
     const scalar_type v1x = p2.x() - p1.x();
     const scalar_type v1y = p2.y() - p1.y();
@@ -375,13 +436,13 @@ std::optional<Point<Scalar, Dim>> segmentIntersectWithTriangle(
     using point_type = Point<Scalar, Dim>;
     constexpr auto epsilon = std::numeric_limits<Scalar>::epsilon();
 
-    const point_type& p0 = segment.points[0];
-    const point_type& p1 = segment.points[1];
+    const point_type& p0 = segment.vertices()[0];
+    const point_type& p1 = segment.vertices()[1];
     const point_type dir = p1 - p0;
 
-    const point_type& v0 = triangle.points[0];
-    const point_type& v1 = triangle.points[1];
-    const point_type& v2 = triangle.points[2];
+    const point_type& v0 = triangle.vertices()[0];
+    const point_type& v1 = triangle.vertices()[1];
+    const point_type& v2 = triangle.vertices()[2];
 
     const point_type edge1 = v1 - v0;
     const point_type edge2 = v2 - v0;
